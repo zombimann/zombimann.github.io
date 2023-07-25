@@ -10,13 +10,21 @@
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet"
   />
-	<link rel="shortcut icon" href="./images/zombimann.jpg" type="image/x-icon">
-     <script>
+  <link rel="shortcut icon" href="./images/zombimann.jpg" type="image/x-icon">
+  <script>
     function downloadCV() {
       const link = document.createElement('a');
       link.href = 'my cv.pdf';
       link.download = 'my cv.pdf';
       link.click();
+    }
+    
+    function revealContact() {
+      const hireMeButton = document.querySelector('.link-button');
+      const contactInfo = document.querySelector('.contact-info');
+      
+      hireMeButton.style.display = 'none';
+      contactInfo.style.display = 'block';
     }
   </script>
 </head>
@@ -30,7 +38,11 @@
       <h3 class="short-about-me">
         Professional Developer and DevOps
       </h3>
-      <a class="link-button" target="_blank" href="mailto:mugambindwiga@gmail.com">Hire Me</a>
+      <a class="link-button" href="#" onclick="revealContact()">Hire Me</a>
+      <div class="contact-info" style="display:none;">
+        <p>Email: mugambindwiga@gmail.com</p>
+        <p>Phone: +254714103665</p>
+      </div>
     </div>
     <div class="half-width">
       <img class="myphoto-s" src="./images/zombimann.jpg" alt="Joseph Mugambi Ndwiga" />
@@ -40,15 +52,15 @@
     <div class="half-width">
       <img class="myphoto-s" src="./images/zombimann2.jpg" alt="Joseph Mugambi Ndwiga" />
     </div>
-	<!-- ... -->
-	<div class="half-width about-s2">
-	  <h2 class="about-text-color">ABOUT</h2>
-	  <h3 class="long-about-me">
-		<!-- ... -->
-	  </h3>
-	  <a class="link-button" target="_blank" href="#" onclick="downloadCV()">Download CV</a>
-	</div>
-	<!-- ... -->
+    <!-- ... -->
+    <div class="half-width about-s2">
+      <h2 class="about-text-color">ABOUT</h2>
+      <h3 class="long-about-me">
+        <!-- ... -->
+      </h3>
+      <a class="link-button" target="_blank" href="#" onclick="downloadCV()">Download CV</a>
+    </div>
+    <!-- ... -->
   </section>
   <section class="banner-s3 big-section-2">
     <div>
@@ -58,10 +70,10 @@
     </div>
     <div class="latest-project-div-style latest-project-div-style-margin">
       <img 
-	  class="latest-project-photo" 
-	  src="./images/image 4.png" 
-	  alt="Distributed Legislation System" 
-	  />
+      class="latest-project-photo" 
+      src="./images/image 4.png" 
+      alt="Distributed Legislation System" 
+      />
       <h3 class="latest-project-text">The Revolutionary Distributed Legislation System!</h3>
       <p>
         Are you ready to transform the way rules and regulations are created and governed? Welcome to our cutting-edge Distributed Legislation System – an innovative platform designed to empower communities and clubs of 10-50 members in crafting and enacting rules with utmost transparency, security, and trust!
