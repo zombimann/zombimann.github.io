@@ -1,12 +1,11 @@
 # Professional Portfolio Website
-https://zombimann.github.io
 
 A clean, responsive portfolio website for Joseph Mugambi Ndwiga, showcasing software engineering, DevOps, and AI/ML expertise.
 
-![Portfolio Preview](https://via.placeholder.com/800x450/4a6fa5/ffffff?text=Joseph+Mugambi+Portfolio)
 
 ## 🌐 Live Demo
 **Website:** [https://zombimann.github.io](https://zombimann.github.io)
+**Website:** [Zoom Bee Apps](zombimann.pythonanywhere.com)
 
 ## 📋 Features
 
