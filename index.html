@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- jsPDF library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -29,6 +32,16 @@
                     <i class="fab fa-github"></i> 
                     <a href="https://github.com/zombimann/zombimann" target="_blank">github.com/zombimann</a>
                 </p>
+                
+                <!-- PDF Download Button -->
+                <button id="downloadPdfBtn" class="pdf-download-btn">
+                    <i class="fas fa-file-pdf"></i> Download PDF CV
+                </button>
+                
+                <!-- Loading Indicator (hidden by default) -->
+                <div id="pdfLoading" class="pdf-loading" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i> Generating PDF...
+                </div>
             </div>
         </header>
 
@@ -193,6 +206,8 @@
                 <i class="fab fa-github"></i> 
                 View this page on GitHub: 
                 <a href="https://github.com/zombimann/zombimann.github.io" target="_blank">zombimann.github.io</a>
+                | 
+                <a href="#" id="footerPdfBtn"><i class="fas fa-download"></i> Download PDF CV</a>
             </p>
         </footer>
     </div>
@@ -200,6 +215,83 @@
     <script>
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // PDF Generation Function
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', 'a4');
+            
+            // Show loading indicator
+            const loadingDiv = document.getElementById('pdfLoading');
+            const pdfBtn = document.getElementById('downloadPdfBtn');
+            loadingDiv.style.display = 'block';
+            pdfBtn.disabled = true;
+            pdfBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            
+            // Capture the container element
+            const element = document.querySelector('.container');
+            
+            // Set PDF generation options
+            const pdfOptions = {
+                margin: 10,
+                filename: 'Joseph_Mugambi_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    backgroundColor: '#ffffff'
+                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Use html2canvas to capture the element
+            html2canvas(element, pdfOptions.html2canvas).then(canvas => {
+                const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                const imgWidth = pdfOptions.jsPDF.format === 'a4' ? 210 : 297;
+                const pageHeight = pdfOptions.jsPDF.format === 'a4' ? 297 : 210;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                
+                let heightLeft = imgHeight;
+                let position = 0;
+                
+                // Add first page
+                doc.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+                
+                // Add additional pages if content is too long
+                while (heightLeft > 0) {
+                    position = heightLeft - imgHeight;
+                    doc.addPage();
+                    doc.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+                
+                // Download the PDF
+                doc.save(pdfOptions.filename);
+                
+                // Hide loading indicator and reset button
+                loadingDiv.style.display = 'none';
+                pdfBtn.disabled = false;
+                pdfBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download PDF CV';
+                
+            }).catch(error => {
+                console.error('Error generating PDF:', error);
+                alert('Error generating PDF. Please try again.');
+                
+                // Reset button state on error
+                loadingDiv.style.display = 'none';
+                pdfBtn.disabled = false;
+                pdfBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download PDF CV';
+            });
+        }
+        
+        // Add click event to PDF download buttons
+        document.getElementById('downloadPdfBtn').addEventListener('click', generatePDF);
+        document.getElementById('footerPdfBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            generatePDF();
+        });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -215,6 +307,15 @@
                     });
                 }
             });
+        });
+        
+        // Add print functionality (alternative to PDF)
+        window.addEventListener('beforeprint', function() {
+            document.body.classList.add('printing');
+        });
+        
+        window.addEventListener('afterprint', function() {
+            document.body.classList.remove('printing');
         });
     </script>
 </body>
