@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joseph Mugambi Ndwigia - Software Engineer & DevOps</title>
+    <title> Mugambi Ndwiga - RnD</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- jsPDF library for PDF generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
         <header class="header">
             <div class="name-title">
-                <h1>Joseph Mugambi Ndwigia</h1>
-                <h2>Software Engineer & DevOps Practitioner</h2>
+                <h1> Mugambi Ndwiga</h1>
+                <h2>RnD</h2>
                 <p class="tagline">AI/ML • Cloud Infrastructure • Backend Systems</p>
             </div>
 
@@ -33,27 +31,53 @@
                     <a href="https://github.com/zombimann/zombimann" target="_blank">github.com/zombimann</a>
                 </p>
                 
-                <!-- PDF Download Button -->
                 <button id="downloadPdfBtn" class="pdf-download-btn">
                     <i class="fas fa-file-pdf"></i> Download PDF CV
                 </button>
                 
-                <!-- Loading Indicator (hidden by default) -->
                 <div id="pdfLoading" class="pdf-loading" style="display: none;">
                     <i class="fas fa-spinner fa-spin"></i> Generating PDF...
                 </div>
             </div>
         </header>
 
-        <!-- Summary Section -->
-        <section class="section">
-            <h3><i class="fas fa-user"></i> SUMMARY</h3>
-            <div class="content">
-                <p>Multi-skilled software engineer and DevOps practitioner with a strong foundation in AI and data science. Experienced in building scalable software, automating systems, and deploying ML models using cloud platforms (AWS, GCP). Adept at scripting, backend development, and data analysis. Fast learner, team player, and solution-oriented engineer passionate about impactful tech.</p>
+        <section class="section pitch-highlight" id="project-pitch">
+            <div class="pitch-toggle" id="pitchToggle">
+                <h3><i class="fas fa-rocket"></i> INVESTOR PITCH: THE ENGINEERING HUB</h3>
+                <span class="expand-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            
+            <div class="pitch-content" id="pitchContent" style="display: none;">
+                <p class="pitch-intro"><strong>A tinkering workshop based in the outskirts of Nairobi to bring a portfolio of projects to life and popularize RnD among the Afrikan youth.</strong></p>
+                
+                <div class="pitch-grid">
+                    <div class="pitch-card">
+                        <h4><i class="fas fa-microchip"></i> The Vision</h4>
+                        <p>We are building an "Innovation Engine" that bridges the gap between digital design and industrial reality. By integrating mechanical engineering with firmware and electronics, we capture high-value markets in automation and industrial repair.</p>
+                    </div>
+                    <div class="pitch-card">
+                        <h4><i class="fas fa-gears"></i> Market Focus</h4>
+                        <p>Our star focus is <strong>Business & Industrial Equipment</strong>—redesigning and repairing commercial machinery where precision is a premium. We also target Medical Tech (prosthetics) and High-End Niche Consumer products like drones and wearables.</p>
+                    </div>
+                    <div class="pitch-card">
+                        <h4><i class="fas fa-tools"></i> Self-Sustaining Growth</h4>
+                        <p>We leverage our facility to build our own tools. We manufacture our own CNC routers and injection molders, drastically lowering the cost of acquisition as we scale our RnD capabilities.</p>
+                    </div>
+                </div>
+
+                <div class="pitch-footer">
+                    <p><strong>Strategic Goal:</strong> Achieve 20% annual sales growth while maintaining a 50% machine utilization rate.</p>
+                </div>
             </div>
         </section>
 
-        <!-- Core Skills Section -->
+        <section class="section">
+            <h3><i class="fas fa-user"></i> SUMMARY</h3>
+            <div class="content">
+                <p>Multi-skilled RnD practitioner with a strong foundation in AI and data science. Experienced in building scalable software, automating systems, and deploying ML models using cloud platforms (AWS, GCP). Adept at scripting, backend development, and data analysis. Fast learner, team player, and solution-oriented engineer passionate about impactful tech.</p>
+            </div>
+        </section>
+
         <section class="section">
             <h3><i class="fas fa-code"></i> CORE SKILLS</h3>
             <div class="content skills-grid">
@@ -80,7 +104,6 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section class="section">
             <h3><i class="fas fa-briefcase"></i> EXPERIENCE</h3>
             <div class="content">
@@ -136,7 +159,6 @@
             </div>
         </section>
 
-        <!-- Education & Certifications -->
         <div class="two-column">
             <section class="section">
                 <h3><i class="fas fa-graduation-cap"></i> EDUCATION</h3>
@@ -165,7 +187,6 @@
             </section>
         </div>
 
-        <!-- Project Highlights -->
         <section class="section">
             <h3><i class="fas fa-project-diagram"></i> PROJECT HIGHLIGHTS</h3>
             <div class="content projects-grid">
@@ -184,7 +205,6 @@
             </div>
         </section>
 
-        <!-- Additional Skills -->
         <section class="section">
             <h3><i class="fas fa-plus-circle"></i> ADDITIONAL</h3>
             <div class="content">
@@ -199,9 +219,8 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="footer">
-            <p>© <span id="current-year"></span> Joseph Mugambi Ndwigia • Updated: February 2024</p>
+            <p>© <span id="current-year"></span> Mugambi Ndwiga • Updated: February 2024</p>
             <p class="github-link">
                 <i class="fab fa-github"></i> 
                 View this page on GitHub: 
@@ -213,110 +232,58 @@
     </div>
 
     <script>
-        // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Pitch Expand/Collapse Logic
+        const pitchToggle = document.getElementById('pitchToggle');
+        const pitchContent = document.getElementById('pitchContent');
+        const expandIcon = pitchToggle.querySelector('.expand-icon i');
+
+        pitchToggle.addEventListener('click', () => {
+            const isHidden = pitchContent.style.display === 'none';
+            pitchContent.style.display = isHidden ? 'block' : 'none';
+            expandIcon.className = isHidden ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+            pitchToggle.parentElement.classList.toggle('is-expanded');
+        });
 
         // PDF Generation Function
         function generatePDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF('p', 'mm', 'a4');
-            
-            // Show loading indicator
             const loadingDiv = document.getElementById('pdfLoading');
             const pdfBtn = document.getElementById('downloadPdfBtn');
+            
             loadingDiv.style.display = 'block';
             pdfBtn.disabled = true;
-            pdfBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
             
-            // Capture the container element
+            // Temporarily hide pitch if not relevant for basic CV, or keep if requested
             const element = document.querySelector('.container');
             
-            // Set PDF generation options
-            const pdfOptions = {
-                margin: 10,
-                filename: 'Joseph_Mugambi_CV.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                    scale: 2,
-                    useCORS: true,
-                    logging: false,
-                    backgroundColor: '#ffffff'
-                },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            
-            // Use html2canvas to capture the element
-            html2canvas(element, pdfOptions.html2canvas).then(canvas => {
+            html2canvas(element, { scale: 2, useCORS: true }).then(canvas => {
                 const imgData = canvas.toDataURL('image/jpeg', 1.0);
-                const imgWidth = pdfOptions.jsPDF.format === 'a4' ? 210 : 297;
-                const pageHeight = pdfOptions.jsPDF.format === 'a4' ? 297 : 210;
+                const imgWidth = 210;
+                const pageHeight = 297;
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                
                 let heightLeft = imgHeight;
                 let position = 0;
-                
-                // Add first page
+
                 doc.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
                 heightLeft -= pageHeight;
-                
-                // Add additional pages if content is too long
+
                 while (heightLeft > 0) {
                     position = heightLeft - imgHeight;
                     doc.addPage();
                     doc.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
                     heightLeft -= pageHeight;
                 }
-                
-                // Download the PDF
-                doc.save(pdfOptions.filename);
-                
-                // Hide loading indicator and reset button
+                doc.save('Joseph_Mugambi_CV.pdf');
                 loadingDiv.style.display = 'none';
                 pdfBtn.disabled = false;
-                pdfBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download PDF CV';
-                
-            }).catch(error => {
-                console.error('Error generating PDF:', error);
-                alert('Error generating PDF. Please try again.');
-                
-                // Reset button state on error
-                loadingDiv.style.display = 'none';
-                pdfBtn.disabled = false;
-                pdfBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download PDF CV';
             });
         }
         
-        // Add click event to PDF download buttons
         document.getElementById('downloadPdfBtn').addEventListener('click', generatePDF);
-        document.getElementById('footerPdfBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            generatePDF();
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 20,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Add print functionality (alternative to PDF)
-        window.addEventListener('beforeprint', function() {
-            document.body.classList.add('printing');
-        });
-        
-        window.addEventListener('afterprint', function() {
-            document.body.classList.remove('printing');
-        });
+        document.getElementById('footerPdfBtn').addEventListener('click', (e) => { e.preventDefault(); generatePDF(); });
     </script>
 </body>
 </html>
