@@ -129,7 +129,6 @@
             border: 1px solid var(--bg-parchment-dark);
         }
 
-        /* Fixed config to prevent configuration error 153 */
         .short-wrapper iframe {
             width: 100%;
             height: 100%;
@@ -205,7 +204,7 @@
                     <div class="short-card">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube-nocookie.com/embed/I8QVOojVgLY?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                src="https://www.youtube.com/embed/I8QVOojVgLY" 
                                 title="Lorenz & Thomas Cyclical Attractors" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
@@ -218,7 +217,7 @@
                     <div class="short-card">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube-nocookie.com/embed/LAbalXuTmms?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                src="https://www.youtube.com/embed/LAbalXuTmms" 
                                 title="Rössler System Path Tracing" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
@@ -231,7 +230,7 @@
                     <div class="short-card">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube-nocookie.com/embed/hkCChmCqzR4?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                src="https://www.youtube.com/embed/hkCChmCqzR4" 
                                 title="Magnus Effect Trajectory Simulation" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
@@ -244,7 +243,7 @@
                     <div class="short-card">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube-nocookie.com/embed/q2wG3hdlGjc?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                src="https://www.youtube.com/embed/q2wG3hdlGjc" 
                                 title="Bernoulli Vector Fields" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
@@ -257,6 +256,97 @@
                     <div class="short-card">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube-nocookie.com/embed/dEbEsmb8lU8?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                src="https://www.youtube.com/embed/dEbEsmb8lU8" 
                                 title="Exploding Dots Mechanism" 
-                                allow="accelerometer;
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Exploding Dots Mechanism</p>
+                    </div>
+
+                    <div class="short-card">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/NCdDSf4YjUo" 
+                                title="Geometric Fraction Equivalence" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Geometric Fraction Equivalence</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2>Key Repository Scripts</h2>
+                <p>Access and audit the complete generation scripts via GitHub:</p>
+                
+                <div class="experience-item">
+                    <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/3_attractors.ipynb" target="_blank" class="project-link">
+                        <h3>Cinematic Strange Attractors (3D) &rarr;</h3>
+                    </a>
+                    <p class="experience-meta">Lorenz, Rössler, and Thomas Cyclical Systems</p>
+                    <p>Features persistent particle trails using <code>Line3DCollection</code> for efficient CPU rendering, cinematic cross-fades, dynamic captions, and custom color mappings.</p>
+                </div>
+
+                <div class="experience-item">
+                    <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Bernoulli_Equations_Magnus_Effect.ipynb" target="_blank" class="project-link">
+                        <h3>Fluid Dynamics: Magnus Effect (2D CFD) &rarr;</h3>
+                    </a>
+                    <p class="experience-meta">Bernoulli Equations Visualization</p>
+                    <p>A high-fidelity 2D computational fluid dynamics simulation modeling the trajectories of spinning spheres falling through a fluid medium.</p>
+                </div>
+
+                <div class="experience-item">
+                    <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/_Kids_Elementary_Number_Places_Visualization.ipynb" target="_blank" class="project-link">
+                        <h3>Educational Tools for Elementary Math &rarr;</h3>
+                    </a>
+                    <p class="experience-meta">Visualizing Equivalence & Place Values</p>
+                    <p>Mathematical animations including the "Exploding Dots" place value demonstration and the "Geometric Pizza Model" for visualizing equivalent fractions.</p>
+                </div>
+            </section>
+
+            <section id="code">
+                <h2>Rendering Methodology</h2>
+                <p>Calculations and frames are generated mathematically using Matplotlib's animation modules before being compiled. Below is a structural excerpt demonstrating how ray paths for a bouncing particle are calculated within the circle boundary:</p>
+                
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+# System Parameters
+RADIUS = 10
+NUM_BOUNCES = 1000
+FPS = 30
+
+def generate_ray_path(n_points, radius):
+    points = [np.array([radius, 0.0])]
+    angle = np.pi / 4  # Initial trajectory angle
+    
+    for _ in range(n_points):
+        # Calculate intersection with circular boundary
+        # and update trajectory based on reflection logic
+        pass 
+        
+    return points
+</code></pre>
+            </section>
+
+            <section id="contact">
+                <h2>Repository & Support</h2>
+                <p>The source code for all visualizations is completely open-source. I am continually updating older code, optimizing for mobile aspect ratios (9:16), and planning a transition toward 3D modeling and FEA simulations.</p>
+                <p>Explore the code or sponsor the project directly on <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization" target="_blank">GitHub</a>.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Zombimann. Programmed with Python & Matplotlib.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
