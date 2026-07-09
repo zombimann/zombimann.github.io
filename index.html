@@ -2,22 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Mathematical Video Animations & Visualizations | Zombimann</title>
+    <title>Mugambi Ndwiga | Mathematical Video Animations & Visualizations</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Portfolio of programmatic mathematical animations, 3D attractors, and physics simulations."/>
+    <meta name="description" content="Professional portfolio of programmatic mathematical animations, chaotic 3D attractors, and fluid dynamics simulations by Mugambi Ndwiga."/>
     
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght=0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables - Aged Parchment & Fountain Pen Theme */
+        /* CSS Variables - Premium Aged Parchment & Fountain Pen Styling */
         :root {
-            --bg-parchment: #F4EED8;
-            --bg-parchment-dark: #E8E0C5;
-            --ink-black: #1A1A1C;
-            --ink-blue: #183152;
-            --ink-fade: #4A4A4C;
-            --accent-red: #8B2626;
+            --bg-parchment: #FDFBF4;
+            --bg-parchment-dark: #EFE9D3;
+            --bg-card: #FAF6E8;
+            --ink-black: #161618;
+            --ink-blue: #142842;
+            --ink-fade: #5A5A5E;
+            --accent-red: #8B1E1E;
+            --accent-red-muted: rgba(139, 30, 30, 0.08);
+            --shadow-sm: 2px 2px 0px var(--bg-parchment-dark);
+            --shadow-md: 5px 5px 0px var(--bg-parchment-dark);
+            --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -26,151 +33,445 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-parchment);
             color: var(--ink-black);
             font-family: 'Crimson Text', serif;
-            line-height: 1.6;
-            font-size: 18px;
-            background-image: radial-gradient(var(--bg-parchment-dark) 1px, transparent 1px);
-            background-size: 40px 40px;
+            line-height: 1.65;
+            font-size: 19px;
+            background-image: radial-gradient(var(--bg-parchment-dark) 1.2px, transparent 1.2px);
+            background-size: 32px 32px;
+            padding-bottom: 2rem;
         }
 
-        /* Typography */
-        h1, h2, h3 {
+        /* Typography & Headings */
+        h1, h2, h3, h4 {
             color: var(--ink-blue);
             font-weight: 600;
-            margin-bottom: 1rem;
+            line-height: 1.2;
         }
         
-        h1 { font-size: 3rem; letter-spacing: -0.5px; }
-        h2 { font-size: 2.2rem; border-bottom: 1px solid var(--ink-blue); padding-bottom: 0.5rem; margin-top: 3rem; }
-        h3 { font-size: 1.5rem; margin-top: 1.5rem; }
+        h1 { 
+            font-size: 3.5rem; 
+            letter-spacing: -1px; 
+            margin-bottom: 0.5rem;
+        }
         
-        p { margin-bottom: 1.2rem; color: var(--ink-black); }
+        h2 { 
+            font-size: 2.2rem; 
+            border-bottom: 2px solid var(--ink-blue); 
+            padding-bottom: 0.5rem; 
+            margin-top: 4rem; 
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
         
-        a { color: var(--ink-blue); text-decoration: none; border-bottom: 1px dotted var(--ink-blue); transition: color 0.3s ease; }
-        a:hover { color: var(--accent-red); border-bottom-color: var(--accent-red); }
+        h3 { 
+            font-size: 1.45rem; 
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        
+        p { 
+            margin-bottom: 1.2rem; 
+            color: var(--ink-black); 
+            text-align: justify;
+        }
+        
+        a { 
+            color: var(--ink-blue); 
+            text-decoration: none; 
+            border-bottom: 1px dotted var(--ink-blue); 
+            transition: var(--transition-smooth); 
+        }
+        
+        a:hover { 
+            color: var(--accent-red); 
+            border-bottom-color: var(--accent-red); 
+        }
 
-        .project-link {
-            text-decoration: none;
-            border-bottom: none;
-        }
-        .project-link:hover h3 {
-            color: var(--accent-red);
-        }
-
-        /* Layout */
+        /* Semantic Layout Components */
         .container {
-            max-width: 900px;
+            max-width: 1040px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         header {
-            padding: 4rem 0 2rem 0;
+            padding: 5rem 0 3rem 0;
             text-align: center;
+            border-bottom: 1px double var(--bg-parchment-dark);
         }
         
         .subtitle {
             font-style: italic;
             color: var(--ink-fade);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-align: center;
         }
 
-        nav {
+        .handle-badge {
+            display: inline-block;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            background: var(--bg-parchment-dark);
+            color: var(--ink-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        /* Navigation Bar */
+        .main-nav {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
+            gap: 2.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .main-nav a {
+            border: none;
+            color: var(--ink-fade);
+        }
+        
+        .main-nav a:hover {
+            color: var(--ink-blue);
         }
 
         section {
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
-        .experience-item {
-            margin-bottom: 2.5rem;
-        }
-        
-        .experience-meta {
-            font-size: 0.95rem;
-            color: var(--ink-fade);
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Video Showcase Layout for 9:16 Vertical Shorts */
-        .showcase-grid {
+        /* Modernized Social Matrix Panel */
+        .social-matrix-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
             margin: 2rem 0;
         }
 
-        .short-card {
-            background: rgba(26, 26, 28, 0.02);
+        .social-matrix-card {
+            background: var(--bg-card);
             border: 2px solid var(--ink-blue);
-            box-shadow: 4px 4px 0px var(--bg-parchment-dark);
             padding: 1rem;
-            border-radius: 2px;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: var(--shadow-sm);
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition-smooth);
+        }
+
+        .social-matrix-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-red);
+        }
+
+        .social-matrix-card a {
+            border: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            color: var(--ink-blue);
+        }
+
+        .social-matrix-card:hover a {
+            color: var(--accent-red);
+        }
+
+        .social-matrix-card span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--ink-fade);
+            font-weight: 400;
+            margin-top: 0.25rem;
+        }
+
+        /* High-Intent Broadcast CTA Banner */
+        .broadcast-banner {
+            background: var(--accent-red-muted);
+            border: 2px dashed var(--accent-red);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 3rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .broadcast-text h4 {
+            color: var(--accent-red);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .broadcast-text p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: var(--ink-black);
+        }
+
+        .broadcast-btn {
+            background: var(--accent-red);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.6rem 1.25rem;
+            border-radius: 3px;
+            border: none;
+            white-space: nowrap;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .broadcast-btn:hover {
+            background: var(--ink-blue);
+        }
+
+        /* Dynamic Showcase Control System (Filtering Tabs) */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 2px solid var(--ink-blue);
+            color: var(--ink-blue);
+            padding: 0.5rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 3px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0px var(--bg-parchment-dark);
+            background: var(--bg-parchment-dark);
+        }
+
+        .filter-btn.active {
+            background: var(--ink-blue);
+            color: var(--bg-parchment);
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Optimized Video Grid Layout */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin: 2rem 0;
+            transition: var(--transition-smooth);
+        }
+
+        /* 9:16 Responsive Card Architectures */
+        .short-card {
+            background: var(--bg-card);
+            border: 2px solid var(--ink-blue);
+            box-shadow: var(--shadow-md);
+            padding: 1.25rem;
+            border-radius: 4px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: var(--transition-smooth);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .short-card.hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .short-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 8px 8px 0px var(--bg-parchment-dark);
+            border-color: var(--accent-red);
         }
 
         .short-wrapper {
             width: 100%;
             aspect-ratio: 9 / 16;
             overflow: hidden;
-            background: #000;
-            border: 1px solid var(--bg-parchment-dark);
+            background: #050505;
+            border: 1px solid var(--ink-blue);
+            border-radius: 2px;
+            position: relative;
         }
 
+        /* Strict Referrer Header Enforcement to Bypass Error 153 */
         .short-wrapper iframe {
             width: 100%;
             height: 100%;
             border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .short-caption {
-            margin-top: 1rem;
-            font-size: 0.95rem;
+            margin-top: 1.25rem;
+            font-size: 1rem;
             text-align: center;
-            font-style: italic;
-            color: var(--ink-black);
+            font-weight: 600;
+            color: var(--ink-blue);
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition-smooth);
+        }
+        
+        .short-card:hover .short-caption {
+            color: var(--accent-red);
+        }
+        
+        .short-tag {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            background: var(--accent-red-muted);
+            color: var(--accent-red);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            font-weight: 500;
         }
 
-        /* Code Blocks */
-        pre {
-            background-color: rgba(26, 26, 28, 0.04);
+        /* Interactive Code & Repositories Styling */
+        .experience-item {
+            background: rgba(26, 26, 28, 0.015);
             border-left: 3px solid var(--ink-blue);
             padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 4px 4px 0;
+            transition: var(--transition-smooth);
+        }
+        
+        .experience-item:hover {
+            background: rgba(139, 30, 30, 0.02);
+            border-left-color: var(--accent-red);
+        }
+        
+        .experience-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ink-fade);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.7rem;
+            margin-top: 0.25rem;
+        }
+
+        .project-link {
+            text-decoration: none;
+            border-bottom: none;
+            display: inline-block;
+        }
+        
+        .project-link h3 {
+            color: var(--ink-blue);
+            transition: var(--transition-smooth);
+        }
+        
+        .project-link:hover h3 {
+            color: var(--accent-red);
+        }
+
+        /* Micro Terminal Styling for Code Snippets */
+        .code-window {
+            background: #1A1A1C;
+            border: 2px solid var(--ink-blue);
+            border-radius: 6px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .code-header {
+            background: #2D2D30;
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid #3F3F44;
+        }
+
+        .code-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot-r { background: #FF5F56; }
+        .dot-y { background: #FFBD2E; }
+        .dot-g { background: #27C93F; }
+        
+        .code-title {
+            color: #AAA;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        pre {
+            padding: 1.5rem;
             overflow-x: auto;
-            border-radius: 2px;
-            margin: 1.5rem 0;
+            margin: 0;
         }
         
         code {
             font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            color: var(--ink-blue);
+            font-size: 0.85rem;
+            color: #E6E6E6;
         }
 
         footer {
             text-align: center;
-            padding: 3rem 0;
-            margin-top: 4rem;
-            border-top: 1px solid var(--ink-fade);
-            font-size: 0.9rem;
+            padding: 4rem 0 2rem 0;
+            margin-top: 6rem;
+            border-top: 1px double var(--bg-parchment-dark);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
             color: var(--ink-fade);
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; gap: 1rem; }
+        /* Screen Breakpoints Matrix */
+        @media (max-width: 850px) {
+            h1 { font-size: 2.8rem; }
+            .main-nav { gap: 1.25rem; flex-wrap: wrap; }
+            .showcase-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+            .broadcast-banner { flex-direction: column; text-align: center; align-items: center; }
+        }
+        @media (max-width: 480px) {
+            body { font-size: 18px; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.7rem; }
+            .container { padding: 0 1rem; }
             .showcase-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -179,14 +480,15 @@
 
     <div class="container">
         <header>
-            <h1>Zombimann</h1>
+            <h1>Mugambi Ndwiga</h1>
             <p class="subtitle">Mathematical Video Animations &amp; Visualizations</p>
-            <nav>
+            <div class="handle-badge">@craftsandengineering</div>
+            <nav class="main-nav">
                 <a href="#about">About</a>
-                <a href="#showcases">Video Showcases</a>
-                <a href="#projects">Code Repository</a>
+                <a href="#showcases">Showcases</a>
+                <a href="#projects">Repositories</a>
+                <a href="#networks">Networks</a>
                 <a href="#code">Methodology</a>
-                <a href="#contact">Contact</a>
             </nav>
         </header>
 
@@ -198,155 +500,236 @@
 
             <section id="showcases">
                 <h2>Animation Showcases</h2>
-                <p>Selected algorithmic animations streaming directly from the <a href="https://www.youtube.com/@DesignsandSimulations" target="_blank">@DesignsandSimulations</a> channel:</p>
+                <p>Selected algorithmic animations streaming directly from the official channel <a href="https://www.youtube.com/embed/videoseries?list=YOUR_PLAYLIST_ID" target="_blank">@DesignsandSimulations</a>. Use the filtering matrix below to sort visualizations by subject parameter:</p>
 
-                <div class="showcase-grid">
-                    <div class="short-card">
+                <div class="filter-container">
+                    <button class="filter-btn active" onclick="filterCategory('all')">All Visualizations</button>
+                    <button class="filter-btn" onclick="filterCategory('attractors')">Chaotic Attractors</button>
+                    <button class="filter-btn" onclick="filterCategory('fluids')">Fluid Dynamics</button>
+                    <button class="filter-btn" onclick="filterCategory('math')">Elementary Mathematics</button>
+                </div>
+
+                <div class="showcase-grid" id="portfolio-grid">
+                    
+                    <div class="short-card" data-category="attractors">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube.com/embed/I8QVOojVgLY" 
+                                src="https://www.youtube.com/embed/I8QVOojVgLY?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
                                 title="Lorenz & Thomas Cyclical Attractors" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <p class="short-caption">Lorenz & Thomas Cyclical Attractors</p>
+                        <p class="short-caption">Lorenz &amp; Thomas Attractors</p>
+                        <span class="short-tag">3D Chaos Simulation</span>
                     </div>
 
-                    <div class="short-card">
+                    <div class="short-card" data-category="attractors">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube.com/embed/LAbalXuTmms" 
+                                src="https://www.youtube.com/embed/LAbalXuTmms?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
                                 title="Rössler System Path Tracing" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <p class="short-caption">Rössler System Path Tracing</p>
+                        <p class="short-caption">Rössler Path Tracing</p>
+                        <span class="short-tag">Differential Topology</span>
                     </div>
 
-                    <div class="short-card">
+                    <div class="short-card" data-category="fluids">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube.com/embed/hkCChmCqzR4" 
+                                src="https://www.youtube.com/embed/hkCChmCqzR4?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
                                 title="Magnus Effect Trajectory Simulation" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <p class="short-caption">Magnus Effect Trajectory Simulation</p>
+                        <p class="short-caption">Magnus Effect Trajectories</p>
+                        <span class="short-tag">2D Ballistics CFD</span>
                     </div>
 
-                    <div class="short-card">
+                    <div class="short-card" data-category="fluids">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube.com/embed/q2wG3hdlGjc" 
+                                src="https://www.youtube.com/embed/q2wG3hdlGjc?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
                                 title="Bernoulli Vector Fields" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
                                 allowfullscreen>
                             </iframe>
                         </div>
                         <p class="short-caption">Bernoulli Vector Fields</p>
+                        <span class="short-tag">Fluid Kinematics</span>
                     </div>
 
-                    <div class="short-card">
+                    <div class="short-card" data-category="math">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube.com/embed/dEbEsmb8lU8" 
+                                src="https://www.youtube.com/embed/dEbEsmb8lU8?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
                                 title="Exploding Dots Mechanism" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <p class="short-caption">Exploding Dots Mechanism</p>
+                        <p class="short-caption">Exploding Dots Base Engine</p>
+                        <span class="short-tag">Algebraic Structures</span>
                     </div>
 
-                    <div class="short-card">
+                    <div class="short-card" data-category="math">
                         <div class="short-wrapper">
                             <iframe 
-                                src="https://www.youtube.com/embed/NCdDSf4YjUo" 
+                                src="https://www.youtube.com/embed/NCdDSf4YjUo?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
                                 title="Geometric Fraction Equivalence" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <p class="short-caption">Geometric Fraction Equivalence</p>
+                        <p class="short-caption">Geometric Fractions</p>
+                        <span class="short-tag">Spatial Mathematics</span>
                     </div>
+
                 </div>
             </section>
 
             <section id="projects">
                 <h2>Key Repository Scripts</h2>
-                <p>Access and audit the complete generation scripts via GitHub:</p>
+                <p>The code architecture used to compute and render these animations is fully documented and open-source on GitHub:</p>
                 
                 <div class="experience-item">
                     <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/3_attractors.ipynb" target="_blank" class="project-link">
                         <h3>Cinematic Strange Attractors (3D) &rarr;</h3>
                     </a>
                     <p class="experience-meta">Lorenz, Rössler, and Thomas Cyclical Systems</p>
-                    <p>Features persistent particle trails using <code>Line3DCollection</code> for efficient CPU rendering, cinematic cross-fades, dynamic captions, and custom color mappings.</p>
+                    <p>Calculates state tracking paths via system differential steps. Implements custom particle trail rendering using <code>Line3DCollection</code> structures for efficient frame generation without high CPU overhead loops.</p>
                 </div>
 
                 <div class="experience-item">
                     <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Bernoulli_Equations_Magnus_Effect.ipynb" target="_blank" class="project-link">
                         <h3>Fluid Dynamics: Magnus Effect (2D CFD) &rarr;</h3>
                     </a>
-                    <p class="experience-meta">Bernoulli Equations Visualization</p>
-                    <p>A high-fidelity 2D computational fluid dynamics simulation modeling the trajectories of spinning spheres falling through a fluid medium.</p>
+                    <p class="experience-meta">Bernoulli Equations Analysis &amp; Visualization</p>
+                    <p>Integrates fluid medium parameters with lift coefficients to track vectors for a spinning solid sphere falling under gravitation. Outputs dynamically scaled pressure mapping plots.</p>
                 </div>
 
                 <div class="experience-item">
                     <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/_Kids_Elementary_Number_Places_Visualization.ipynb" target="_blank" class="project-link">
                         <h3>Educational Tools for Elementary Math &rarr;</h3>
                     </a>
-                    <p class="experience-meta">Visualizing Equivalence & Place Values</p>
-                    <p>Mathematical animations including the "Exploding Dots" place value demonstration and the "Geometric Pizza Model" for visualizing equivalent fractions.</p>
+                    <p class="experience-meta">Visualizing Equivalence &amp; Place Values</p>
+                    <p>Generates transition layouts explaining binary transformation mechanics ("Exploding Dots") alongside geometric object sub-division engines designed to introduce foundational mathematical concepts cleanly.</p>
+                </div>
+            </section>
+
+            <section id="networks">
+                <h2>Content &amp; Community Networks</h2>
+                <p>Track mathematical assets across cross-platform social matrix channels or inspect the project architecture source directories:</p>
+
+                <div class="broadcast-banner">
+                    <div class="broadcast-text">
+                        <h4>Join the Simulation Broadcast</h4>
+                        <p>Get immediate notifications and quick breakdown snippets the second a new computation pipeline finishes rendering.</p>
+                    </div>
+                    <a href="https://whatsapp.com/channel/0029VbCkWhxCRs1mu1nf8W0f" target="_blank" class="project-link">
+                        <button class="broadcast-btn">Subscribe to Channel</button>
+                    </a>
+                </div>
+
+                <div class="social-matrix-grid">
+                    <div class="social-matrix-card">
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization" target="_blank">GitHub</a>
+                        <span>Code Repositories</span>
+                    </div>
+                    <div class="social-matrix-card">
+                        <a href="https://www.youtube.com/@DesignsandSimulations/shorts" target="_blank">YouTube Shorts</a>
+                        <span>Video Feed</span>
+                    </div>
+                    <div class="social-matrix-card">
+                        <a href="https://instagram.com/craftsandengineering" target="_blank">Instagram</a>
+                        <span>@craftsandengineering</span>
+                    </div>
+                    <div class="social-matrix-card">
+                        <a href="https://tiktok.com/@zoomzoombee" target="_blank">TikTok</a>
+                        <span>@zoomzoombee</span>
+                    </div>
                 </div>
             </section>
 
             <section id="code">
                 <h2>Rendering Methodology</h2>
-                <p>Calculations and frames are generated mathematically using Matplotlib's animation modules before being compiled. Below is a structural excerpt demonstrating how ray paths for a bouncing particle are calculated within the circle boundary:</p>
+                <p>Mathematical coordinates are mapped frame-by-frame using internal loop arrays inside Matplotlib before pipeline compilation. Below is the clean code structure executing ray tracing bounces along a circle path restriction boundary:</p>
                 
+                <div class="code-window">
+                    <div class="code-header">
+                        <span class="code-dot dot-r"></span>
+                        <span class="code-dot dot-y"></span>
+                        <span class="code-dot dot-g"></span>
+                        <span class="code-title">ray_trace_boundary.py</span>
+                    </div>
 <pre><code>import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-# System Parameters
+# Structural Configuration Boundary Setup
 RADIUS = 10
 NUM_BOUNCES = 1000
 FPS = 30
 
 def generate_ray_path(n_points, radius):
+    """Computes geometric reflection positions on circular constraints."""
     points = [np.array([radius, 0.0])]
-    angle = np.pi / 4  # Initial trajectory angle
+    angle = np.pi / 4  # Initial localized vector angle
     
     for _ in range(n_points):
-        # Calculate intersection with circular boundary
-        # and update trajectory based on reflection logic
+        # Solves boundary intersection calculations 
+        # and appends trajectory updates using specular logic
         pass 
         
     return points
 </code></pre>
-            </section>
-
-            <section id="contact">
-                <h2>Repository & Support</h2>
-                <p>The source code for all visualizations is completely open-source. I am continually updating older code, optimizing for mobile aspect ratios (9:16), and planning a transition toward 3D modeling and FEA simulations.</p>
-                <p>Explore the code or sponsor the project directly on <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization" target="_blank">GitHub</a>.</p>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 Zombimann. Programmed with Python & Matplotlib.</p>
+            <p>&copy; 2026 Mugambi Ndwiga. Engineered with Python, Matplotlib &amp; Semantic HTML5 Architecture.</p>
         </footer>
     </div>
 
+    <script>
+        function filterCategory(category) {
+            // Update Active Tab Class Setup
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Highlight Clicked Selector Element
+            const activeEventBtn = event.currentTarget;
+            if(activeEventBtn) {
+                activeEventBtn.classList.add('active');
+            }
+
+            // Execute Layout Visibility Mask Switching
+            const cards = document.querySelectorAll('.short-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
