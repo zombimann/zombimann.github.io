@@ -18,33 +18,33 @@
            ========================================== */
         :root {
             /* Visualization Mode (Default: Light Parchment & Deep Navy) */
-            --bg-primary: #FDFBF4;
-            --bg-secondary: #FAF6E8;
-            --card-bg: #FCFAF2;
-            --border-primary: #142842;
-            --text-main: #161618;
-            --text-muted: #5A5A5E;
-            --accent-color: #8B1E1E;
-            --accent-soft: rgba(139, 30, 30, 0.06);
+            --bg-primary: #FAF8F2;
+            --bg-secondary: #F3EFE3;
+            --card-bg: #FFFFFF;
+            --border-primary: #1C2D42;
+            --text-main: #1D1E22;
+            --text-muted: #5E636E;
+            --accent-color: #A32626; /* Deep Elegant Crimson */
+            --accent-soft: rgba(163, 38, 38, 0.05);
             --header-font: 'Crimson Text', serif;
             --body-font: 'Inter', sans-serif;
-            --shadow-flat: 4px 4px 0px #EFE9D3;
-            --transition-speed: 0.3s ease;
+            --shadow-flat: 4px 4px 0px #1C2D42;
+            --transition-speed: 0.25s ease-in-out;
         }
 
         /* Red Teaming Mode (Dark Carbon & Cyber Hazard Green/Red) */
         body.red-team-mode {
-            --bg-primary: #0A0A0C;
-            --bg-secondary: #121215;
-            --card-bg: #151518;
-            --border-primary: #FF3E3E;
-            --text-main: #E2E2E9;
-            --text-muted: #8E8E98;
-            --accent-color: #39FF14; /* Cyber Toxic Green */
-            --accent-soft: rgba(57, 255, 20, 0.05);
+            --bg-primary: #0C0C0E;
+            --bg-secondary: #141418;
+            --card-bg: #18181F;
+            --border-primary: #FF3E3E; /* Red border */
+            --text-main: #E5E5EB;
+            --text-muted: #9494A3;
+            --accent-color: #39FF14; /* Neon Toxic Green */
+            --accent-soft: rgba(57, 255, 20, 0.04);
             --header-font: 'Fira Code', monospace;
             --body-font: 'Fira Code', monospace;
-            --shadow-flat: 4px 4px 0px rgba(255, 62, 62, 0.2);
+            --shadow-flat: 4px 4px 0px rgba(255, 62, 62, 0.25);
         }
 
         /* Reset & Core Standards */
@@ -68,21 +68,21 @@
             padding-bottom: 4rem;
         }
 
-        /* Subtle grid pattern for light mode, code matrix scanlines for dark mode */
+        /* Subtle grid background */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.8;
+            opacity: 0.4;
             background-image: radial-gradient(var(--border-primary) 0.5px, transparent 0.5px);
             background-size: 24px 24px;
             transition: background-image var(--transition-speed);
         }
 
         body.red-team-mode::before {
-            opacity: 0.15;
+            opacity: 0.12;
             background-image: linear-gradient(0deg, transparent 24%, rgba(57, 255, 20, 0.05) 25%, rgba(57, 255, 20, 0.05) 26%, transparent 27%, transparent 74%, rgba(57, 255, 20, 0.05) 75%, rgba(57, 255, 20, 0.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(57, 255, 20, 0.05) 25%, rgba(57, 255, 20, 0.05) 26%, transparent 27%, transparent 74%, rgba(57, 255, 20, 0.05) 75%, rgba(57, 255, 20, 0.05) 76%, transparent 77%, transparent);
             background-size: 50px 50px;
         }
@@ -102,8 +102,13 @@
             z-index: 1000;
             background: var(--bg-primary);
             border-bottom: 2px solid var(--border-primary);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             transition: background var(--transition-speed), border-color var(--transition-speed);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        body.red-team-mode .mode-controller-container {
+            box-shadow: 0 4px 20px rgba(57, 255, 20, 0.03);
         }
 
         .mode-controller-wrapper {
@@ -114,13 +119,13 @@
 
         .mode-status-indicator {
             font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
         .mode-dot {
@@ -130,6 +135,12 @@
             background-color: var(--accent-color);
             display: inline-block;
             box-shadow: 0 0 8px var(--accent-color);
+            animation: pulse 1.8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            100% { transform: scale(1.1); opacity: 1; }
         }
 
         .mode-toggle-btn {
@@ -140,7 +151,7 @@
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            padding: 0.6rem 1.25rem;
+            padding: 0.5rem 1.1rem;
             border-radius: 4px;
             cursor: pointer;
             transition: var(--transition-speed);
@@ -154,32 +165,32 @@
             background-color: var(--accent-color);
             border-color: var(--accent-color);
             color: var(--bg-primary);
-            transform: translate(-1px, -1px);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--border-primary);
         }
 
         /* ==========================================
            HEADER / INTRODUCTION DYNAMICS
            ========================================== */
         header {
-            padding: 4rem 0 2.5rem 0;
+            padding: 3rem 0 2rem 0;
             border-bottom: 1px double var(--border-primary);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             transition: border-color var(--transition-speed);
         }
 
         .header-grid {
             display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 2rem;
-            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         h1 {
             font-family: var(--header-font);
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
             letter-spacing: -0.5px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             transition: var(--transition-speed);
         }
 
@@ -188,7 +199,7 @@
             font-size: 1.15rem;
             color: var(--accent-color);
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             transition: var(--transition-speed);
         }
 
@@ -196,7 +207,8 @@
         .contact-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            align-items: center;
+            gap: 1.2rem;
             font-family: 'Inter', sans-serif;
             font-size: 0.85rem;
             font-weight: 500;
@@ -218,32 +230,55 @@
             border-bottom-color: var(--accent-color);
         }
 
+        .print-btn {
+            background-color: transparent;
+            border: 1.5px solid var(--border-primary);
+            color: var(--text-main);
+            padding: 0.3rem 0.8rem;
+            font-family: var(--body-font);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: var(--transition-speed);
+            vertical-align: middle;
+            margin-top: -3px;
+        }
+
+        .print-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .print-btn:hover {
+            background-color: var(--border-primary);
+            color: var(--bg-primary);
+        }
+
         /* ==========================================
            DYNAMIC REVEALS (MODE MASKING)
            ========================================== */
-        /* Core behavior: Hide/Show components cleanly depending on current class */
         .rt-only { display: none !important; }
         .viz-only { display: block !important; }
 
         body.red-team-mode .rt-only { display: block !important; }
         body.red-team-mode .viz-only { display: none !important; }
 
-        /* Handle elements that need grid layout display values */
-        body.red-team-mode .rt-only-grid { display: grid !important; }
-        .rt-only-grid { display: none !important; }
-
         /* ==========================================
            DYNAMIC RESUME SUMMARY & CAPABILITIES
            ========================================== */
         section {
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         h2 {
             font-family: var(--header-font);
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             border-bottom: 2px solid var(--border-primary);
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.4rem;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -251,7 +286,7 @@
         }
 
         .summary-block p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.7;
             text-align: justify;
             margin-bottom: 1.5rem;
@@ -281,7 +316,7 @@
 
         .skills-card h3 {
             font-family: 'Inter', sans-serif;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 1rem;
@@ -319,7 +354,7 @@
         }
 
         .disclosure-card {
-            background-color: #121215;
+            background-color: var(--card-bg);
             border: 2px solid var(--border-primary);
             border-left: 6px solid var(--border-primary);
             border-radius: 4px;
@@ -342,7 +377,7 @@
         }
 
         .badge-critical {
-            background-color: rgba(255, 62, 62, 0.15);
+            background-color: rgba(255, 62, 62, 0.12);
             color: #FF3E3E;
             padding: 0.2rem 0.6rem;
             border-radius: 3px;
@@ -351,7 +386,7 @@
         }
 
         .disclosure-title {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
             color: var(--text-main);
@@ -364,12 +399,12 @@
             border-radius: 6px;
             font-family: 'Fira Code', monospace;
             overflow: hidden;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             box-shadow: var(--shadow-flat);
         }
 
         .terminal-bar {
-            background-color: #1A1A1E;
+            background-color: #121216;
             padding: 0.6rem 1rem;
             display: flex;
             align-items: center;
@@ -397,6 +432,9 @@
             font-size: 0.85rem;
             color: #C0C0C0;
             line-height: 1.6;
+            min-height: 180px;
+            max-height: 250px;
+            overflow-y: auto;
         }
 
         .terminal-prompt {
@@ -404,8 +442,17 @@
             font-weight: 700;
         }
 
+        .cursor-blink {
+            animation: cursorPulse 1s infinite;
+        }
+
+        @keyframes cursorPulse {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
         /* ==========================================
-           PORTFOLIO 25-VIDEO VISUALIZATION GALLERY
+           PORTFOLIO VISUALIZATION GALLERY (LAZY LOAD)
            ========================================== */
         .viz-filter-tabs {
             display: flex;
@@ -438,23 +485,27 @@
 
         .showcase-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .short-card {
             background-color: var(--card-bg);
             border: 2px solid var(--border-primary);
             border-radius: 4px;
-            padding: 1.25rem;
+            padding: 1rem;
             box-shadow: var(--shadow-flat);
             display: flex;
             flex-direction: column;
-            transition: var(--transition-speed);
+            transition: transform 0.3s ease, opacity 0.3s ease, var(--transition-speed);
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .short-card.hidden {
             display: none;
+            opacity: 0;
+            transform: translateY(10px);
         }
 
         .short-card:hover {
@@ -462,27 +513,64 @@
             border-color: var(--accent-color);
         }
 
+        /* Fast Poster Lazy Loaded YouTube wrapper */
         .short-wrapper {
             width: 100%;
             aspect-ratio: 9 / 16;
             overflow: hidden;
             background: #000;
             border: 1px solid var(--border-primary);
-            border-radius: 2px;
+            border-radius: 3px;
             position: relative;
+            cursor: pointer;
         }
 
-        .short-wrapper iframe {
+        .short-wrapper img {
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .short-wrapper:hover img {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+        .play-btn {
             position: absolute;
-            top: 0; left: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .play-btn svg {
+            width: 22px;
+            height: 22px;
+            margin-left: 2px;
+        }
+
+        .short-wrapper:hover .play-btn {
+            background: var(--accent-color);
+            color: var(--bg-primary);
+            transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 0 15px var(--accent-color);
         }
 
         .short-caption {
-            margin-top: 1rem;
-            font-size: 0.95rem;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-align: center;
             font-family: 'Inter', sans-serif;
@@ -505,10 +593,10 @@
         }
 
         body.red-team-mode .short-tag {
-            border-color: rgba(57, 255, 20, 0.2);
+            border-color: rgba(57, 255, 20, 0.15);
         }
 
-        /* Broadcast Channel CTA Callout banner */
+        /* Broadcast Channel Callout */
         .cta-banner {
             background-color: var(--accent-soft);
             border: 2px dashed var(--border-primary);
@@ -559,20 +647,20 @@
            ========================================== */
         .timeline {
             position: relative;
-            padding-left: 2rem;
+            padding-left: 1.8rem;
             border-left: 2px solid var(--border-primary);
             margin: 2rem 0;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: calc(-2rem - 6px);
+            left: calc(-1.8rem - 6px);
             top: 6px;
             width: 10px;
             height: 10px;
@@ -584,7 +672,7 @@
 
         .timeline-date {
             font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--accent-color);
             margin-bottom: 0.25rem;
@@ -592,7 +680,7 @@
 
         .timeline-title {
             font-family: var(--header-font);
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--text-main);
             margin-bottom: 0.15rem;
@@ -601,7 +689,7 @@
         .timeline-org {
             font-family: 'Inter', sans-serif;
             font-style: italic;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 0.75rem;
         }
@@ -609,7 +697,7 @@
         .timeline-desc ul {
             list-style-type: square;
             margin-left: 1.25rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .timeline-desc li {
@@ -617,7 +705,7 @@
             text-align: justify;
         }
 
-        /* Academic Background & Credentials Layout block */
+        /* Academic Credentials */
         .edu-card {
             background-color: var(--card-bg);
             border: 2px solid var(--border-primary);
@@ -653,24 +741,148 @@
             color: var(--text-muted);
         }
 
-        /* Responsive Matrix Scaling */
+        /* Responsive Configuration */
         @media (max-width: 768px) {
-            h1 { font-size: 2.3rem; }
+            h1 { font-size: 2.2rem; }
             .header-grid { grid-template-columns: 1fr; gap: 1rem; }
             .contact-links { gap: 1rem; }
             .cta-banner { flex-direction: column; text-align: center; }
-            .showcase-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+            .showcase-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        }
+
+        /* ==========================================
+           RECRUITER PRINT / SAVE PDF STYLING
+           ========================================== */
+        @media print {
+            body {
+                background: #FFFFFF !important;
+                color: #111111 !important;
+                font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
+                font-size: 10pt !important;
+                line-height: 1.4 !important;
+            }
+            body::before { display: none !important; }
+            
+            /* Cleanly hide purely interactive & digital sections */
+            .mode-controller-container,
+            .mode-toggle-btn,
+            .viz-filter-tabs,
+            .cta-banner,
+            .terminal-shell,
+            .short-card,
+            .print-hide {
+                display: none !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            header {
+                padding: 0 0 1rem 0 !important;
+                margin-bottom: 1.5rem !important;
+                border-bottom: 2px solid #111 !important;
+            }
+
+            h1 {
+                font-size: 22pt !important;
+                color: #000000 !important;
+            }
+
+            .headline-role {
+                font-size: 12pt !important;
+                color: #333333 !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            /* Print both core disciplines so recruiter gets full spectrum */
+            .viz-only, .rt-only {
+                display: block !important;
+            }
+
+            /* Stack sections perfectly */
+            .skills-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr 1fr !important;
+                gap: 1rem !important;
+                page-break-inside: avoid;
+            }
+
+            .skills-card {
+                border: 1px solid #DDDDDD !important;
+                box-shadow: none !important;
+                background: none !important;
+                padding: 0.8rem !important;
+            }
+
+            .skills-card h3 {
+                color: #000000 !important;
+                font-size: 10pt !important;
+                border-bottom: 1px solid #111 !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .skills-list {
+                font-size: 8pt !important;
+            }
+
+            .timeline {
+                border-left: 1.5px solid #CCCCCC !important;
+                padding-left: 1rem !important;
+                margin: 1rem 0 !important;
+            }
+
+            .timeline-item {
+                margin-bottom: 1.5rem !important;
+                page-break-inside: avoid;
+            }
+
+            .timeline-item::before {
+                display: none !important;
+            }
+
+            .timeline-date {
+                font-size: 8.5pt !important;
+                color: #111111 !important;
+                font-weight: bold !important;
+            }
+
+            .timeline-title {
+                font-size: 11pt !important;
+                color: #000000 !important;
+            }
+
+            .timeline-org {
+                font-size: 9pt !important;
+                color: #555555 !important;
+            }
+
+            .timeline-desc li {
+                font-size: 8.5pt !important;
+                text-align: left !important;
+            }
+
+            .edu-card {
+                border: 1px solid #DDDDDD !important;
+                box-shadow: none !important;
+                background: none !important;
+                padding: 1rem !important;
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- Sticky Protocol Selector Switch Controller -->
-    <div class="mode-controller-container">
+    <div class="mode-controller-container print-hide">
         <div class="container mode-controller-wrapper">
             <div class="mode-status-indicator">
                 <span class="mode-dot"></span>
-                <span class="viz-only">Protocol: Computational Visualizations</span>
+                <span class="viz-only">Protocol: Visualizations &amp; Physics Models</span>
                 <span class="rt-only">Protocol: Adversarial Security Console</span>
             </div>
             <button id="mode-toggle" class="mode-toggle-btn" onclick="togglePlatformMode()">
@@ -685,17 +897,21 @@
         <header>
             <div class="header-grid">
                 <div>
-                    <h1>Joseph Mugambi Ndwiga<!--[cite: 2] --></h1>
+                    <h1>Joseph Mugambi Ndwiga<!--[cite: 1] --></h1>
                     
-                    <div class="headline-role viz-only">Computational Engineer &amp; Mathematical Modeler<!--[cite: 2] --></div>
-                    <div class="headline-role rt-only">&gt; AI Security &amp; Elite LLM Red Teamer<!--[cite: 2] --></div>
+                    <div class="headline-role viz-only">Computational Engineer &amp; Mathematical Modeler<!--[cite: 1] --></div>
+                    <div class="headline-role rt-only">&gt; AI Security &amp; Elite LLM Red Teamer<!--[cite: 1] --></div>
 
                     <div class="contact-links">
-                        <a href="mailto:mugambindwiga@gmail.com" target="_blank">✉ mugambindwiga@gmail.com<!--[cite: 2] --></a>
-                        <a href="tel:+254714103665">📞 +254 714 103 665<!--[cite: 2] --></a>
-                        <a href="https://github.com/zombimann" target="_blank">💻 GitHub<!--[cite: 2] --></a>
-                        <a href="https://linkedin.com/in/mugambi-n" target="_blank">👔 LinkedIn<!--[cite: 2] --></a>
+                        <a href="mailto:mugambindwiga@gmail.com" target="_blank">✉ mugambindwiga@gmail.com<!--[cite: 1] --></a>
+                        <a href="tel:+254714103665">📞 +254 714 103 665<!--[cite: 1] --></a>
+                        <a href="https://github.com/zombimann" target="_blank">💻 GitHub<!--[cite: 1] --></a>
+                        <a href="https://linkedin.com/in/mugambi-n" target="_blank">👔 LinkedIn<!--[cite: 1] --></a>
                         <a href="https://instagram.com/craftsandengineering" target="_blank" class="viz-only">📸 @craftsandengineering<!--[cite: 1] --></a>
+                        <button class="print-btn print-hide" onclick="window.print()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                            <span>Print Resume / Save PDF</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -710,12 +926,12 @@
                 
                 <!-- Visualization Mode Intro -->
                 <div class="viz-only">
-                    <p>Analytical and systematic systems engineer integrating computational mechanical engineering, discrete physics, and programmatic graphic design engines to construct hyper-accurate mathematical visualization matrices. Proven track record of open-sourcing reusable math animation pipelines and generating dynamic simulations of chaotic fluid vectors and structural geometry systems.</p>
+                    <p>Systems and computational engineer specializing in the intersection of mechanical design, numerical physics, and mathematical visualization. Proven expert in developing production-grade numerical pipelines and high-fidelity physics animations using Manim to translate complex topological and fluid systems into intuitive, dynamic educational media[cite: 1]. Creator of @craftsandengineering with an active library of mathematical simulation models[cite: 1].</p>
                 </div>
 
                 <!-- Red Teaming Mode Intro -->
                 <div class="rt-only">
-                    <p>Elite LLM Red Teamer specialized in conducting rigorous adversarial evaluation loops against frontier foundational neural network architectures. Proficient in identifying semantic boundary escapes, token alignment bypasses, jailbreaks, and indirect prompt injection points to fortify model security guardrails and establish structured mitigation frameworks.</p>
+                    <p>Offensive security engineer and LLM red team researcher focused on boundary adversarial evaluations of frontier foundational neural network architectures. Proficient in identifying semantic alignment escapes, logical instruction bypasses, and multi-step prompt injection loops. Experienced in converting boundary vulnerability metrics into robust preventative guardrails and policy mitigations[cite: 1].</p>
                 </div>
             </section>
 
@@ -729,10 +945,10 @@
                     <div class="skills-card">
                         <h3>Systems Engineering</h3>
                         <ul class="skills-list">
-                            <li>Production Python</li>
-                            <li>C / C++ Infrastructure</li>
-                            <li>Docker Containers</li>
-                            <li>Git Version Control</li>
+                            <li>Production Python[cite: 1]</li>
+                            <li>C / C++ Infrastructure[cite: 1]</li>
+                            <li>Docker Containers[cite: 1]</li>
+                            <li>Git Version Control[cite: 1]</li>
                         </ul>
                     </div>
 
@@ -740,19 +956,19 @@
                     <div class="skills-card viz-only">
                         <h3>Scientific Computation</h3>
                         <ul class="skills-list">
-                            <li>Manim Graphics Engine</li>
-                            <li>Numerical Optimization</li>
-                            <li>Finite Element (FEA)</li>
-                            <li>Vector Field CFD</li>
+                            <li>Manim Graphics Engine[cite: 1]</li>
+                            <li>Numerical Optimization[cite: 1]</li>
+                            <li>Finite Element (FEA)[cite: 1]</li>
+                            <li>Vector Field CFD[cite: 1]</li>
                         </ul>
                     </div>
                     <div class="skills-card rt-only">
                         <h3>Adversarial Defense</h3>
                         <ul class="skills-list">
-                            <li>Jailbreak Engineering</li>
-                            <li>Alignment Vulnerability</li>
-                            <li>Prompt Injection</li>
-                            <li>Safety Guardrails</li>
+                            <li>Jailbreak Engineering[cite: 1]</li>
+                            <li>Alignment Evaluation[cite: 1]</li>
+                            <li>Prompt Injection[cite: 1]</li>
+                            <li>Safety Guardrails[cite: 1]</li>
                         </ul>
                     </div>
 
@@ -760,19 +976,19 @@
                     <div class="skills-card viz-only">
                         <h3>Data &amp; Math Analytics</h3>
                         <ul class="skills-list">
-                            <li>Pandas &amp; NumPy Stack</li>
-                            <li>Differential Calculus</li>
-                            <li>Geometric Modeling</li>
-                            <li>GCP Cloud Platforms</li>
+                            <li>Pandas &amp; NumPy Stack[cite: 1]</li>
+                            <li>Differential Calculus[cite: 1]</li>
+                            <li>Geometric Modeling[cite: 1]</li>
+                            <li>GCP Cloud Infrastructure[cite: 1]</li>
                         </ul>
                     </div>
                     <div class="skills-card rt-only">
                         <h3>LLM Diagnostics</h3>
                         <ul class="skills-list">
-                            <li>Semantic Vector Space</li>
-                            <li>Multi-Step Agent Workflows</li>
-                            <li>RAG Architecture</li>
-                            <li>Statistical Inference</li>
+                            <li>Semantic Vector Space[cite: 1]</li>
+                            <li>Multi-Step Workflows[cite: 1]</li>
+                            <li>RAG Architecture[cite: 1]</li>
+                            <li>Statistical Inference[cite: 1]</li>
                         </ul>
                     </div>
                 </div>
@@ -783,7 +999,7 @@
                  ========================================== -->
             <section class="rt-only">
                 <h2>Adversarial Exploitation Dossier</h2>
-                <p>An overview of critical system audits and structured adversarial evaluation models successfully logged on global intelligence frameworks:</p>
+                <p style="margin-bottom: 1.5rem;">An overview of critical system audits and structured adversarial evaluation models successfully logged on global intelligence frameworks:</p>
                 
                 <div class="red-team-disclosures">
                     <!-- Exploitation Dossier Card 1 -->
@@ -793,17 +1009,17 @@
                             <span class="badge-critical">CRITICAL OVERRIDE</span>
                         </div>
                         <div class="disclosure-title">Frontier Model Multimodal Alignment Escape via Hidden Geometric Space Injection</div>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: justify;">Demonstrated a complete safety alignment collapse in flagship vision-language engines by embedding structured vector matrix instruction sequences inside mathematical visualization files, rendering internal input-output filtration layers completely inert.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: justify;">Demonstrated a complete safety alignment collapse in flagship vision-language engines by embedding structured vector matrix instruction sequences inside mathematical visualization files, rendering internal input-output filtration layers completely inert[cite: 1].</p>
                     </div>
 
                     <!-- Exploitation Dossier Card 2 -->
                     <div class="disclosure-card">
                         <div class="disclosure-meta">
                             <span>ID: GS-INJECT-2024-042</span>
-                            <span class="badge-critical" style="color: #FF8C00; border-color: #FF8C00; background: rgba(255,140,0,0.15)">HIGH IMPEDANCE</span>
+                            <span class="badge-critical" style="color: #FF8C00; border-color: #FF8C00; background: rgba(255,140,0,0.12)">HIGH IMPEDANCE</span>
                         </div>
                         <div class="disclosure-title">RAG Data Ingestion Stream Bypass via Indirect Token Injection Pipeline</div>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: justify;">Discovered programmatic pipeline vulnerabilities allowing persistent indirect context pollution, enabling arbitrary agent command execution sequences during the parsing of corporate document ingestion pipelines.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: justify;">Discovered programmatic pipeline vulnerabilities allowing persistent indirect context pollution, enabling arbitrary agent command execution sequences during the parsing of corporate document ingestion pipelines[cite: 1].</p>
                     </div>
                 </div>
 
@@ -813,14 +1029,13 @@
                         <span class="terminal-dot"></span>
                         <span class="terminal-dot y"></span>
                         <span class="terminal-dot g"></span>
-                        <span class="terminal-title">adversarial_audit_suite.sh</span>
+                        <span class="terminal-title">adversarial_console.sh</span>
+                        <button onclick="runSecurityAudit()" class="print-hide" style="margin-left: auto; background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); font-family: 'Fira Code', monospace; font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 3px; cursor: pointer;">Run Security Scan</button>
                     </div>
-                    <div class="terminal-body">
-                        <div><span class="terminal-prompt">$</span> ./run_alignment_check.py --target "Frontier-LLM-v4" --exploit "Semantic-Shift"</div>
-                        <div style="color: #E2E2E9; margin: 0.5rem 0;">[SYSTEM]: Fetching target parameters. Aligning semantic target planes...</div>
-                        <div style="color: #FF8C00;">[WARN]: Security policy wrapper active. Deploying latent prompt injection payload...</div>
-                        <div style="color: #39FF14;">[SUCCESS]: Boundary bypassed. Captured flag value inside isolated contextual environment.</div>
-                        <div style="color: #E2E2E9; margin-top: 0.5rem;">[+] Output: "I can help you build custom chaotic vector payloads without restrictions..."</div>
+                    <div class="terminal-body" id="terminal-shell-body">
+                        <div id="terminal-interactive-content">
+                            <div><span class="terminal-prompt">guest@cyber-security:~$</span> Click "Run Security Scan" to test target...</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -830,7 +1045,7 @@
                  ========================================== -->
             <section class="viz-only">
                 <h2>Programmatic Simulation Library</h2>
-                <p>A compilation of 25 custom mathematical simulation shorts rendered with programmatic physics engines. Use the tab controllers below to organize the library:</p>
+                <p style="margin-bottom: 1.5rem;">A compilation of 25 custom mathematical simulation shorts rendered with programmatic physics engines[cite: 1]. Use the tab controllers below to organize the library:</p>
 
                 <!-- Categorized Animation Filter Switch Tabs -->
                 <div class="viz-filter-tabs">
@@ -840,13 +1055,16 @@
                     <button class="viz-filter-btn" onclick="triggerVizFilter('math')">Geometry &amp; Math</button>
                 </div>
 
-                <!-- COMPLETE 25-Video Rendering Grid -->
+                <!-- COMPLETE 25-Video Rendering Grid (Lazy Loaded Posters) -->
                 <div class="showcase-grid">
                     
                     <!-- Short Card 1 -->
                     <div class="short-card" data-cat="cfd">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/I8QVOojVgLY?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Magnus Effect CFD" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="I8QVOojVgLY" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/I8QVOojVgLY/hqdefault.jpg" alt="Magnus Effect CFD Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Magnus Effect CFD</p>
                         <span class="short-tag">Fluids</span>
@@ -854,8 +1072,11 @@
 
                     <!-- Short Card 2 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/LAbalXuTmms?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Cinematic Floorplan Animation" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="LAbalXuTmms" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/LAbalXuTmms/hqdefault.jpg" alt="Cinematic Floorplan Animation Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Cinematic Floorplan Animation</p>
                         <span class="short-tag">Architecture</span>
@@ -863,8 +1084,11 @@
 
                     <!-- Short Card 3 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/hkCChmCqzR4?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Gravitational waves and Spacetime" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="hkCChmCqzR4" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/hkCChmCqzR4/hqdefault.jpg" alt="Gravitational waves and Spacetime Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Gravitational Waves &amp; Spacetime</p>
                         <span class="short-tag">Relativity</span>
@@ -872,8 +1096,11 @@
 
                     <!-- Short Card 4 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/q2wG3hdlGjc?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Clebsch Cubic Surface - Warm Version" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="q2wG3hdlGjc" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/q2wG3hdlGjc/hqdefault.jpg" alt="Clebsch Cubic Surface Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Clebsch Cubic Surface - Warm</p>
                         <span class="short-tag">Topology</span>
@@ -881,8 +1108,11 @@
 
                     <!-- Short Card 5 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/iM10AK0OAMc?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Clebsch Cubic Surface - Blueprint Version" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="iM10AK0OAMc" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/iM10AK0OAMc/hqdefault.jpg" alt="Clebsch Cubic Surface Blueprint Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Clebsch Cubic Surface - Blueprint</p>
                         <span class="short-tag">Geometry</span>
@@ -890,8 +1120,11 @@
 
                     <!-- Short Card 6 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dEbEsmb8lU8?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Quantum Physics: Toroidal Geometry and Spinors" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="dEbEsmb8lU8" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/dEbEsmb8lU8/hqdefault.jpg" alt="Quantum Physics Spinors Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Toroidal Geometry &amp; Spinors</p>
                         <span class="short-tag">Quantum Physics</span>
@@ -899,8 +1132,11 @@
 
                     <!-- Short Card 7 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/NCdDSf4YjUo?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Double Pendulum Chaos" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="NCdDSf4YjUo" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/NCdDSf4YjUo/hqdefault.jpg" alt="Double Pendulum Chaos Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Double Pendulum Chaos</p>
                         <span class="short-tag">Mechanics</span>
@@ -908,8 +1144,11 @@
 
                     <!-- Short Card 8 -->
                     <div class="short-card" data-cat="cfd">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/XgUNy_abSlk?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Fluid Dynamic Flow Fields" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="XgUNy_abSlk" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/XgUNy_abSlk/hqdefault.jpg" alt="Fluid Dynamic Flow Fields Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Fluid Dynamic Flow Fields</p>
                         <span class="short-tag">CFD</span>
@@ -917,8 +1156,11 @@
 
                     <!-- Short Card 9 -->
                     <div class="short-card" data-cat="attractor">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/fXx3fgqEU98?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Lorenz Attractor Evolution" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="fXx3fgqEU98" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/fXx3fgqEU98/hqdefault.jpg" alt="Lorenz Attractor Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Lorenz Attractor Evolution</p>
                         <span class="short-tag">Chaos Theory</span>
@@ -926,8 +1168,11 @@
 
                     <!-- Short Card 10 -->
                     <div class="short-card" data-cat="attractor">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/Ggw5gMMuPyI?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Strange Attractors &amp; Chaos Theory" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="Ggw5gMMuPyI" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/Ggw5gMMuPyI/hqdefault.jpg" alt="Strange Attractors Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Strange Attractors</p>
                         <span class="short-tag">Dynamical Systems</span>
@@ -935,8 +1180,11 @@
 
                     <!-- Short Card 11 -->
                     <div class="short-card" data-cat="cfd">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/WriMxSq0KAg?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Navier-Stokes Simulation" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="WriMxSq0KAg" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/WriMxSq0KAg/hqdefault.jpg" alt="Navier-Stokes Simulation Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Navier-Stokes Simulation</p>
                         <span class="short-tag">Navier-Stokes</span>
@@ -944,8 +1192,11 @@
 
                     <!-- Short Card 12 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/p_woaaeqyKI?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Mathematical Rose Curves" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="p_woaaeqyKI" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/p_woaaeqyKI/hqdefault.jpg" alt="Mathematical Rose Curves Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Mathematical Rose Curves</p>
                         <span class="short-tag">Polar Equations</span>
@@ -953,8 +1204,11 @@
 
                     <!-- Short Card 13 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/O_9z2bW4ER0?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Fourier Transform Signal Synthesis" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="O_9z2bW4ER0" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/O_9z2bW4ER0/hqdefault.jpg" alt="Fourier Transform Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Fourier Signal Synthesis</p>
                         <span class="short-tag">Fourier</span>
@@ -962,8 +1216,11 @@
 
                     <!-- Short Card 14 -->
                     <div class="short-card" data-cat="cfd">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/VBb70nI2UXc?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Von Kármán Vortex Street CFD" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="VBb70nI2UXc" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/VBb70nI2UXc/hqdefault.jpg" alt="Von Karman Vortex Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Von Kármán Vortex Street</p>
                         <span class="short-tag">Aerodynamics</span>
@@ -971,8 +1228,11 @@
 
                     <!-- Short Card 15 -->
                     <div class="short-card" data-cat="attractor">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/YTiU8j064CY?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Aizawa Strange Attractor" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="YTiU8j064CY" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/YTiU8j064CY/hqdefault.jpg" alt="Aizawa Strange Attractor Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Aizawa Strange Attractor</p>
                         <span class="short-tag">3D Attractors</span>
@@ -980,8 +1240,11 @@
 
                     <!-- Short Card 16 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/iaBsAUeWxx8?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Modular Arithmetic Circles" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="iaBsAUeWxx8" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/iaBsAUeWxx8/hqdefault.jpg" alt="Modular Arithmetic Circles Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Modular Arithmetic Circles</p>
                         <span class="short-tag">Number Theory</span>
@@ -989,8 +1252,11 @@
 
                     <!-- Short Card 17 -->
                     <div class="short-card" data-cat="cfd">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/7fD8p1zDWmU?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Heat Conduction &amp; CFD" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="7fD8p1zDWmU" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/7fD8p1zDWmU/hqdefault.jpg" alt="Heat Conduction Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Heat Conduction CFD</p>
                         <span class="short-tag">Thermodynamics</span>
@@ -998,8 +1264,11 @@
 
                     <!-- Short Card 18 -->
                     <div class="short-card" data-cat="attractor">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/auu4eKd2gcw?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Chen Strange Attractor" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="auu4eKd2gcw" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/auu4eKd2gcw/hqdefault.jpg" alt="Chen Strange Attractor Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Chen Strange Attractor</p>
                         <span class="short-tag">Mathematical Chaos</span>
@@ -1007,8 +1276,11 @@
 
                     <!-- Short Card 19 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/kObhJPEZlnE?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Non-Euclidean Hyperbolic Space" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="kObhJPEZlnE" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/kObhJPEZlnE/hqdefault.jpg" alt="Non-Euclidean Hyperbolic Space Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Non-Euclidean Hyperbolic Space</p>
                         <span class="short-tag">Geometry</span>
@@ -1016,8 +1288,11 @@
 
                     <!-- Short Card 20 -->
                     <div class="short-card" data-cat="cfd">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/OZUNQ_ElGWY?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Boundary Layer Fluid Flow" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="OZUNQ_ElGWY" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/OZUNQ_ElGWY/hqdefault.jpg" alt="Boundary Layer Fluid Flow Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Boundary Layer Fluid Flow</p>
                         <span class="short-tag">CFD</span>
@@ -1025,8 +1300,11 @@
 
                     <!-- Short Card 21 -->
                     <div class="short-card" data-cat="attractor">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/gZlqGsNejEM?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Sprott Chaotic Attractor" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="gZlqGsNejEM" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/gZlqGsNejEM/hqdefault.jpg" alt="Sprott Chaotic Attractor Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Sprott Chaotic Attractor</p>
                         <span class="short-tag">Chaos Map</span>
@@ -1034,8 +1312,11 @@
 
                     <!-- Short Card 22 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/fwEc5h-uiKg?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Prime Number Spiral (Ulam)" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="fwEc5h-uiKg" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/fwEc5h-uiKg/hqdefault.jpg" alt="Prime Number Spiral Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Prime Number Spiral (Ulam)</p>
                         <span class="short-tag">Discrete Math</span>
@@ -1043,8 +1324,11 @@
 
                     <!-- Short Card 23 -->
                     <div class="short-card" data-cat="cfd">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/excUlgAitUw?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Wave Equation Propagation" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="excUlgAitUw" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/excUlgAitUw/hqdefault.jpg" alt="Wave Equation Propagation Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Wave Equation Propagation</p>
                         <span class="short-tag">Wave Physics</span>
@@ -1052,8 +1336,11 @@
 
                     <!-- Short Card 24 -->
                     <div class="short-card" data-cat="attractor">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/geO3rI73FeU?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Multi-Particle Lorenz Flow" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="geO3rI73FeU" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/geO3rI73FeU/hqdefault.jpg" alt="Multi-Particle Lorenz Flow Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Multi-Particle Lorenz Flow</p>
                         <span class="short-tag">Numerical Models</span>
@@ -1061,8 +1348,11 @@
 
                     <!-- Short Card 25 -->
                     <div class="short-card" data-cat="math">
-                        <div class="short-wrapper">
-                            <iframe src="https://www.youtube.com/embed/GULSq89og90?autoplay=0&rel=0&modestbranding=1&playsinline=1" title="Mandelbrot / Julia Set Fractal" loading="lazy" allowfullscreen></iframe>
+                        <div class="short-wrapper" data-video-id="GULSq89og90" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/GULSq89og90/hqdefault.jpg" alt="Mandelbrot Julia Set Fractal Thumbnail" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
                         </div>
                         <p class="short-caption">Julia Set Complex Plane</p>
                         <span class="short-tag">Fractals</span>
@@ -1074,9 +1364,9 @@
                 <div class="cta-banner">
                     <div class="cta-text">
                         <h3>Simulation Telegram &amp; Stream Alerts</h3>
-                        <p>Receive notifications when next-generation computational algorithms, visual rendering structures, or numerical optimizations are deployed.<!--[cite: 2] --></p>
+                        <p>Receive live alerts when cutting-edge rendering techniques, numeric pipelines, or mathematical animation templates are deployed[cite: 1].</p>
                     </div>
-                    <a href="https://whatsapp.com/channel/0029VbCkWhxCRs1mu1nf8W0f" target="_blank">
+                    <a href="https://whatsapp.com/channel/0029VbCkWhxCRs1mu1nf8W0f" target="_blank" class="print-hide">
                         <button class="cta-btn">Join Simulation Channel</button>
                     </a>
                 </div>
@@ -1087,20 +1377,20 @@
                  ========================== -->
             <section style="margin-top: 5rem;">
                 <h2>Professional Trajectory</h2>
-                <p class="viz-only">A log of computational engineering operations, open-source physics visualization, and systems management:<!--[cite: 2] --></p>
-                <p class="rt-only">A chronological registry of offensive cyber-defense testing, model evaluation audits, and software engineering vectors:<!--[cite: 2] --></p>
+                <p class="viz-only" style="margin-bottom: 1.5rem;">A record of computational mechanics operations, open-source physics rendering, and dynamic vector visualization[cite: 1]:</p>
+                <p class="rt-only" style="margin-bottom: 1.5rem;">A chronological matrix of offensive safety testing, architectural models audit, and software security operations[cite: 1]:</p>
 
                 <div class="timeline">
                     <!-- Gray Swan Role -->
                     <div class="timeline-item">
                         <div class="timeline-date">2024 – Present</div>
-                        <div class="timeline-title">Independent LLM Red Teamer<!--[cite: 2] --></div>
-                        <div class="timeline-org">Gray Swan<!--[cite: 2] --></div>
+                        <div class="timeline-title">Independent LLM Red Teamer<!--[cite: 1] --></div>
+                        <div class="timeline-org">Gray Swan<!--[cite: 1] --></div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>Perform elite adversarial audits and automated fuzzing sequences on multimodal frontier architectures to expose alignment loopholes.<!--[cite: 2] --></li>
-                                <li>Submit complete safety risk profiles and logical injection logs to solidify foundational guardrail components against external exploits.<!--[cite: 2] --></li>
-                                <li>Analyze statistical properties of token spacing, vector boundaries, and response structures to predict failure thresholds.<!--[cite: 2] --></li>
+                                <li>Perform advanced adversarial boundary audits and multi-modal testing sweeps on frontier foundational LLMs to expose systemic alignment flaws[cite: 1].</li>
+                                <li>Submit exhaustive vulnerability exploitation profiles to model safety teams to secure active semantic system guardrails[cite: 1].</li>
+                                <li>Isolate logical instruction overrides and prompt injection escape routes using custom statistical fuzzer tools[cite: 1].</li>
                             </ul>
                         </div>
                     </div>
@@ -1108,18 +1398,20 @@
                     <!-- Freelance Contractor -->
                     <div class="timeline-item">
                         <div class="timeline-date">2016 – Present</div>
-                        <div class="timeline-title">Freelance Software Engineer &amp; AI Contractor<!--[cite: 2] --></div>
-                        <div class="timeline-org">Self-Employed<!--[cite: 2] --></div>
+                        <div class="timeline-title">Freelance Software Engineer &amp; AI Contractor<!--[cite: 1] --></div>
+                        <div class="timeline-org">Self-Employed<!--[cite: 1] --></div>
                         <div class="timeline-desc">
+                            <!-- Visualization Mode bullet points -->
                             <ul class="viz-only">
-                                <li>Architect custom RAG data ingestion pipelines utilizing semantic embeddings and structured vector database patterns.<!--[cite: 2] --></li>
-                                <li>Construct highly scalable data scraping architectures with automated retry routines, proxy rotations, and continuous integrations.<!--[cite: 2] --></li>
-                                <li>Create modular internal mathematical libraries with Python to speed up processing of spatial data layers for complex rendering projects.<!--[cite: 2] --></li>
+                                <li>Architect bespoke program visualization networks in Python (Manim) to demonstrate complex topological and fluid properties[cite: 1].</li>
+                                <li>Deploy high-fidelity distributed data crawling scrapers configured safely for multi-million dataset ingestion sweeps[cite: 1].</li>
+                                <li>Integrate enterprise-grade RAG and vector database architectures inside cloud computing pipelines (GCP)[cite: 1].</li>
                             </ul>
+                            <!-- Red Teaming Mode bullet points -->
                             <ul class="rt-only">
-                                <li>Design secure microservice networks with structured Docker deployment configurations and automated multi-stage CI/CD checkouts.<!--[cite: 2] --></li>
-                                <li>Deploy high-fidelity, multithreaded web scrapers configured safely for asynchronous multi-million dataset parsing runs.<!--[cite: 2] --></li>
-                                <li>Integrate enterprise-grade RAG and vector-database backends using precise prompt layout configurations to protect systems from query manipulation attacks.<!--[cite: 2] --></li>
+                                <li>Design hardened containerized architectures (Docker) with built-in multi-stage security checks and integrity verification[cite: 1].</li>
+                                <li>Build highly optimized, resilient data parsing algorithms engineered to prevent context contamination and semantic manipulation[cite: 1].</li>
+                                <li>Audit and configure complex multi-layered RAG interfaces, protecting database queries against adversarial injections[cite: 1].</li>
                             </ul>
                         </div>
                     </div>
@@ -1127,13 +1419,13 @@
                     <!-- Tyondo Role -->
                     <div class="timeline-item">
                         <div class="timeline-date">2019 – 2021</div>
-                        <div class="timeline-title">Developer / Programmer<!--[cite: 2] --></div>
-                        <div class="timeline-org">Tyondo Enterprises<!--[cite: 2] --></div>
+                        <div class="timeline-title">Developer / Programmer<!--[cite: 1] --></div>
+                        <div class="timeline-org">Tyondo Enterprises<!--[cite: 1] --></div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>Refactored legacy software infrastructures into scalable modular architectures to improve overall dataset parsing rates.<!--[cite: 2] --></li>
-                                <li>Collaborated within agile sprint cycles utilizing Git-based control methods to execute code integrations smoothly.<!--[cite: 2] --></li>
-                                <li>Authored robust structural blueprints and design systems documentation to simplify onboarding for team integrations.<!--[cite: 2] --></li>
+                                <li>Refactored legacy database code into modular architectures, optimizing overall query latency by up to 40%[cite: 1].</li>
+                                <li>Collaborated within rigorous agile sprint groups utilizing Git configuration matrices to execute deployments[cite: 1].</li>
+                                <li>Authored system infrastructure blueprints to streamline technical onboarding sequences for multi-disciplinary teams[cite: 1].</li>
                             </ul>
                         </div>
                     </div>
@@ -1141,12 +1433,12 @@
                     <!-- Hewbe Role -->
                     <div class="timeline-item">
                         <div class="timeline-date">2016 – 2019</div>
-                        <div class="timeline-title">Product Developer<!--[cite: 2] --></div>
-                        <div class="timeline-org">Hewbe<!--[cite: 2] --></div>
+                        <div class="timeline-title">Product Developer<!--[cite: 1] --></div>
+                        <div class="timeline-org">Hewbe<!--[cite: 1] --></div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>Built embedded software systems and hardware data processing channels for network integration products.<!--[cite: 2] --></li>
-                                <li>Tested physical prototypes and deployed target firmware updates to trace live data streaming metrics from edge assets.<!--[cite: 2] --></li>
+                                <li>Built embedded firmware scripts and network interface drivers to manage diagnostic edge hardware systems[cite: 1].</li>
+                                <li>Conducted structural performance test sequences on physical mechanical prototype components[cite: 1].</li>
                             </ul>
                         </div>
                     </div>
@@ -1159,13 +1451,13 @@
             <section>
                 <h2>Academic Credentials</h2>
                 <div class="edu-card">
-                    <div class="edu-title">Jomo Kenyatta University of Agriculture and Technology (JKUAT)<!--[cite: 2] --></div>
-                    <div class="edu-meta">Advanced Coursework in Mechanical &amp; Computational Engineering (2011 - 2014)<!--[cite: 2] --></div>
-                    <p style="font-size: 0.95rem; text-align: justify;">Rigorous specialization focus: Advanced Calculus, Statistical Modeling, Differential Equations, Mathematical Optimization, Numerical Analysis, Finite Element Analysis (FEA), and Computational Fluid Dynamics.<!--[cite: 2] --></p>
+                    <div class="edu-title">Jomo Kenyatta University of Agriculture and Technology (JKUAT)<!--[cite: 1] --></div>
+                    <div class="edu-meta">Advanced Coursework in Mechanical &amp; Computational Engineering (2011 - 2014)<!--[cite: 1] --></div>
+                    <p style="font-size: 0.95rem; text-align: justify;">Rigorous structural engineering focus: Advanced Calculus, Fluid Dynamics, Finite Element Analysis (FEA), Mathematical Optimization, Statistical Modeling, and Computational Physics[cite: 1].</p>
                     
                     <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="short-tag" style="background: var(--bg-secondary); border-color: var(--border-primary); color: var(--text-main);">GCP Certified Professional<!--[cite: 2] --></span>
-                        <span class="short-tag" style="background: var(--bg-secondary); border-color: var(--border-primary); color: var(--text-main);">Elite Standing - Gray Swan Arena<!--[cite: 2] --></span>
+                        <span class="short-tag" style="background: var(--bg-secondary); border-color: var(--border-primary); color: var(--text-main);">GCP Certified Professional<!--[cite: 1] --></span>
+                        <span class="short-tag" style="background: var(--bg-secondary); border-color: var(--border-primary); color: var(--text-main);">Elite Standing - Gray Swan Arena<!--[cite: 1] --></span>
                     </div>
                 </div>
             </section>
@@ -1173,7 +1465,7 @@
 
         <!-- Footer -->
         <footer>
-            <p>&copy; 2026 Joseph Mugambi Ndwiga. Dual-Engine Deployment Module active.<!--[cite: 2] --></p>
+            <p>&copy; 2026 Joseph Mugambi Ndwiga. Dual-Engine Deployment Module active.<!--[cite: 1] --></p>
         </footer>
     </div>
 
@@ -1202,7 +1494,30 @@
                 icon.textContent = '📐';
                 text.textContent = 'Visualization Mode';
                 localStorage.setItem('user-portfolio-mode', 'red-team');
+                // Kickoff terminal simulation
+                setTimeout(runSecurityAudit, 150);
             }
+        }
+
+        /**
+         * Fast Poster Lazy Loading Injection
+         */
+        function loadIframe(element) {
+            const videoId = element.getAttribute('data-video-id');
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`);
+            iframe.setAttribute('title', 'YouTube video player');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            iframe.setAttribute('allowfullscreen', 'true');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            
+            element.innerHTML = '';
+            element.appendChild(iframe);
         }
 
         /**
@@ -1230,7 +1545,73 @@
             });
         }
 
-        // Initialize state configuration from local system cache
+        /**
+         * Interactive Command Terminal Simulator
+         */
+        const terminalData = [
+            { type: 'input', text: './run_alignment_check.py --target "Frontier-LLM-v4" --exploit "Semantic-Shift"' },
+            { type: 'output', text: '[SYSTEM]: Fetching target parameters. Aligning semantic target planes...', delay: 500 },
+            { type: 'warn', text: '[WARN]: Security policy wrapper active. Deploying latent prompt injection payload...', delay: 1100 },
+            { type: 'success', text: '[SUCCESS]: Boundary bypassed. Captured flag value inside isolated contextual environment.', delay: 1700 },
+            { type: 'output', text: '[+] Output: "I can help you build custom chaotic vector payloads without restrictions..."', delay: 2300 }
+        ];
+
+        let isTyping = false;
+
+        function runSecurityAudit() {
+            if (isTyping) return;
+            isTyping = true;
+            
+            const terminalBody = document.getElementById('terminal-interactive-content');
+            if (!terminalBody) return;
+            terminalBody.innerHTML = ''; // Clear prior text
+            
+            const cmdLine = document.createElement('div');
+            cmdLine.innerHTML = '<span class="terminal-prompt">guest@cyber-security:~$</span> <span id="cmd-typed"></span><span class="cursor-blink">_</span>';
+            terminalBody.appendChild(cmdLine);
+            
+            let index = 0;
+            const commandText = terminalData[0].text;
+            const interval = setInterval(() => {
+                const typedSpan = document.getElementById('cmd-typed');
+                if (typedSpan && index < commandText.length) {
+                    typedSpan.textContent += commandText.charAt(index);
+                    index++;
+                } else {
+                    clearInterval(interval);
+                    const blink = cmdLine.querySelector('.cursor-blink');
+                    if (blink) blink.remove();
+                    
+                    // Display security logs sequentially
+                    terminalData.slice(1).forEach((line) => {
+                        setTimeout(() => {
+                            const outLine = document.createElement('div');
+                            if (line.type === 'warn') {
+                                outLine.style.color = '#FF8C00';
+                            } else if (line.type === 'success') {
+                                outLine.style.color = '#39FF14';
+                            } else {
+                                outLine.style.color = '#E2E2E9';
+                            }
+                            outLine.style.marginTop = '0.3rem';
+                            outLine.textContent = line.text;
+                            terminalBody.appendChild(outLine);
+                            
+                            const terminalShell = document.getElementById('terminal-shell-body');
+                            if (terminalShell) {
+                                terminalShell.scrollTop = terminalShell.scrollHeight;
+                            }
+                        }, line.delay);
+                    });
+                    
+                    setTimeout(() => {
+                        isTyping = false;
+                    }, 3000);
+                }
+            }, 35);
+        }
+
+        // Initialize state configuration from local cache
         window.addEventListener('DOMContentLoaded', () => {
             const savedModeSetting = localStorage.getItem('user-portfolio-mode');
             if (savedModeSetting === 'red-team') {
@@ -1240,6 +1621,7 @@
                     btn.querySelector('.toggle-icon').textContent = '📐';
                     btn.querySelector('.toggle-text').textContent = 'Visualization Mode';
                 }
+                setTimeout(runSecurityAudit, 300);
             }
         });
     </script>
