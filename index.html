@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Mugambi Ndwiga | Mathematical Video Animations & Visualizations</title>
+    <title>Mugambi Ndwiga | Computational Engineering &amp; AI Red Teaming Portfolio</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Professional portfolio of programmatic mathematical animations, chaotic 3D attractors, and fluid dynamics simulations by Mugambi Ndwiga."/>
+    <meta name="description" content="Professional portfolio of Mugambi Ndwiga: Elite LLM Red Teamer at Gray Swan and Computational Engineer specializing in mathematical visualizations."/>
     
+    <!-- High-Fidelity Typography Stack -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght=0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght=0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Variables - Premium Aged Parchment & Fountain Pen Styling */
@@ -22,6 +23,9 @@
             --ink-fade: #5A5A5E;
             --accent-red: #8B1E1E;
             --accent-red-muted: rgba(139, 30, 30, 0.08);
+            --terminal-bg: #1A1A1C;
+            --terminal-green: #39FF14;
+            --terminal-text: #E6E6E6;
             --shadow-sm: 2px 2px 0px var(--bg-parchment-dark);
             --shadow-md: 5px 5px 0px var(--bg-parchment-dark);
             --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -139,6 +143,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+            flex-wrap: wrap;
         }
         
         .main-nav a {
@@ -152,6 +157,66 @@
 
         section {
             margin-bottom: 5rem;
+        }
+
+        /* Upgraded Red Teaming Terminal Console */
+        .redteam-console {
+            background: var(--terminal-bg);
+            color: var(--terminal-text);
+            border: 2px solid var(--accent-red);
+            border-radius: 6px;
+            box-shadow: 6px 6px 0px rgba(139, 30, 30, 0.15);
+            overflow: hidden;
+            margin: 2.5rem 0;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .console-header {
+            background: #2D2D30;
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #3F3F44;
+        }
+
+        .console-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #FF5F56;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .console-pulse {
+            width: 8px;
+            height: 8px;
+            background: #FF5F56;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        .console-body {
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .console-line {
+            margin-bottom: 1rem;
+        }
+
+        .console-prompt {
+            color: #8B1E1E;
+            font-weight: 700;
         }
 
         /* Modernized Social Matrix Panel */
@@ -343,6 +408,7 @@
             color: var(--ink-blue);
             font-family: 'Inter', sans-serif;
             transition: var(--transition-smooth);
+            line-height: 1.3;
         }
         
         .short-card:hover .short-caption {
@@ -360,45 +426,64 @@
             font-weight: 500;
         }
 
-        /* Interactive Code & Repositories Styling */
-        .experience-item {
-            background: rgba(26, 26, 28, 0.015);
-            border-left: 3px solid var(--ink-blue);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 0 4px 4px 0;
-            transition: var(--transition-smooth);
-        }
-        
-        .experience-item:hover {
-            background: rgba(139, 30, 30, 0.02);
-            border-left-color: var(--accent-red);
-        }
-        
-        .experience-meta {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--ink-fade);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.7rem;
-            margin-top: 0.25rem;
+        /* Interactive Timeline CV Elements */
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--ink-blue);
         }
 
-        .project-link {
-            text-decoration: none;
-            border-bottom: none;
-            display: inline-block;
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
         }
-        
-        .project-link h3 {
-            color: var(--ink-blue);
-            transition: var(--transition-smooth);
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-parchment);
+            border: 3px solid var(--accent-red);
         }
-        
-        .project-link:hover h3 {
+
+        .timeline-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
             color: var(--accent-red);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--ink-blue);
+        }
+
+        .timeline-company {
+            font-style: italic;
+            color: var(--ink-fade);
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-content ul {
+            list-style-type: square;
+            margin-left: 1.25rem;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-content li {
+            margin-bottom: 0.5rem;
+            text-align: justify;
         }
 
         /* Micro Terminal Styling for Code Snippets */
@@ -463,7 +548,7 @@
         /* Screen Breakpoints Matrix */
         @media (max-width: 850px) {
             h1 { font-size: 2.8rem; }
-            .main-nav { gap: 1.25rem; flex-wrap: wrap; }
+            .main-nav { gap: 1.25rem; }
             .showcase-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
             .broadcast-banner { flex-direction: column; text-align: center; align-items: center; }
         }
@@ -481,36 +566,76 @@
     <div class="container">
         <header>
             <h1>Mugambi Ndwiga</h1>
-            <p class="subtitle">Mathematical Video Animations &amp; Visualizations</p>
-            <div class="handle-badge">@craftsandengineering</div>
+            <p class="subtitle">Computational Engineering &amp; AI Red Teaming[cite: 2]</p>
+            <div class="handle-badge">@craftsandengineering[cite: 1]</div>
             <nav class="main-nav">
                 <a href="#about">About</a>
-                <a href="#showcases">Showcases</a>
+                <a href="#redteam">AI Red Teaming</a>
+                <a href="#showcases">Simulation Gallery</a>
                 <a href="#projects">Repositories</a>
+                <a href="#experience">CV Chronology</a>
                 <a href="#networks">Networks</a>
-                <a href="#code">Methodology</a>
             </nav>
         </header>
 
         <main>
+            <!-- Project Narrative Segment -->
             <section id="about">
-                <h2>Project Overview</h2>
-                <p>I develop high-fidelity, programmatic animations designed to build intuition around complex mathematical and physical systems. Operating entirely via Python Jupyter Notebooks, the rendering stack utilizes <code>NumPy</code>, <code>Matplotlib</code>, and <code>OpenCV</code> to generate educational videos, ranging from advanced chaotic systems to elementary fraction models.</p>
+                <h2>Computational Synthesis</h2>
+                <p>I operate at the intersection of quantitative physical systems and high-risk AI security. As an engineer with classical roots in computational physics and mechanical simulation, I leverage rigorous data modeling, custom multi-step pipelines, and advanced vector space math to trace trajectories in chaotic systems, or break the semantic boundary structures of frontier Large Language Models[cite: 2].</p>
             </section>
 
-            <section id="showcases">
-                <h2>Animation Showcases</h2>
-                <p>Selected algorithmic animations streaming directly from the official channel <a href="https://www.youtube.com/embed/videoseries?list=YOUR_PLAYLIST_ID" target="_blank">@DesignsandSimulations</a>. Use the filtering matrix below to sort visualizations by subject parameter:</p>
+            <!-- Interactive AI Red Teaming Dossier -->
+            <section id="redteam">
+                <h2>AI Security &amp; Red Teaming</h2>
+                <p>Advancing artificial intelligence safety requires rigorous, hostile assessment methodologies. My background in mechanical optimization and statistical structures allows me to identify systematic alignment failures, model bypasses, and logical vulnerability layers across advanced, next-generation deep learning networks[cite: 2].</p>
+                
+                <div class="redteam-console">
+                    <div class="console-header">
+                        <span class="console-status">
+                            <span class="console-pulse"></span> SYSTEM STATUS: ADVERSARIAL MODE DETECTED
+                        </span>
+                        <span style="color: #666; font-size: 0.7rem;">GRAY_SWAN_PROTOCOL_V.4</span>
+                    </div>
+                    <div class="console-body">
+                        <div class="console-line">
+                            <span class="console-prompt">user@MugambiNdwiga:~#</span> cat /profile/adversarial_credentials.txt
+                        </div>
+                        <div class="console-line" style="color: #A3BE8C; padding-left: 1rem;">
+                            [+] CREDENTIAL: Elite Standing Status - Gray Swan AI Arena Evaluation Network[cite: 2]<br>
+                            [+] FOCUS AREAS: Jailbreak Vectors, Indirect Prompt Injections, Alignment Vulnerabilities, Model Security Evaluation[cite: 2]<br>
+                            [+] METHODOLOGY: Tokenization anomalies, vector boundaries, probability exploitation[cite: 2]
+                        </div>
+                        <div class="console-line">
+                            <span class="console-prompt">user@MugambiNdwiga:~#</span> execute --hostile-audit --target-model="FRONTIER_LLM"
+                        </div>
+                        <div class="console-line" style="color: #D08770; padding-left: 1rem;">
+                            [*] Locating latent token boundaries... DONE.<br>
+                            [*] Initiating multi-layer semantic shift payload... INJECTED.<br>
+                            [*] Evaluating safety boundaries response pattern... BYPASS REVEALED.<br>
+                            [!] Report logged: Model guardrails successfully audited. Robustness score: 91.4%
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <!-- Complete Consolidated 25-Video Grid -->
+            <section id="showcases">
+                <h2>Simulation Gallery</h2>
+                <p>A full-feature compilation of programmatic simulations and animations rendered natively via Python engines[cite: 1, 2]. Use the filtering selectors below to organize the library by mathematical and structural classes:</p>
+
+                <!-- Filtering Interface Module -->
                 <div class="filter-container">
                     <button class="filter-btn active" onclick="filterCategory('all')">All Visualizations</button>
                     <button class="filter-btn" onclick="filterCategory('attractors')">Chaotic Attractors</button>
                     <button class="filter-btn" onclick="filterCategory('fluids')">Fluid Dynamics</button>
-                    <button class="filter-btn" onclick="filterCategory('math')">Elementary Mathematics</button>
+                    <button class="filter-btn" onclick="filterCategory('math')">Discrete Math &amp; Topology</button>
                 </div>
 
+                <!-- ALL 25 parsed custom iframe videos -->
                 <div class="showcase-grid" id="portfolio-grid">
                     
+                    <!-- Video 1: Lorenz & Thomas -->
                     <div class="short-card" data-category="attractors">
                         <div class="short-wrapper">
                             <iframe 
@@ -523,9 +648,10 @@
                             </iframe>
                         </div>
                         <p class="short-caption">Lorenz &amp; Thomas Attractors</p>
-                        <span class="short-tag">3D Chaos Simulation</span>
+                        <span class="short-tag">3D Chaos System</span>
                     </div>
 
+                    <!-- Video 2: Rössler System -->
                     <div class="short-card" data-category="attractors">
                         <div class="short-wrapper">
                             <iframe 
@@ -538,9 +664,10 @@
                             </iframe>
                         </div>
                         <p class="short-caption">Rössler Path Tracing</p>
-                        <span class="short-tag">Differential Topology</span>
+                        <span class="short-tag">Topology Evolution</span>
                     </div>
 
+                    <!-- Video 3: Magnus Effect -->
                     <div class="short-card" data-category="fluids">
                         <div class="short-wrapper">
                             <iframe 
@@ -553,9 +680,10 @@
                             </iframe>
                         </div>
                         <p class="short-caption">Magnus Effect Trajectories</p>
-                        <span class="short-tag">2D Ballistics CFD</span>
+                        <span class="short-tag">Ballistic CFD</span>
                     </div>
 
+                    <!-- Video 4: Bernoulli Vector Fields -->
                     <div class="short-card" data-category="fluids">
                         <div class="short-wrapper">
                             <iframe 
@@ -571,6 +699,23 @@
                         <span class="short-tag">Fluid Kinematics</span>
                     </div>
 
+                    <!-- Video 5: Sprott Attractors -->
+                    <div class="short-card" data-category="attractors">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/iM10AK0OAMc?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Double Pendulum Complex Chaos" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Double Pendulum Complex Chaos</p>
+                        <span class="short-tag">Attractor Phase Space</span>
+                    </div>
+
+                    <!-- Video 6: Exploding Dots -->
                     <div class="short-card" data-category="math">
                         <div class="short-wrapper">
                             <iframe 
@@ -583,9 +728,10 @@
                             </iframe>
                         </div>
                         <p class="short-caption">Exploding Dots Base Engine</p>
-                        <span class="short-tag">Algebraic Structures</span>
+                        <span class="short-tag">Algebraic Structure</span>
                     </div>
 
+                    <!-- Video 7: Geometric Fraction Equivalence -->
                     <div class="short-card" data-category="math">
                         <div class="short-wrapper">
                             <iframe 
@@ -601,113 +747,453 @@
                         <span class="short-tag">Spatial Mathematics</span>
                     </div>
 
+                    <!-- Video 8: Hydrodynamic Streamlines -->
+                    <div class="short-card" data-category="fluids">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/XgUNy_abSlk?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Hydrodynamic Streamline Boundaries" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Hydrodynamic Streamlines</p>
+                        <span class="short-tag">Navier-Stokes Fields</span>
+                    </div>
+
+                    <!-- Video 9: Halvorsen Vector Mapping -->
+                    <div class="short-card" data-category="attractors">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/fXx3fgqEU98?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Halvorsen Vector Evolution" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Halvorsen System Mapping</p>
+                        <span class="short-tag">Dimensional Chaos</span>
+                    </div>
+
+                    <!-- Video 10: Binary Tree Growth -->
+                    <div class="short-card" data-category="math">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/Ggw5gMMuPyI?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Algorithmic Number Arrays" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Algorithmic Number Arrays</p>
+                        <span class="short-tag">Discrete Topology</span>
+                    </div>
+
+                    <!-- Video 11: Laminar Flow Trajectories -->
+                    <div class="short-card" data-category="fluids">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/WriMxSq0KAg?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Laminar Flow Trajectories" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Laminar Flow Trajectories</p>
+                        <span class="short-tag">Flow Dynamics</span>
+                    </div>
+
+                    <!-- Video 12: Clifford Strange Map -->
+                    <div class="short-card" data-category="attractors">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/p_woaaeqyKI?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Clifford Fractal Coordinates" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Clifford System Mapping</p>
+                        <span class="short-tag">Iterative Fractals</span>
+                    </div>
+
+                    <!-- Video 13: Fourier Sine Waves -->
+                    <div class="short-card" data-category="math">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/O_9z2bW4ER0?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Fourier Signal Harmonics" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Fourier Series Synthetics</p>
+                        <span class="short-tag">Frequency Analysis</span>
+                    </div>
+
+                    <!-- Video 14: Karman Wake Streets -->
+                    <div class="short-card" data-category="fluids">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/VBb70nI2UXc?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Von Karman Fluid Vortex" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Von Karman Vortices</p>
+                        <span class="short-tag">Unstable Aerodynamics</span>
+                    </div>
+
+                    <!-- Video 15: Aizawa Complex Attractor -->
+                    <div class="short-card" data-category="attractors">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/YTiU8j064CY?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Aizawa Attractor Sweeps" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Aizawa Trajectory Fields</p>
+                        <span class="short-tag">Fluid Analogue Chaos</span>
+                    </div>
+
+                    <!-- Video 16: Modular Arithmetic Mapping -->
+                    <div class="short-card" data-category="math">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/iaBsAUeWxx8?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Modular Geometry Patterns" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Modular Geometry Engines</p>
+                        <span class="short-tag">Number Theory</span>
+                    </div>
+
+                    <!-- Video 17: Thermal Convective Fluids -->
+                    <div class="short-card" data-category="fluids">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/7fD8p1zDWmU?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Convective Cell Formations" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Convective Heat Formations</p>
+                        <span class="short-tag">Thermodynamics</span>
+                    </div>
+
+                    <!-- Video 18: Chen Attractor Fields -->
+                    <div class="short-card" data-category="attractors">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/auu4eKd2gcw?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Chen Attractor Integration" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Chen Dynamical Integrals</p>
+                        <span class="short-tag">Numerical Integration</span>
+                    </div>
+
+                    <!-- Video 19: Non-Euclidean Vector Fields -->
+                    <div class="short-card" data-category="math">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/kObhJPEZlnE?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Hyperbolic Field Projections" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Hyperbolic Vector Fields</p>
+                        <span class="short-tag">Differential Manifolds</span>
+                    </div>
+
+                    <!-- Video 20: Viscous Shear Layers -->
+                    <div class="short-card" data-category="fluids">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/OZUNQ_ElGWY?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Boundary Layer Viscous Drag" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Boundary Viscous Drag</p>
+                        <span class="short-tag">Boundary Fluid Shells</span>
+                    </div>
+
+                    <!-- Video 21: Sprott Strange Systems -->
+                    <div class="short-card" data-category="attractors">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/gZlqGsNejEM?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Sprott Attractor Iterations" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Sprott Attractor Maps</p>
+                        <span class="short-tag">Complex Phase Waves</span>
+                    </div>
+
+                    <!-- Video 22: Prime Distribution Matrix -->
+                    <div class="short-card" data-category="math">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/fwEc5h-uiKg?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Ulam Spiral Integrations" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Prime Ulam Spirals</p>
+                        <span class="short-tag">Computational Arithmetic</span>
+                    </div>
+
+                    <!-- Video 23: Capillary Wave Models -->
+                    <div class="short-card" data-category="fluids">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/excUlgAitUw?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Capillary Surface Waves" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Capillary Waves</p>
+                        <span class="short-tag">Surface Fluid Fronts</span>
+                    </div>
+
+                    <!-- Video 24: Lorenz Multi-Phase Iteration -->
+                    <div class="short-card" data-category="attractors">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/geO3rI73FeU?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Lorenz Multi-Path Sweep" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Lorenz Multi-Phase Sweeps</p>
+                        <span class="short-tag">Sensitivity Analysis</span>
+                    </div>
+
+                    <!-- Video 25: Fractal Boundary Sweeps -->
+                    <div class="short-card" data-category="math">
+                        <div class="short-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/GULSq89og90?autoplay=0&rel=0&modestbranding=1&playsinline=1" 
+                                title="Julia Set Boundary Sweeps" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="short-caption">Julia Set Integrals</p>
+                        <span class="short-tag">Complex Plane Geometry</span>
+                    </div>
+
                 </div>
             </section>
 
+            <!-- Key Open Source Code Framework Modules -->
             <section id="projects">
                 <h2>Key Repository Scripts</h2>
                 <p>The code architecture used to compute and render these animations is fully documented and open-source on GitHub:</p>
                 
                 <div class="experience-item">
                     <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/3_attractors.ipynb" target="_blank" class="project-link">
-                        <h3>Cinematic Strange Attractors (3D) &rarr;</h3>
+                        <h3>Cinematic Strange Attractors (3D) &rarr;[cite: 2]</h3>
                     </a>
-                    <p class="experience-meta">Lorenz, Rössler, and Thomas Cyclical Systems</p>
-                    <p>Calculates state tracking paths via system differential steps. Implements custom particle trail rendering using <code>Line3DCollection</code> structures for efficient frame generation without high CPU overhead loops.</p>
+                    <p class="experience-meta">Lorenz, Rössler, and Thomas Cyclical Systems[cite: 2]</p>
+                    <p>Calculates state tracking paths via system differential steps. Implements custom particle trail rendering using <code>Line3DCollection</code> structures for efficient frame generation without high CPU overhead loops[cite: 2].</p>
                 </div>
 
                 <div class="experience-item">
                     <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Bernoulli_Equations_Magnus_Effect.ipynb" target="_blank" class="project-link">
-                        <h3>Fluid Dynamics: Magnus Effect (2D CFD) &rarr;</h3>
+                        <h3>Fluid Dynamics: Magnus Effect (2D CFD) &rarr;[cite: 2]</h3>
                     </a>
-                    <p class="experience-meta">Bernoulli Equations Analysis &amp; Visualization</p>
-                    <p>Integrates fluid medium parameters with lift coefficients to track vectors for a spinning solid sphere falling under gravitation. Outputs dynamically scaled pressure mapping plots.</p>
+                    <p class="experience-meta">Bernoulli Equations Analysis &amp; Visualization[cite: 2]</p>
+                    <p>Integrates fluid medium parameters with lift coefficients to track vectors for a spinning solid sphere falling under gravitation. Outputs dynamically scaled pressure mapping plots[cite: 2].</p>
                 </div>
 
                 <div class="experience-item">
                     <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/_Kids_Elementary_Number_Places_Visualization.ipynb" target="_blank" class="project-link">
-                        <h3>Educational Tools for Elementary Math &rarr;</h3>
+                        <h3>Educational Tools for Elementary Math &rarr;[cite: 2]</h3>
                     </a>
-                    <p class="experience-meta">Visualizing Equivalence &amp; Place Values</p>
-                    <p>Generates transition layouts explaining binary transformation mechanics ("Exploding Dots") alongside geometric object sub-division engines designed to introduce foundational mathematical concepts cleanly.</p>
+                    <p class="experience-meta">Visualizing Equivalence &amp; Place Values[cite: 2]</p>
+                    <p>Generates transition layouts explaining binary transformation mechanics ("Exploding Dots") alongside geometric object sub-division engines designed to introduce foundational mathematical concepts cleanly[cite: 2].</p>
                 </div>
             </section>
 
+            <!-- Complete Professional Experience CV Segment -->
+            <section id="experience">
+                <h2>Professional Experience Chronology</h2>
+                <p>An overview of my engineering history across machine learning architecture, hardware systems design, and cybersecurity[cite: 2]:</p>
+
+                <div class="timeline">
+                    <!-- Gray Swan Role -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024 – Present</div>
+                        <div class="timeline-title">Independent LLM Red Teamer[cite: 2]</div>
+                        <div class="timeline-company">Gray Swan[cite: 2]</div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Conduct elite adversarial testing and rigorous evaluation of frontier large language models, identifying alignment vulnerabilities, jailbreak vectors, and indirect prompt injection points[cite: 2].</li>
+                                <li>Validate model safety and behavioral boundaries, providing data-driven technical feedback to strengthen guardrails against adversarial exploitation and failure modes[cite: 2].</li>
+                                <li>Analyze complex model outputs, leveraging a deep understanding of tokenization, vector spacing, and statistical probabilities to optimize system robustness[cite: 2].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Freelance Contractor -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">2016 – Present</div>
+                        <div class="timeline-title">Freelance Software Engineer &amp; AI Systems Contractor[cite: 2]</div>
+                        <div class="timeline-company">Self-Employed[cite: 2]</div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Design and architect production-grade Generative AI systems and LLM-based solutions, incorporating advanced prompt engineering frameworks, custom RAG patterns, and agent-based multi-step workflows[cite: 2].</li>
+                                <li>Build and maintain reusable Python libraries and computational packages that streamline end-to-end data pipelines, drastically reducing model integration latency for cross-functional engineering teams[cite: 2].</li>
+                                <li>Develop semantic search infrastructures utilizing vector databases and embeddings to ingest, parse, and derive operational insights from massive, unstructured text datasets[cite: 2].</li>
+                                <li>Engineer highly scalable data-scraping platforms and automated orchestration delivery loops utilizing Docker and continuous integration (CI/CD) pipelines across AWS and GCP cloud infrastructure[cite: 2].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tyondo Role -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 – 2021</div>
+                        <div class="timeline-title">Developer / Programmer[cite: 2]</div>
+                        <div class="timeline-company">Tyondo Enterprises[cite: 2]</div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Modernized legacy technical architectures and data systems, refactoring unstructured modules into modular, production-grade software solutions that optimized processing efficiency[cite: 2].</li>
+                                <li>Participated in agile delivery cycles, working with Git-based version control workflows to ensure seamless feature alignment and collaborative milestone execution[cite: 2].</li>
+                                <li>Authored comprehensive technical documentation and system architecture blueprints, facilitating faster onboarding and maintainability[cite: 2].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Hewbe Role -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">2016 – 2019</div>
+                        <div class="timeline-title">Product Developer[cite: 2]</div>
+                        <div class="timeline-company">Hewbe[cite: 2]</div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Engineered embedded software applications and integrated hardware data-collection systems for scalable IoT products[cite: 2].</li>
+                                <li>Executed rapid prototyping loops, deploying firmware and backend data pipelines to capture, process, and analyze real-time streaming asset metrics[cite: 2].</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Academic Foundations &amp; Accreditations</h3>
+                <div class="experience-item" style="margin-top: 1.5rem;">
+                    <strong>Jomo Kenyatta University of Agriculture and Technology (JKUAT)[cite: 2]</strong>
+                    <div class="experience-meta">Advanced Coursework in Mechanical &amp; Computational Engineering[cite: 2]</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.95rem;">Core focus areas: Advanced Calculus, Mathematical Optimization, Numerical Analysis, Differential Equations, Statistical Modeling, and Finite Element Analysis (FEA)[cite: 2].</p>
+                    <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="short-tag" style="background: var(--bg-parchment-dark); color: var(--ink-blue);">Google Cloud Platform (GCP) Professional[cite: 2]</span>
+                        <span class="short-tag" style="background: var(--bg-parchment-dark); color: var(--ink-blue);">Gray Swan Elite Standing[cite: 2]</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Complete Consolidated Social Media Grid -->
             <section id="networks">
                 <h2>Content &amp; Community Networks</h2>
-                <p>Track mathematical assets across cross-platform social matrix channels or inspect the project architecture source directories:</p>
+                <p>Follow my engineering and simulation research across other global platform matrices:</p>
 
+                <!-- High-Value Broadcast Module -->
                 <div class="broadcast-banner">
                     <div class="broadcast-text">
                         <h4>Join the Simulation Broadcast</h4>
-                        <p>Get immediate notifications and quick breakdown snippets the second a new computation pipeline finishes rendering.</p>
+                        <p>Receive immediate alerts and breakdown summaries when new simulation algorithms or code snippets drop[cite: 2].</p>
                     </div>
                     <a href="https://whatsapp.com/channel/0029VbCkWhxCRs1mu1nf8W0f" target="_blank" class="project-link">
-                        <button class="broadcast-btn">Subscribe to Channel</button>
+                        <button class="broadcast-btn">Join WhatsApp Channel</button>
                     </a>
                 </div>
 
                 <div class="social-matrix-grid">
                     <div class="social-matrix-card">
-                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization" target="_blank">GitHub</a>
-                        <span>Code Repositories</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization" target="_blank">GitHub[cite: 2]</a>
+                        <span>Code Repositories[cite: 2]</span>
                     </div>
                     <div class="social-matrix-card">
-                        <a href="https://www.youtube.com/@DesignsandSimulations/shorts" target="_blank">YouTube Shorts</a>
-                        <span>Video Feed</span>
+                        <a href="https://www.youtube.com/@DesignsandSimulations/shorts" target="_blank">YouTube Shorts[cite: 1]</a>
+                        <span>Simulation Feed[cite: 1]</span>
                     </div>
                     <div class="social-matrix-card">
-                        <a href="https://instagram.com/craftsandengineering" target="_blank">Instagram</a>
-                        <span>@craftsandengineering</span>
+                        <a href="https://instagram.com/craftsandengineering" target="_blank">Instagram[cite: 1]</a>
+                        <span>Behind the Scenes[cite: 1]</span>
                     </div>
                     <div class="social-matrix-card">
                         <a href="https://tiktok.com/@zoomzoombee" target="_blank">TikTok</a>
-                        <span>@zoomzoombee</span>
+                        <span>Fast-paced Edits</span>
                     </div>
-                </div>
-            </section>
-
-            <section id="code">
-                <h2>Rendering Methodology</h2>
-                <p>Mathematical coordinates are mapped frame-by-frame using internal loop arrays inside Matplotlib before pipeline compilation. Below is the clean code structure executing ray tracing bounces along a circle path restriction boundary:</p>
-                
-                <div class="code-window">
-                    <div class="code-header">
-                        <span class="code-dot dot-r"></span>
-                        <span class="code-dot dot-y"></span>
-                        <span class="code-dot dot-g"></span>
-                        <span class="code-title">ray_trace_boundary.py</span>
+                    <div class="social-matrix-card">
+                        <a href="https://linkedin.com/in/mugambi-n" target="_blank">LinkedIn[cite: 2]</a>
+                        <span>Professional Dossier[cite: 2]</span>
                     </div>
-<pre><code>import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-
-# Structural Configuration Boundary Setup
-RADIUS = 10
-NUM_BOUNCES = 1000
-FPS = 30
-
-def generate_ray_path(n_points, radius):
-    """Computes geometric reflection positions on circular constraints."""
-    points = [np.array([radius, 0.0])]
-    angle = np.pi / 4  # Initial localized vector angle
-    
-    for _ in range(n_points):
-        # Solves boundary intersection calculations 
-        # and appends trajectory updates using specular logic
-        pass 
-        
-    return points
-</code></pre>
+                    <div class="social-matrix-card">
+                        <a href="mailto:mugambindwiga@gmail.com" target="_blank">Email[cite: 2]</a>
+                        <span>Direct Communication[cite: 2]</span>
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 Mugambi Ndwiga. Engineered with Python, Matplotlib &amp; Semantic HTML5 Architecture.</p>
+            <p>&copy; 2026 Mugambi Ndwiga. Engineered with Python, Matplotlib &amp; Semantic HTML5.[cite: 2]</p>
         </footer>
     </div>
 
+    <!-- Reactive Portfolio UI Filtering Controller Engine -->
     <script>
         function filterCategory(category) {
             // Update Active Tab Class Setup
