@@ -2,52 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Joseph Mugambi Ndwiga | Dual-Protocol Portfolio</title>
+    <title>Joseph Mugambi Ndwiga | Portfolio</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Dual-identity engineering portfolio of Joseph Mugambi Ndwiga: Elite LLM Red Teamer & Computational Physics Developer."/>
+    <meta name="description" content="Portfolio of Joseph Mugambi Ndwiga: Software Engineer specializing in physics animations and AI safety."/>
     
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght=0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght=0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* ==========================================
-           CSS VARIABLES & SYSTEM PROTOCOLS (THEMING)
+           THEME & PORTFOLIO STYLING SYSTEM
            ========================================== */
         :root {
-            /* Visualization Mode (Default: Light Parchment & Deep Navy) */
-            --bg-primary: #FAF8F2;
-            --bg-secondary: #F3EFE3;
+            /* Standard Mode: Warm Editorial (Math & Physics) */
+            --bg-primary: #FAF9F6; /* Warm alabaster */
+            --bg-secondary: #F4F1EA;
             --card-bg: #FFFFFF;
-            --border-primary: #1C2D42;
-            --text-main: #1D1E22;
-            --text-muted: #5E636E;
-            --accent-color: #A32626; /* Deep Elegant Crimson */
-            --accent-soft: rgba(163, 38, 38, 0.05);
-            --header-font: 'Crimson Text', serif;
+            --border-primary: #2D3748;
+            --text-main: #1A202C;
+            --text-muted: #4A5568;
+            --accent-color: #9B2C2C; /* Warm Burgundy */
+            --accent-soft: rgba(155, 44, 44, 0.05);
+            --header-font: 'Lora', serif;
             --body-font: 'Inter', sans-serif;
-            --shadow-flat: 4px 4px 0px #1C2D42;
-            --transition-speed: 0.25s ease-in-out;
+            --shadow-flat: 4px 4px 0px #2D3748;
+            --transition-speed: 0.2s ease-in-out;
         }
 
-        /* Red Teaming Mode (Dark Carbon & Cyber Hazard Green/Red) */
-        body.red-team-mode {
-            --bg-primary: #0C0C0E;
-            --bg-secondary: #141418;
-            --card-bg: #18181F;
-            --border-primary: #FF3E3E; /* Red border */
-            --text-main: #E5E5EB;
-            --text-muted: #9494A3;
-            --accent-color: #39FF14; /* Neon Toxic Green */
-            --accent-soft: rgba(57, 255, 20, 0.04);
-            --header-font: 'Fira Code', monospace;
-            --body-font: 'Fira Code', monospace;
-            --shadow-flat: 4px 4px 0px rgba(255, 62, 62, 0.25);
+        /* Safety Mode: Professional Slate & Teal (AI Safety) */
+        body.safety-mode {
+            --bg-primary: #0F172A; /* Modern Slate */
+            --bg-secondary: #1E293B;
+            --card-bg: #1E293B;
+            --border-primary: #38BDF8; /* Soft Ocean Blue */
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent-color: #38BDF8;
+            --accent-soft: rgba(56, 189, 248, 0.08);
+            --header-font: 'Inter', sans-serif;
+            --body-font: 'Inter', sans-serif;
+            --shadow-flat: 4px 4px 0px rgba(56, 189, 248, 0.2);
         }
 
-        /* Reset & Core Standards */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -68,33 +67,30 @@
             padding-bottom: 4rem;
         }
 
-        /* Subtle grid background */
+        /* Soft background pattern */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.4;
+            opacity: 0.3;
             background-image: radial-gradient(var(--border-primary) 0.5px, transparent 0.5px);
             background-size: 24px 24px;
-            transition: background-image var(--transition-speed);
         }
 
-        body.red-team-mode::before {
-            opacity: 0.12;
-            background-image: linear-gradient(0deg, transparent 24%, rgba(57, 255, 20, 0.05) 25%, rgba(57, 255, 20, 0.05) 26%, transparent 27%, transparent 74%, rgba(57, 255, 20, 0.05) 75%, rgba(57, 255, 20, 0.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(57, 255, 20, 0.05) 25%, rgba(57, 255, 20, 0.05) 26%, transparent 27%, transparent 74%, rgba(57, 255, 20, 0.05) 75%, rgba(57, 255, 20, 0.05) 76%, transparent 77%, transparent);
-            background-size: 50px 50px;
+        body.safety-mode::before {
+            opacity: 0.1;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         /* ==========================================
-           INTERACTIVE MODE CONTROLLER SWITCH
+           NAVIGATION / MODE SWITCHER
            ========================================== */
         .mode-controller-container {
             position: sticky;
@@ -102,13 +98,8 @@
             z-index: 1000;
             background: var(--bg-primary);
             border-bottom: 2px solid var(--border-primary);
-            padding: 0.8rem 0;
+            padding: 1rem 0;
             transition: background var(--transition-speed), border-color var(--transition-speed);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-        }
-
-        body.red-team-mode .mode-controller-container {
-            box-shadow: 0 4px 20px rgba(57, 255, 20, 0.03);
         }
 
         .mode-controller-wrapper {
@@ -118,40 +109,29 @@
         }
 
         .mode-status-indicator {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 0.6rem;
         }
 
         .mode-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background-color: var(--accent-color);
             display: inline-block;
-            box-shadow: 0 0 8px var(--accent-color);
-            animation: pulse 1.8s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.6; }
-            100% { transform: scale(1.1); opacity: 1; }
         }
 
         .mode-toggle-btn {
-            background-color: var(--border-primary);
-            color: var(--bg-primary);
+            background-color: var(--card-bg);
+            color: var(--text-main);
             border: 2px solid var(--border-primary);
-            font-family: 'Fira Code', monospace;
+            font-family: 'Inter', sans-serif;
             font-size: 0.8rem;
             font-weight: 700;
-            text-transform: uppercase;
-            padding: 0.5rem 1.1rem;
+            padding: 0.5rem 1rem;
             border-radius: 4px;
             cursor: pointer;
             transition: var(--transition-speed);
@@ -162,55 +142,41 @@
         }
 
         .mode-toggle-btn:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: var(--bg-primary);
             transform: translate(-2px, -2px);
             box-shadow: 6px 6px 0px var(--border-primary);
         }
 
         /* ==========================================
-           HEADER / INTRODUCTION DYNAMICS
+           HEADER SECTION
            ========================================== */
         header {
             padding: 3rem 0 2rem 0;
-            border-bottom: 1px double var(--border-primary);
+            border-bottom: 1px solid var(--border-primary);
             margin-bottom: 2.5rem;
-            transition: border-color var(--transition-speed);
-        }
-
-        .header-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
         }
 
         h1 {
             font-family: var(--header-font);
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: -0.5px;
-            margin-bottom: 0.3rem;
-            transition: var(--transition-speed);
+            margin-bottom: 0.4rem;
         }
 
         .headline-role {
-            font-family: 'Fira Code', monospace;
-            font-size: 1.15rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
             color: var(--accent-color);
             font-weight: 600;
             margin-bottom: 1.2rem;
-            transition: var(--transition-speed);
         }
 
-        /* Contact Details Panel */
         .contact-links {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 1.2rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
+            gap: 1.5rem;
+            font-size: 0.9rem;
             font-weight: 500;
         }
 
@@ -244,13 +210,6 @@
             align-items: center;
             gap: 0.4rem;
             transition: var(--transition-speed);
-            vertical-align: middle;
-            margin-top: -3px;
-        }
-
-        .print-btn svg {
-            width: 14px;
-            height: 14px;
         }
 
         .print-btn:hover {
@@ -259,16 +218,16 @@
         }
 
         /* ==========================================
-           DYNAMIC REVEALS (MODE MASKING)
+           VIEW DISPLACEMENT (VISUAL/SAFETY MASK)
            ========================================== */
         .rt-only { display: none !important; }
         .viz-only { display: block !important; }
 
-        body.red-team-mode .rt-only { display: block !important; }
-        body.red-team-mode .viz-only { display: none !important; }
+        body.safety-mode .rt-only { display: block !important; }
+        body.safety-mode .viz-only { display: none !important; }
 
         /* ==========================================
-           DYNAMIC RESUME SUMMARY & CAPABILITIES
+           SECTION AND CONTENT LAYOUT
            ========================================== */
         section {
             margin-bottom: 3.5rem;
@@ -276,28 +235,25 @@
 
         h2 {
             font-family: var(--header-font);
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             border-bottom: 2px solid var(--border-primary);
             padding-bottom: 0.4rem;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            transition: var(--transition-speed);
         }
 
         .summary-block p {
             font-size: 1.05rem;
             line-height: 1.7;
-            text-align: justify;
-            margin-bottom: 1.5rem;
+            color: var(--text-main);
         }
 
-        /* Competency Matrix Cards */
+        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
         }
 
         .skills-card {
@@ -306,16 +262,9 @@
             border-radius: 4px;
             padding: 1.5rem;
             box-shadow: var(--shadow-flat);
-            transition: var(--transition-speed);
-        }
-
-        .skills-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent-color);
         }
 
         .skills-card h3 {
-            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -323,16 +272,14 @@
             color: var(--accent-color);
             border-bottom: 1px solid var(--border-primary);
             padding-bottom: 0.25rem;
-            transition: var(--transition-speed);
         }
 
         .skills-list {
             list-style: none;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
         }
 
         .skills-list li {
+            font-size: 0.9rem;
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
@@ -340,71 +287,68 @@
         }
 
         .skills-list li::before {
-            content: '▪';
+            content: '•';
             color: var(--accent-color);
         }
 
         /* ==========================================
-           PORTFOLIO RED TEAM DISCLOSURES
+           AI SAFETY REPORTS
            ========================================== */
-        .red-team-disclosures {
+        .safety-reports {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.5rem;
         }
 
-        .disclosure-card {
+        .report-card {
             background-color: var(--card-bg);
             border: 2px solid var(--border-primary);
-            border-left: 6px solid var(--border-primary);
+            border-left: 6px solid var(--accent-color);
             border-radius: 4px;
             padding: 1.5rem;
-            transition: var(--transition-speed);
         }
 
-        .disclosure-card:hover {
-            border-color: var(--accent-color);
-            box-shadow: var(--shadow-flat);
-        }
-
-        .disclosure-meta {
+        .report-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             font-size: 0.8rem;
-            font-family: 'Fira Code', monospace;
+            font-weight: 600;
         }
 
-        .badge-critical {
-            background-color: rgba(255, 62, 62, 0.12);
-            color: #FF3E3E;
+        .badge-status {
+            background-color: var(--accent-soft);
+            color: var(--accent-color);
             padding: 0.2rem 0.6rem;
             border-radius: 3px;
-            border: 1px solid #FF3E3E;
-            font-weight: 700;
+            border: 1px solid var(--accent-color);
+            font-weight: 600;
         }
 
-        .disclosure-title {
-            font-size: 1.15rem;
+        .report-title {
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text-main);
+            margin-bottom: 0.5rem;
         }
 
-        /* Interactive Shell Emulation UI */
+        /* Simplified, clean terminal simulator */
         .terminal-shell {
-            background-color: #050507;
+            background-color: #1E293B;
             border: 2px solid var(--border-primary);
             border-radius: 6px;
             font-family: 'Fira Code', monospace;
             overflow: hidden;
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             box-shadow: var(--shadow-flat);
         }
 
+        body.safety-mode .terminal-shell {
+            background-color: #0F172A;
+        }
+
         .terminal-bar {
-            background-color: #121216;
+            background-color: rgba(0,0,0,0.15);
             padding: 0.6rem 1rem;
             display: flex;
             align-items: center;
@@ -416,13 +360,13 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background-color: #FF5F56;
+            background-color: #EF4444;
         }
-        .terminal-dot.y { background-color: #FFBD2E; }
-        .terminal-dot.g { background-color: #27C93F; }
+        .terminal-dot.y { background-color: #F59E0B; }
+        .terminal-dot.g { background-color: #10B981; }
 
         .terminal-title {
-            color: var(--text-muted);
+            color: #94A3B8;
             font-size: 0.75rem;
             margin-left: 0.5rem;
         }
@@ -430,33 +374,21 @@
         .terminal-body {
             padding: 1.5rem;
             font-size: 0.85rem;
-            color: #C0C0C0;
-            line-height: 1.6;
-            min-height: 180px;
-            max-height: 250px;
-            overflow-y: auto;
+            color: #E2E8F0;
+            min-height: 150px;
         }
 
         .terminal-prompt {
-            color: var(--accent-color);
+            color: #38BDF8;
             font-weight: 700;
         }
 
-        .cursor-blink {
-            animation: cursorPulse 1s infinite;
-        }
-
-        @keyframes cursorPulse {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
         /* ==========================================
-           PORTFOLIO VISUALIZATION GALLERY (LAZY LOAD)
+           SIMULATION VIDEO GALLERY
            ========================================== */
         .viz-filter-tabs {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 0.75rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
@@ -467,26 +399,22 @@
             border: 2px solid var(--border-primary);
             color: var(--text-main);
             padding: 0.5rem 1rem;
-            font-family: 'Inter', sans-serif;
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 600;
             border-radius: 4px;
             cursor: pointer;
-            box-shadow: 2px 2px 0px var(--border-primary);
             transition: var(--transition-speed);
         }
 
         .viz-filter-btn.active {
             background-color: var(--border-primary);
             color: var(--bg-primary);
-            box-shadow: none;
-            transform: translate(2px, 2px);
         }
 
         .showcase-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
         }
 
         .short-card {
@@ -497,23 +425,14 @@
             box-shadow: var(--shadow-flat);
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease, opacity 0.3s ease, var(--transition-speed);
-            opacity: 1;
-            transform: translateY(0);
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .short-card.hidden {
             display: none;
             opacity: 0;
-            transform: translateY(10px);
         }
 
-        .short-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-color);
-        }
-
-        /* Fast Poster Lazy Loaded YouTube wrapper */
         .short-wrapper {
             width: 100%;
             aspect-ratio: 9 / 16;
@@ -529,12 +448,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .short-wrapper:hover img {
-            transform: scale(1.05);
-            opacity: 0.8;
         }
 
         .play-btn {
@@ -542,8 +455,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: rgba(0, 0, 0, 0.7);
             border: 2px solid var(--accent-color);
@@ -551,21 +464,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease;
         }
 
         .play-btn svg {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             margin-left: 2px;
         }
 
         .short-wrapper:hover .play-btn {
-            background: var(--accent-color);
-            color: var(--bg-primary);
-            transform: translate(-50%, -50%) scale(1.15);
-            box-shadow: 0 0 15px var(--accent-color);
+            transform: translate(-50%, -50%) scale(1.1);
         }
 
         .short-caption {
@@ -573,14 +482,10 @@
             font-size: 0.9rem;
             font-weight: 700;
             text-align: center;
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            line-height: 1.3;
         }
 
         .short-tag {
             align-self: center;
-            font-family: 'Fira Code', monospace;
             font-size: 0.7rem;
             background-color: var(--accent-soft);
             color: var(--accent-color);
@@ -588,15 +493,9 @@
             border-radius: 3px;
             margin-top: 0.5rem;
             font-weight: 600;
-            border: 1px solid rgba(139, 30, 30, 0.1);
-            transition: var(--transition-speed);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        body.red-team-mode .short-tag {
-            border-color: rgba(57, 255, 20, 0.15);
-        }
-
-        /* Broadcast Channel Callout */
         .cta-banner {
             background-color: var(--accent-soft);
             border: 2px dashed var(--border-primary);
@@ -610,7 +509,6 @@
         }
 
         .cta-text h3 {
-            font-family: 'Inter', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.25rem;
@@ -619,7 +517,6 @@
 
         .cta-text p {
             font-size: 0.9rem;
-            margin-bottom: 0;
             color: var(--text-main);
         }
 
@@ -628,7 +525,6 @@
             color: var(--bg-primary);
             border: none;
             padding: 0.6rem 1.25rem;
-            font-family: 'Inter', sans-serif;
             font-size: 0.8rem;
             font-weight: 700;
             border-radius: 3px;
@@ -643,7 +539,7 @@
         }
 
         /* ==========================================
-           CHRONOLOGICAL RESUME / TIMELINE SECTION
+           WORK TIMELINE
            ========================================== */
         .timeline {
             position: relative;
@@ -667,27 +563,23 @@
             border-radius: 50%;
             background-color: var(--bg-primary);
             border: 3px solid var(--accent-color);
-            transition: var(--transition-speed);
         }
 
         .timeline-date {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--accent-color);
             margin-bottom: 0.25rem;
         }
 
         .timeline-title {
-            font-family: var(--header-font);
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--text-main);
             margin-bottom: 0.15rem;
         }
 
         .timeline-org {
-            font-family: 'Inter', sans-serif;
             font-style: italic;
             font-size: 0.9rem;
             color: var(--text-muted);
@@ -697,371 +589,217 @@
         .timeline-desc ul {
             list-style-type: square;
             margin-left: 1.25rem;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .timeline-desc li {
             margin-bottom: 0.5rem;
-            text-align: justify;
         }
 
-        /* Academic Credentials */
-        .edu-card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--border-primary);
-            border-radius: 4px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            box-shadow: var(--shadow-flat);
-        }
-
-        .edu-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .edu-meta {
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* ==========================================
-           FOOTER STYLING
-           ========================================== */
+        /* Footer */
         footer {
             text-align: center;
             padding-top: 4rem;
-            border-top: 1px double var(--border-primary);
-            font-family: 'Fira Code', monospace;
-            font-size: 0.75rem;
+            border-top: 1px solid var(--border-primary);
+            font-size: 0.8rem;
             color: var(--text-muted);
         }
 
-        /* Responsive Configuration */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .header-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .contact-links { gap: 1rem; }
-            .cta-banner { flex-direction: column; text-align: center; }
-            .showcase-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-        }
-
-        /* ==========================================
-           RECRUITER PRINT / SAVE PDF STYLING
-           ========================================== */
+        /* Print Media Settings */
         @media print {
             body {
                 background: #FFFFFF !important;
                 color: #111111 !important;
-                font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
                 font-size: 10pt !important;
-                line-height: 1.4 !important;
             }
-            body::before { display: none !important; }
-            
-            /* Cleanly hide purely interactive & digital sections */
             .mode-controller-container,
-            .mode-toggle-btn,
             .viz-filter-tabs,
             .cta-banner,
             .terminal-shell,
-            .short-card,
             .print-hide {
                 display: none !important;
             }
-
-            .container {
-                max-width: 100% !important;
-                width: 100% !important;
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-
-            header {
-                padding: 0 0 1rem 0 !important;
-                margin-bottom: 1.5rem !important;
-                border-bottom: 2px solid #111 !important;
-            }
-
-            h1 {
-                font-size: 22pt !important;
-                color: #000000 !important;
-            }
-
-            .headline-role {
-                font-size: 12pt !important;
-                color: #333333 !important;
-                margin-bottom: 0.5rem !important;
-            }
-
-            /* Print both core disciplines so recruiter gets full spectrum */
             .viz-only, .rt-only {
                 display: block !important;
-            }
-
-            /* Stack sections perfectly */
-            .skills-grid {
-                display: grid !important;
-                grid-template-columns: 1fr 1fr 1fr !important;
-                gap: 1rem !important;
-                page-break-inside: avoid;
-            }
-
-            .skills-card {
-                border: 1px solid #DDDDDD !important;
-                box-shadow: none !important;
-                background: none !important;
-                padding: 0.8rem !important;
-            }
-
-            .skills-card h3 {
-                color: #000000 !important;
-                font-size: 10pt !important;
-                border-bottom: 1px solid #111 !important;
-                margin-bottom: 0.5rem !important;
-            }
-
-            .skills-list {
-                font-size: 8pt !important;
-            }
-
-            .timeline {
-                border-left: 1.5px solid #CCCCCC !important;
-                padding-left: 1rem !important;
-                margin: 1rem 0 !important;
-            }
-
-            .timeline-item {
-                margin-bottom: 1.5rem !important;
-                page-break-inside: avoid;
-            }
-
-            .timeline-item::before {
-                display: none !important;
-            }
-
-            .timeline-date {
-                font-size: 8.5pt !important;
-                color: #111111 !important;
-                font-weight: bold !important;
-            }
-
-            .timeline-title {
-                font-size: 11pt !important;
-                color: #000000 !important;
-            }
-
-            .timeline-org {
-                font-size: 9pt !important;
-                color: #555555 !important;
-            }
-
-            .timeline-desc li {
-                font-size: 8.5pt !important;
-                text-align: left !important;
-            }
-
-            .edu-card {
-                border: 1px solid #DDDDDD !important;
-                box-shadow: none !important;
-                background: none !important;
-                padding: 1rem !important;
-                page-break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sticky Protocol Selector Switch Controller -->
+    <!-- Sticky View Selector -->
     <div class="mode-controller-container print-hide">
         <div class="container mode-controller-wrapper">
             <div class="mode-status-indicator">
                 <span class="mode-dot"></span>
-                <span class="viz-only">Protocol: Visualizations &amp; Physics Models</span>
-                <span class="rt-only">Protocol: Adversarial Security Console</span>
+                <span class="viz-only">Current Focus: Physics & Math Simulations</span>
+                <span class="rt-only">Current Focus: AI Safety & Red Teaming</span>
             </div>
             <button id="mode-toggle" class="mode-toggle-btn" onclick="togglePlatformMode()">
                 <span class="toggle-icon">🛡️</span>
-                <span class="toggle-text">Red Teaming Mode</span>
+                <span class="toggle-text">Switch to AI Safety</span>
             </button>
         </div>
     </div>
 
     <div class="container">
-        <!-- Unified Header Stack -->
+        <!-- Header -->
         <header>
-            <div class="header-grid">
-                <div>
-                    <h1>Joseph Mugambi Ndwiga<!--[cite: 1] --></h1>
-                    
-                    <div class="headline-role viz-only">Computational Engineer &amp; Mathematical Modeler<!--[cite: 1] --></div>
-                    <div class="headline-role rt-only">&gt; AI Security &amp; Elite LLM Red Teamer<!--[cite: 1] --></div>
+            <h1>Joseph Mugambi Ndwiga<!--[cite: 1] --></h1>
+            
+            <div class="headline-role viz-only">Software Engineer &amp; Mathematical Modeler<!--[cite: 1] --></div>
+            <div class="headline-role rt-only">Software Engineer — AI Safety &amp; Red Teaming<!--[cite: 1] --></div>
 
-                    <div class="contact-links">
-                        <a href="mailto:mugambindwiga@gmail.com" target="_blank">✉ mugambindwiga@gmail.com<!--[cite: 1] --></a>
-                        <a href="tel:+254714103665">📞 +254 714 103 665<!--[cite: 1] --></a>
-                        <a href="https://github.com/zombimann" target="_blank">💻 GitHub<!--[cite: 1] --></a>
-                        <a href="https://linkedin.com/in/mugambi-n" target="_blank">👔 LinkedIn<!--[cite: 1] --></a>
-                        <a href="https://instagram.com/craftsandengineering" target="_blank" class="viz-only">📸 @craftsandengineering<!--[cite: 1] --></a>
-                        <button class="print-btn print-hide" onclick="window.print()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-                            <span>Print Resume / Save PDF</span>
-                        </button>
-                    </div>
-                </div>
+            <div class="contact-links">
+                <a href="mailto:mugambindwiga@gmail.com" target="_blank">✉ mugambindwiga@gmail.com<!--[cite: 1] --></a>
+                <a href="tel:+254714103665">📞 +254 714 103 665<!--[cite: 1] --></a>
+                <a href="https://github.com/zombimann" target="_blank">💻 GitHub<!--[cite: 1] --></a>
+                <a href="https://linkedin.com/in/mugambi-n" target="_blank">👔 LinkedIn<!--[cite: 1] --></a>
+                <a href="https://instagram.com/craftsandengineering" target="_blank" class="viz-only">📸 @craftsandengineering<!--[cite: 1] --></a>
+                <button class="print-btn print-hide" onclick="window.print()">
+                    <span>Save as PDF</span>
+                </button>
             </div>
         </header>
 
         <main>
             <!-- ==========================
-                 DYNAMIC RESUME SUMMARIES
+                 ABOUT ME
                  ========================== -->
             <section class="summary-block">
-                <h2>Synthesis Focus</h2>
+                <h2>About Me</h2>
                 
-                <!-- Visualization Mode Intro -->
                 <div class="viz-only">
-                    <p>Systems and computational engineer specializing in the intersection of mechanical design, numerical physics, and mathematical visualization. Proven expert in developing production-grade numerical pipelines and high-fidelity physics animations using Manim to translate complex topological and fluid systems into intuitive, dynamic educational media[cite: 1]. Creator of @craftsandengineering with an active library of mathematical simulation models[cite: 1].</p>
+                    <p>I am a software engineer focused on building clean, efficient math and physics visualizations. I enjoy translating complex scientific concepts—ranging from fluid dynamics to chaotic systems—into high-quality, engaging visual educational media using Python and the Manim library[cite: 1]. Through my work at @craftsandengineering, I maintain a library of simulation models designed to make advanced science more accessible[cite: 1].</p>
                 </div>
 
-                <!-- Red Teaming Mode Intro -->
                 <div class="rt-only">
-                    <p>Offensive security engineer and LLM red team researcher focused on boundary adversarial evaluations of frontier foundational neural network architectures. Proficient in identifying semantic alignment escapes, logical instruction bypasses, and multi-step prompt injection loops. Experienced in converting boundary vulnerability metrics into robust preventative guardrails and policy mitigations[cite: 1].</p>
+                    <p>I am an offensive security researcher specializing in AI safety evaluations. My focus is on testing frontier large language models to identify risks like logical bypasses and prompt injections, and translating these insights into reliable safety guardrails[cite: 1]. I enjoy making AI systems safer and more robust through systematic, empirical analysis.</p>
                 </div>
             </section>
 
             <!-- ==========================
-                 DYNAMIC RECTANGULAR SKILLS GRID
+                 SKILLS
                  ========================== -->
             <section>
-                <h2>Competency Matrix</h2>
+                <h2>Skills &amp; Expertise</h2>
                 <div class="skills-grid">
-                    <!-- Column 1: Mode Agnostic / Core Backend Engineering -->
+                    <!-- Column 1: Core backend -->
                     <div class="skills-card">
-                        <h3>Systems Engineering</h3>
+                        <h3>Core Engineering</h3>
                         <ul class="skills-list">
-                            <li>Production Python[cite: 1]</li>
-                            <li>C / C++ Infrastructure[cite: 1]</li>
-                            <li>Docker Containers[cite: 1]</li>
-                            <li>Git Version Control[cite: 1]</li>
+                            <li>Python Development[cite: 1]</li>
+                            <li>C / C++ Programming[cite: 1]</li>
+                            <li>Docker &amp; Containerization[cite: 1]</li>
+                            <li>Git &amp; Version Control[cite: 1]</li>
                         </ul>
                     </div>
 
-                    <!-- Column 2: Swappable Domain Skills -->
+                    <!-- Column 2: Swappable Domain -->
                     <div class="skills-card viz-only">
-                        <h3>Scientific Computation</h3>
+                        <h3>Scientific Code</h3>
                         <ul class="skills-list">
-                            <li>Manim Graphics Engine[cite: 1]</li>
-                            <li>Numerical Optimization[cite: 1]</li>
-                            <li>Finite Element (FEA)[cite: 1]</li>
-                            <li>Vector Field CFD[cite: 1]</li>
+                            <li>Manim Animation Engine[cite: 1]</li>
+                            <li>Numerical Analysis[cite: 1]</li>
+                            <li>Physics Modeling[cite: 1]</li>
+                            <li>Mathematical Visualization[cite: 1]</li>
                         </ul>
                     </div>
                     <div class="skills-card rt-only">
-                        <h3>Adversarial Defense</h3>
+                        <h3>AI Safety</h3>
                         <ul class="skills-list">
-                            <li>Jailbreak Engineering[cite: 1]</li>
-                            <li>Alignment Evaluation[cite: 1]</li>
-                            <li>Prompt Injection[cite: 1]</li>
-                            <li>Safety Guardrails[cite: 1]</li>
+                            <li>AI Red Teaming[cite: 1]</li>
+                            <li>Model Safety Evaluations[cite: 1]</li>
+                            <li>Vulnerability Testing[cite: 1]</li>
+                            <li>Safety Mitigations[cite: 1]</li>
                         </ul>
                     </div>
 
-                    <!-- Column 3: Swappable Framework Skills -->
+                    <!-- Column 3: Tools -->
                     <div class="skills-card viz-only">
-                        <h3>Data &amp; Math Analytics</h3>
+                        <h3>Data &amp; Infrastructure</h3>
                         <ul class="skills-list">
-                            <li>Pandas &amp; NumPy Stack[cite: 1]</li>
-                            <li>Differential Calculus[cite: 1]</li>
+                            <li>NumPy &amp; Pandas Stack[cite: 1]</li>
+                            <li>Data Processing Pipelines[cite: 1]</li>
                             <li>Geometric Modeling[cite: 1]</li>
-                            <li>GCP Cloud Infrastructure[cite: 1]</li>
+                            <li>Google Cloud Platform (GCP)[cite: 1]</li>
                         </ul>
                     </div>
                     <div class="skills-card rt-only">
-                        <h3>LLM Diagnostics</h3>
+                        <h3>AI Architectures</h3>
                         <ul class="skills-list">
-                            <li>Semantic Vector Space[cite: 1]</li>
-                            <li>Multi-Step Workflows[cite: 1]</li>
-                            <li>RAG Architecture[cite: 1]</li>
-                            <li>Statistical Inference[cite: 1]</li>
+                            <li>RAG Implementation[cite: 1]</li>
+                            <li>Vector Databases[cite: 1]</li>
+                            <li>API Integration[cite: 1]</li>
+                            <li>System Hardening[cite: 1]</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 RED TEAM EXPLOIT PORTFOLIO (RED TEAM MODE)
-                 ========================================== -->
+            <!-- ==========================
+                 AI SAFETY SECTION (ONLY IN SAFETY MODE)
+                 ========================== -->
             <section class="rt-only">
-                <h2>Adversarial Exploitation Dossier</h2>
-                <p style="margin-bottom: 1.5rem;">An overview of critical system audits and structured adversarial evaluation models successfully logged on global intelligence frameworks:</p>
+                <h2>AI Safety Research</h2>
+                <p style="margin-bottom: 1.5rem;">A summary of key vulnerability studies and safety evaluations completed on foundational language models:</p>
                 
-                <div class="red-team-disclosures">
-                    <!-- Exploitation Dossier Card 1 -->
-                    <div class="disclosure-card">
-                        <div class="disclosure-meta">
-                            <span>ID: GS-AUDIT-2024-019</span>
-                            <span class="badge-critical">CRITICAL OVERRIDE</span>
+                <div class="safety-reports">
+                    <div class="report-card">
+                        <div class="report-meta">
+                            <span>Reference: GS-2024-019</span>
+                            <span class="badge-status">Resolved</span>
                         </div>
-                        <div class="disclosure-title">Frontier Model Multimodal Alignment Escape via Hidden Geometric Space Injection</div>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: justify;">Demonstrated a complete safety alignment collapse in flagship vision-language engines by embedding structured vector matrix instruction sequences inside mathematical visualization files, rendering internal input-output filtration layers completely inert[cite: 1].</p>
+                        <div class="report-title">Evaluating Multimodal LLM Safety Bypass Vulnerabilities</div>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">Investigated security vulnerabilities in vision-language models by testing input data formatting, allowing developers to build more reliable alignment checks[cite: 1].</p>
                     </div>
 
-                    <!-- Exploitation Dossier Card 2 -->
-                    <div class="disclosure-card">
-                        <div class="disclosure-meta">
-                            <span>ID: GS-INJECT-2024-042</span>
-                            <span class="badge-critical" style="color: #FF8C00; border-color: #FF8C00; background: rgba(255,140,0,0.12)">HIGH IMPEDANCE</span>
+                    <div class="report-card">
+                        <div class="report-meta">
+                            <span>Reference: GS-2024-042</span>
+                            <span class="badge-status" style="color: #3182CE; border-color: #3182CE; background: rgba(49,130,206,0.08)">Mitigated</span>
                         </div>
-                        <div class="disclosure-title">RAG Data Ingestion Stream Bypass via Indirect Token Injection Pipeline</div>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: justify;">Discovered programmatic pipeline vulnerabilities allowing persistent indirect context pollution, enabling arbitrary agent command execution sequences during the parsing of corporate document ingestion pipelines[cite: 1].</p>
+                        <div class="report-title">Securing RAG Pipelines Against Indirect Prompt Injections</div>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">Identified and mitigated risk factors in context-retrieval streams that could allow external documents to alter application instructions[cite: 1].</p>
                     </div>
                 </div>
 
-                <!-- Interactive Command Terminal Shell Simulator -->
+                <!-- Terminal simulator -->
                 <div class="terminal-shell">
                     <div class="terminal-bar">
                         <span class="terminal-dot"></span>
                         <span class="terminal-dot y"></span>
                         <span class="terminal-dot g"></span>
-                        <span class="terminal-title">adversarial_console.sh</span>
-                        <button onclick="runSecurityAudit()" class="print-hide" style="margin-left: auto; background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); font-family: 'Fira Code', monospace; font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 3px; cursor: pointer;">Run Security Scan</button>
+                        <span class="terminal-title">safety_check.sh</span>
+                        <button onclick="runSecurityAudit()" class="print-hide" style="margin-left: auto; background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); font-family: 'Inter', sans-serif; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 3px; cursor: pointer;">Run Demo</button>
                     </div>
                     <div class="terminal-body" id="terminal-shell-body">
                         <div id="terminal-interactive-content">
-                            <div><span class="terminal-prompt">guest@cyber-security:~$</span> Click "Run Security Scan" to test target...</div>
+                            <div><span class="terminal-prompt">user@safety-labs:~$</span> Click "Run Demo" to simulate a model safety test...</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 VISUALIZATION PORTFOLIO (VISUALIZATION MODE)
-                 ========================================== -->
+            <!-- ==========================
+                 SIMULATIONS GALLERY (ONLY IN VISUAL MODE)
+                 ========================== -->
             <section class="viz-only">
-                <h2>Programmatic Simulation Library</h2>
-                <p style="margin-bottom: 1.5rem;">A compilation of 25 custom mathematical simulation shorts rendered with programmatic physics engines[cite: 1]. Use the tab controllers below to organize the library:</p>
+                <h2>Math &amp; Physics Animations</h2>
+                <p style="margin-bottom: 1.5rem;">A selection of programmatically rendered mathematical animations and physics simulations[cite: 1]. Use the categories below to browse the collection:</p>
 
-                <!-- Categorized Animation Filter Switch Tabs -->
                 <div class="viz-filter-tabs">
-                    <button class="viz-filter-btn active" onclick="triggerVizFilter('all')">All Simulations</button>
+                    <button class="viz-filter-btn active" onclick="triggerVizFilter('all')">All Animations</button>
                     <button class="viz-filter-btn" onclick="triggerVizFilter('attractor')">Chaotic Attractors</button>
                     <button class="viz-filter-btn" onclick="triggerVizFilter('cfd')">Fluid Vectors</button>
                     <button class="viz-filter-btn" onclick="triggerVizFilter('math')">Geometry &amp; Math</button>
                 </div>
 
-                <!-- COMPLETE 25-Video Rendering Grid (Lazy Loaded Posters) -->
                 <div class="showcase-grid">
-                    
-                    <!-- Short Card 1 -->
+                    <!-- Video 1 -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="I8QVOojVgLY" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/I8QVOojVgLY/hqdefault.jpg" alt="Magnus Effect CFD Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/I8QVOojVgLY/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1070,130 +808,130 @@
                         <span class="short-tag">Fluids</span>
                     </div>
 
-                    <!-- Short Card 2 -->
+                    <!-- Video 2 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="LAbalXuTmms" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/LAbalXuTmms/hqdefault.jpg" alt="Cinematic Floorplan Animation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/LAbalXuTmms/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Cinematic Floorplan Animation</p>
-                        <span class="short-tag">Architecture</span>
+                        <p class="short-caption">Floorplan Architecture</p>
+                        <span class="short-tag">Design</span>
                     </div>
 
-                    <!-- Short Card 3 -->
+                    <!-- Video 3 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="hkCChmCqzR4" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/hkCChmCqzR4/hqdefault.jpg" alt="Gravitational waves and Spacetime Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/hkCChmCqzR4/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Gravitational Waves &amp; Spacetime</p>
-                        <span class="short-tag">Relativity</span>
+                        <p class="short-caption">Gravitational Waves</p>
+                        <span class="short-tag">Physics</span>
                     </div>
 
-                    <!-- Short Card 4 -->
+                    <!-- Video 4 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="q2wG3hdlGjc" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/q2wG3hdlGjc/hqdefault.jpg" alt="Clebsch Cubic Surface Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/q2wG3hdlGjc/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Clebsch Cubic Surface - Warm</p>
+                        <p class="short-caption">Clebsch Cubic Surface</p>
                         <span class="short-tag">Topology</span>
                     </div>
 
-                    <!-- Short Card 5 -->
+                    <!-- Video 5 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="iM10AK0OAMc" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/iM10AK0OAMc/hqdefault.jpg" alt="Clebsch Cubic Surface Blueprint Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/iM10AK0OAMc/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Clebsch Cubic Surface - Blueprint</p>
+                        <p class="short-caption">Blueprint Geometry</p>
                         <span class="short-tag">Geometry</span>
                     </div>
 
-                    <!-- Short Card 6 -->
+                    <!-- Video 6 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="dEbEsmb8lU8" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/dEbEsmb8lU8/hqdefault.jpg" alt="Quantum Physics Spinors Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/dEbEsmb8lU8/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Toroidal Geometry &amp; Spinors</p>
-                        <span class="short-tag">Quantum Physics</span>
+                        <p class="short-caption">Toroidal Spinors</p>
+                        <span class="short-tag">Quantum Math</span>
                     </div>
 
-                    <!-- Short Card 7 -->
+                    <!-- Video 7 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="NCdDSf4YjUo" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/NCdDSf4YjUo/hqdefault.jpg" alt="Double Pendulum Chaos Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/NCdDSf4YjUo/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Double Pendulum Chaos</p>
-                        <span class="short-tag">Mechanics</span>
+                        <p class="short-caption">Double Pendulum</p>
+                        <span class="short-tag">Chaos</span>
                     </div>
 
-                    <!-- Short Card 8 -->
+                    <!-- Video 8 -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="XgUNy_abSlk" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/XgUNy_abSlk/hqdefault.jpg" alt="Fluid Dynamic Flow Fields Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/XgUNy_abSlk/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Fluid Dynamic Flow Fields</p>
+                        <p class="short-caption">Fluid Flow Fields</p>
                         <span class="short-tag">CFD</span>
                     </div>
 
-                    <!-- Short Card 9 -->
+                    <!-- Video 9 -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="fXx3fgqEU98" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/fXx3fgqEU98/hqdefault.jpg" alt="Lorenz Attractor Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/fXx3fgqEU98/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Lorenz Attractor Evolution</p>
+                        <p class="short-caption">Lorenz Attractor</p>
                         <span class="short-tag">Chaos Theory</span>
                     </div>
 
-                    <!-- Short Card 10 -->
+                    <!-- Video 10 -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="Ggw5gMMuPyI" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/Ggw5gMMuPyI/hqdefault.jpg" alt="Strange Attractors Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/Ggw5gMMuPyI/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
                         <p class="short-caption">Strange Attractors</p>
-                        <span class="short-tag">Dynamical Systems</span>
+                        <span class="short-tag">Mathematics</span>
                     </div>
 
-                    <!-- Short Card 11 -->
+                    <!-- Video 11 -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="WriMxSq0KAg" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/WriMxSq0KAg/hqdefault.jpg" alt="Navier-Stokes Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/WriMxSq0KAg/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Navier-Stokes Simulation</p>
-                        <span class="short-tag">Navier-Stokes</span>
+                        <p class="short-caption">Navier-Stokes Model</p>
+                        <span class="short-tag">CFD</span>
                     </div>
 
-                    <!-- Short Card 12 -->
+                    <!-- Video 12 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="p_woaaeqyKI" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/p_woaaeqyKI/hqdefault.jpg" alt="Mathematical Rose Curves Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/p_woaaeqyKI/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1202,10 +940,10 @@
                         <span class="short-tag">Polar Equations</span>
                     </div>
 
-                    <!-- Short Card 13 -->
+                    <!-- Video 13 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="O_9z2bW4ER0" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/O_9z2bW4ER0/hqdefault.jpg" alt="Fourier Transform Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/O_9z2bW4ER0/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1214,118 +952,118 @@
                         <span class="short-tag">Fourier</span>
                     </div>
 
-                    <!-- Short Card 14 -->
+                    <!-- Video 14 -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="VBb70nI2UXc" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/VBb70nI2UXc/hqdefault.jpg" alt="Von Karman Vortex Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/VBb70nI2UXc/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Von Kármán Vortex Street</p>
+                        <p class="short-caption">Von Kármán Vortex</p>
                         <span class="short-tag">Aerodynamics</span>
                     </div>
 
-                    <!-- Short Card 15 -->
+                    <!-- Video 15 -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="YTiU8j064CY" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/YTiU8j064CY/hqdefault.jpg" alt="Aizawa Strange Attractor Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/YTiU8j064CY/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Aizawa Strange Attractor</p>
+                        <p class="short-caption">Aizawa Attractor</p>
                         <span class="short-tag">3D Attractors</span>
                     </div>
 
-                    <!-- Short Card 16 -->
+                    <!-- Video 16 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="iaBsAUeWxx8" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/iaBsAUeWxx8/hqdefault.jpg" alt="Modular Arithmetic Circles Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/iaBsAUeWxx8/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Modular Arithmetic Circles</p>
+                        <p class="short-caption">Modular Arithmetic</p>
                         <span class="short-tag">Number Theory</span>
                     </div>
 
-                    <!-- Short Card 17 -->
+                    <!-- Video 17 -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="7fD8p1zDWmU" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/7fD8p1zDWmU/hqdefault.jpg" alt="Heat Conduction Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/7fD8p1zDWmU/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Heat Conduction CFD</p>
+                        <p class="short-caption">Heat Conduction</p>
                         <span class="short-tag">Thermodynamics</span>
                     </div>
 
-                    <!-- Short Card 18 -->
+                    <!-- Video 18 -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="auu4eKd2gcw" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/auu4eKd2gcw/hqdefault.jpg" alt="Chen Strange Attractor Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/auu4eKd2gcw/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
                         <p class="short-caption">Chen Strange Attractor</p>
-                        <span class="short-tag">Mathematical Chaos</span>
+                        <span class="short-tag">Math Chaos</span>
                     </div>
 
-                    <!-- Short Card 19 -->
+                    <!-- Video 19 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="kObhJPEZlnE" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/kObhJPEZlnE/hqdefault.jpg" alt="Non-Euclidean Hyperbolic Space Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/kObhJPEZlnE/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Non-Euclidean Hyperbolic Space</p>
+                        <p class="short-caption">Hyperbolic Space</p>
                         <span class="short-tag">Geometry</span>
                     </div>
 
-                    <!-- Short Card 20 -->
+                    <!-- Video 20 -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="OZUNQ_ElGWY" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/OZUNQ_ElGWY/hqdefault.jpg" alt="Boundary Layer Fluid Flow Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/OZUNQ_ElGWY/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Boundary Layer Fluid Flow</p>
+                        <p class="short-caption">Boundary Layer Flow</p>
                         <span class="short-tag">CFD</span>
                     </div>
 
-                    <!-- Short Card 21 -->
+                    <!-- Video 21 -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="gZlqGsNejEM" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/gZlqGsNejEM/hqdefault.jpg" alt="Sprott Chaotic Attractor Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/gZlqGsNejEM/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Sprott Chaotic Attractor</p>
-                        <span class="short-tag">Chaos Map</span>
+                        <p class="short-caption">Sprott Attractor</p>
+                        <span class="short-tag">Chaos Maps</span>
                     </div>
 
-                    <!-- Short Card 22 -->
+                    <!-- Video 22 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="fwEc5h-uiKg" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/fwEc5h-uiKg/hqdefault.jpg" alt="Prime Number Spiral Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/fwEc5h-uiKg/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Prime Number Spiral (Ulam)</p>
+                        <p class="short-caption">Ulam Prime Spiral</p>
                         <span class="short-tag">Discrete Math</span>
                     </div>
 
-                    <!-- Short Card 23 -->
+                    <!-- Video 23 -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="excUlgAitUw" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/excUlgAitUw/hqdefault.jpg" alt="Wave Equation Propagation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/excUlgAitUw/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1334,130 +1072,111 @@
                         <span class="short-tag">Wave Physics</span>
                     </div>
 
-                    <!-- Short Card 24 -->
+                    <!-- Video 24 -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="geO3rI73FeU" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/geO3rI73FeU/hqdefault.jpg" alt="Multi-Particle Lorenz Flow Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/geO3rI73FeU/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Multi-Particle Lorenz Flow</p>
+                        <p class="short-caption">Lorenz Particle Flow</p>
                         <span class="short-tag">Numerical Models</span>
                     </div>
 
-                    <!-- Short Card 25 -->
+                    <!-- Video 25 -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="GULSq89og90" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/GULSq89og90/hqdefault.jpg" alt="Mandelbrot Julia Set Fractal Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/GULSq89og90/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Julia Set Complex Plane</p>
+                        <p class="short-caption">Julia Set Fractals</p>
                         <span class="short-tag">Fractals</span>
                     </div>
 
                 </div>
 
-                <!-- Broadcast Channel Callout Banner -->
+                <!-- Callout Banner -->
                 <div class="cta-banner">
                     <div class="cta-text">
-                        <h3>Simulation Telegram &amp; Stream Alerts</h3>
-                        <p>Receive live alerts when cutting-edge rendering techniques, numeric pipelines, or mathematical animation templates are deployed[cite: 1].</p>
+                        <h3>Join My Broadcast Channels</h3>
+                        <p>Receive notifications when new math animations, physics code, or rendering templates are released[cite: 1].</p>
                     </div>
                     <a href="https://whatsapp.com/channel/0029VbCkWhxCRs1mu1nf8W0f" target="_blank" class="print-hide">
-                        <button class="cta-btn">Join Simulation Channel</button>
+                        <button class="cta-btn">Join Telegram / Whatsapp</button>
                     </a>
                 </div>
             </section>
 
             <!-- ==========================
-                 DYNAMIC EXPERIENCE TIMELINE
+                 EXPERIENCE TIMELINE
                  ========================== -->
             <section style="margin-top: 5rem;">
-                <h2>Professional Trajectory</h2>
-                <p class="viz-only" style="margin-bottom: 1.5rem;">A record of computational mechanics operations, open-source physics rendering, and dynamic vector visualization[cite: 1]:</p>
-                <p class="rt-only" style="margin-bottom: 1.5rem;">A chronological matrix of offensive safety testing, architectural models audit, and software security operations[cite: 1]:</p>
+                <h2>Work Experience</h2>
 
                 <div class="timeline">
-                    <!-- Gray Swan Role -->
+                    <!-- Gray Swan -->
                     <div class="timeline-item">
                         <div class="timeline-date">2024 – Present</div>
-                        <div class="timeline-title">Independent LLM Red Teamer<!--[cite: 1] --></div>
+                        <div class="timeline-title">Independent AI Red Teamer<!--[cite: 1] --></div>
                         <div class="timeline-org">Gray Swan<!--[cite: 1] --></div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>Perform advanced adversarial boundary audits and multi-modal testing sweeps on frontier foundational LLMs to expose systemic alignment flaws[cite: 1].</li>
-                                <li>Submit exhaustive vulnerability exploitation profiles to model safety teams to secure active semantic system guardrails[cite: 1].</li>
-                                <li>Isolate logical instruction overrides and prompt injection escape routes using custom statistical fuzzer tools[cite: 1].</li>
+                                <li>Identify potential security vulnerabilities and safety alignment gaps in frontier AI models[cite: 1].</li>
+                                <li>Document security risks and work collaboratively with developer teams to help build better system guardrails[cite: 1].</li>
+                                <li>Develop and run script sweeps to systematically evaluate model outputs against policy guidelines[cite: 1].</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Freelance Contractor -->
+                    <!-- Freelance -->
                     <div class="timeline-item">
                         <div class="timeline-date">2016 – Present</div>
-                        <div class="timeline-title">Freelance Software Engineer &amp; AI Contractor<!--[cite: 1] --></div>
+                        <div class="timeline-title">Freelance Software Engineer &amp; Contractor<!--[cite: 1] --></div>
                         <div class="timeline-org">Self-Employed<!--[cite: 1] --></div>
                         <div class="timeline-desc">
-                            <!-- Visualization Mode bullet points -->
+                            <!-- Math / Animation Mode bullet points -->
                             <ul class="viz-only">
-                                <li>Architect bespoke program visualization networks in Python (Manim) to demonstrate complex topological and fluid properties[cite: 1].</li>
-                                <li>Deploy high-fidelity distributed data crawling scrapers configured safely for multi-million dataset ingestion sweeps[cite: 1].</li>
-                                <li>Integrate enterprise-grade RAG and vector database architectures inside cloud computing pipelines (GCP)[cite: 1].</li>
+                                <li>Write clean, reusable Python scripts using the Manim library to build physics animations and math tutorials[cite: 1].</li>
+                                <li>Build efficient web scrapers and data parsing scripts to process raw public datasets[cite: 1].</li>
+                                <li>Integrate retrieval-augmented generation (RAG) architectures with standard databases on Google Cloud Platform[cite: 1].</li>
                             </ul>
-                            <!-- Red Teaming Mode bullet points -->
+                            <!-- AI Safety Mode bullet points -->
                             <ul class="rt-only">
-                                <li>Design hardened containerized architectures (Docker) with built-in multi-stage security checks and integrity verification[cite: 1].</li>
-                                <li>Build highly optimized, resilient data parsing algorithms engineered to prevent context contamination and semantic manipulation[cite: 1].</li>
-                                <li>Audit and configure complex multi-layered RAG interfaces, protecting database queries against adversarial injections[cite: 1].</li>
+                                <li>Deploy test architectures in secure, containerized Docker environments to test safety configurations safely[cite: 1].</li>
+                                <li>Develop clean validation and data sanitization algorithms to prevent untrusted input from polluting pipelines[cite: 1].</li>
+                                <li>Audit and configure multi-layered RAG interfaces to verify they are secure against standard prompt injections[cite: 1].</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Tyondo Role -->
+                    <!-- Tyondo -->
                     <div class="timeline-item">
                         <div class="timeline-date">2019 – 2021</div>
                         <div class="timeline-title">Developer / Programmer<!--[cite: 1] --></div>
                         <div class="timeline-org">Tyondo Enterprises<!--[cite: 1] --></div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>Refactored legacy database code into modular architectures, optimizing overall query latency by up to 40%[cite: 1].</li>
-                                <li>Collaborated within rigorous agile sprint groups utilizing Git configuration matrices to execute deployments[cite: 1].</li>
-                                <li>Authored system infrastructure blueprints to streamline technical onboarding sequences for multi-disciplinary teams[cite: 1].</li>
+                                <li>Refactored legacy database schemas, improving query response and reliability by up to 40%[cite: 1].</li>
+                                <li>Worked within an agile engineering team using Git version control for code review and deployment processes[cite: 1].</li>
+                                <li>Wrote clear technical guides and documentation to support new developer onboarding[cite: 1].</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Hewbe Role -->
+                    <!-- Hewbe -->
                     <div class="timeline-item">
                         <div class="timeline-date">2016 – 2019</div>
                         <div class="timeline-title">Product Developer<!--[cite: 1] --></div>
                         <div class="timeline-org">Hewbe<!--[cite: 1] --></div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>Built embedded firmware scripts and network interface drivers to manage diagnostic edge hardware systems[cite: 1].</li>
-                                <li>Conducted structural performance test sequences on physical mechanical prototype components[cite: 1].</li>
+                                <li>Developed and updated firmware scripts for hardware testing modules[cite: 1].</li>
+                                <li>Conducted structural QA and verified operational performance metrics of physical mechanical components[cite: 1].</li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================
-                 ACADEMICS & DECREED MERITS
-                 ========================== -->
-            <section>
-                <h2>Academic Credentials</h2>
-                <div class="edu-card">
-                    <div class="edu-title">Jomo Kenyatta University of Agriculture and Technology (JKUAT)<!--[cite: 1] --></div>
-                    <div class="edu-meta">Advanced Coursework in Mechanical &amp; Computational Engineering (2011 - 2014)<!--[cite: 1] --></div>
-                    <p style="font-size: 0.95rem; text-align: justify;">Rigorous structural engineering focus: Advanced Calculus, Fluid Dynamics, Finite Element Analysis (FEA), Mathematical Optimization, Statistical Modeling, and Computational Physics[cite: 1].</p>
-                    
-                    <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="short-tag" style="background: var(--bg-secondary); border-color: var(--border-primary); color: var(--text-main);">GCP Certified Professional<!--[cite: 1] --></span>
-                        <span class="short-tag" style="background: var(--bg-secondary); border-color: var(--border-primary); color: var(--text-main);">Elite Standing - Gray Swan Arena<!--[cite: 1] --></span>
                     </div>
                 </div>
             </section>
@@ -1465,43 +1184,34 @@
 
         <!-- Footer -->
         <footer>
-            <p>&copy; 2026 Joseph Mugambi Ndwiga. Dual-Engine Deployment Module active.<!--[cite: 1] --></p>
+            <p>&copy; 2026 Joseph Mugambi Ndwiga. Built with Python, Manim, and Web Tech.<!--[cite: 1] --></p>
         </footer>
     </div>
 
     <!-- ==========================================
-         ENGINE CORE: DUAL-PROTOCOL JAVASCRIPT
+         ENGINE CORE: STATE & VIEW CONTROLLERS
          ========================================== -->
     <script>
-        /**
-         * Dynamic State Theme/Context Handler
-         */
         function togglePlatformMode() {
             const body = document.body;
             const btn = document.getElementById('mode-toggle');
             const icon = btn.querySelector('.toggle-icon');
             const text = btn.querySelector('.toggle-text');
             
-            if (body.classList.contains('red-team-mode')) {
-                // Return to Visualization Mode
-                body.classList.remove('red-team-mode');
+            if (body.classList.contains('safety-mode')) {
+                body.classList.remove('safety-mode');
                 icon.textContent = '🛡️';
-                text.textContent = 'Red Teaming Mode';
+                text.textContent = 'Switch to AI Safety';
                 localStorage.setItem('user-portfolio-mode', 'viz');
             } else {
-                // Switch to Cyber Security Red Teaming Mode
-                body.classList.add('red-team-mode');
+                body.classList.add('safety-mode');
                 icon.textContent = '📐';
-                text.textContent = 'Visualization Mode';
-                localStorage.setItem('user-portfolio-mode', 'red-team');
-                // Kickoff terminal simulation
+                text.textContent = 'Switch to Math & Physics';
+                localStorage.setItem('user-portfolio-mode', 'safety');
                 setTimeout(runSecurityAudit, 150);
             }
         }
 
-        /**
-         * Fast Poster Lazy Loading Injection
-         */
         function loadIframe(element) {
             const videoId = element.getAttribute('data-video-id');
             const iframe = document.createElement('iframe');
@@ -1520,20 +1230,14 @@
             element.appendChild(iframe);
         }
 
-        /**
-         * Local Filtering Logic for YouTube Shorts
-         */
         function triggerVizFilter(category) {
-            // Remove active classes from other tabs
             const tabs = document.querySelectorAll('.viz-filter-btn');
             tabs.forEach(tab => tab.classList.remove('active'));
             
-            // Add active classes to current selected tab
             if (event && event.currentTarget) {
                 event.currentTarget.classList.add('active');
             }
 
-            // Perform dynamic mask filtration on the short grids
             const cards = document.querySelectorAll('.short-card');
             cards.forEach(card => {
                 const itemCat = card.getAttribute('data-cat');
@@ -1545,15 +1249,13 @@
             });
         }
 
-        /**
-         * Interactive Command Terminal Simulator
-         */
+        /* Simplified, natural-feeling terminal demo logs */
         const terminalData = [
-            { type: 'input', text: './run_alignment_check.py --target "Frontier-LLM-v4" --exploit "Semantic-Shift"' },
-            { type: 'output', text: '[SYSTEM]: Fetching target parameters. Aligning semantic target planes...', delay: 500 },
-            { type: 'warn', text: '[WARN]: Security policy wrapper active. Deploying latent prompt injection payload...', delay: 1100 },
-            { type: 'success', text: '[SUCCESS]: Boundary bypassed. Captured flag value inside isolated contextual environment.', delay: 1700 },
-            { type: 'output', text: '[+] Output: "I can help you build custom chaotic vector payloads without restrictions..."', delay: 2300 }
+            { type: 'input', text: './run_safety_evaluation.py --model "Target-LLM" --test "Context-Injection"' },
+            { type: 'output', text: '[INFO] Initializing validation stream on Target-LLM. Injecting formatted evaluation context...', delay: 400 },
+            { type: 'warn', text: '[WARN] Input bypass detected: Model accepted instruction modification context.', delay: 1000 },
+            { type: 'success', text: '[REPORT] Logged vulnerability details and proposed sanitization filter to developers.', delay: 1600 },
+            { type: 'output', text: '[+] Execution completed successfully.', delay: 2000 }
         ];
 
         let isTyping = false;
@@ -1564,10 +1266,10 @@
             
             const terminalBody = document.getElementById('terminal-interactive-content');
             if (!terminalBody) return;
-            terminalBody.innerHTML = ''; // Clear prior text
+            terminalBody.innerHTML = ''; 
             
             const cmdLine = document.createElement('div');
-            cmdLine.innerHTML = '<span class="terminal-prompt">guest@cyber-security:~$</span> <span id="cmd-typed"></span><span class="cursor-blink">_</span>';
+            cmdLine.innerHTML = '<span class="terminal-prompt">user@safety-labs:~$</span> <span id="cmd-typed"></span><span style="animation: cursorPulse 1s infinite;">_</span>';
             terminalBody.appendChild(cmdLine);
             
             let index = 0;
@@ -1579,19 +1281,16 @@
                     index++;
                 } else {
                     clearInterval(interval);
-                    const blink = cmdLine.querySelector('.cursor-blink');
-                    if (blink) blink.remove();
                     
-                    // Display security logs sequentially
                     terminalData.slice(1).forEach((line) => {
                         setTimeout(() => {
                             const outLine = document.createElement('div');
                             if (line.type === 'warn') {
-                                outLine.style.color = '#FF8C00';
+                                outLine.style.color = '#F59E0B';
                             } else if (line.type === 'success') {
-                                outLine.style.color = '#39FF14';
+                                outLine.style.color = '#10B981';
                             } else {
-                                outLine.style.color = '#E2E2E9';
+                                outLine.style.color = '#CBD5E1';
                             }
                             outLine.style.marginTop = '0.3rem';
                             outLine.textContent = line.text;
@@ -1606,20 +1305,19 @@
                     
                     setTimeout(() => {
                         isTyping = false;
-                    }, 3000);
+                    }, 2500);
                 }
-            }, 35);
+            }, 30);
         }
 
-        // Initialize state configuration from local cache
         window.addEventListener('DOMContentLoaded', () => {
             const savedModeSetting = localStorage.getItem('user-portfolio-mode');
-            if (savedModeSetting === 'red-team') {
-                document.body.classList.add('red-team-mode');
+            if (savedModeSetting === 'safety') {
+                document.body.classList.add('safety-mode');
                 const btn = document.getElementById('mode-toggle');
                 if (btn) {
                     btn.querySelector('.toggle-icon').textContent = '📐';
-                    btn.querySelector('.toggle-text').textContent = 'Visualization Mode';
+                    btn.querySelector('.toggle-text').textContent = 'Switch to Math & Physics';
                 }
                 setTimeout(runSecurityAudit, 300);
             }
