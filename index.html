@@ -18,13 +18,13 @@
            ========================================== */
         :root {
             /* Standard Mode: Warm Editorial (Math & Physics) */
-            --bg-primary: #FAF9F6; /* Warm alabaster */
+            --bg-primary: #FAF9F6;
             --bg-secondary: #F4F1EA;
             --card-bg: #FFFFFF;
             --border-primary: #2D3748;
             --text-main: #1A202C;
             --text-muted: #4A5568;
-            --accent-color: #9B2C2C; /* Warm Burgundy */
+            --accent-color: #9B2C2C;
             --accent-soft: rgba(155, 44, 44, 0.05);
             --header-font: 'Lora', serif;
             --body-font: 'Inter', sans-serif;
@@ -34,10 +34,10 @@
 
         /* Safety Mode: Professional Slate & Teal (AI Safety) */
         body.safety-mode {
-            --bg-primary: #0F172A; /* Modern Slate */
+            --bg-primary: #0F172A;
             --bg-secondary: #1E293B;
             --card-bg: #1E293B;
-            --border-primary: #38BDF8; /* Soft Ocean Blue */
+            --border-primary: #38BDF8;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --accent-color: #38BDF8;
@@ -332,7 +332,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Simplified, clean terminal simulator */
+        /* Terminal simulator */
         .terminal-shell {
             background-color: #1E293B;
             border: 2px solid var(--border-primary);
@@ -605,22 +605,158 @@
             color: var(--text-muted);
         }
 
-        /* Print Media Settings */
+        /* ==========================================
+           PRINT MEDIA CV FORMATTING
+           ========================================== */
         @media print {
+            @page { margin: 0.75in; }
+
             body {
                 background: #FFFFFF !important;
-                color: #111111 !important;
-                font-size: 10pt !important;
+                color: #000000 !important;
+                font-size: 11pt !important;
+                font-family: 'Inter', sans-serif !important;
+                line-height: 1.4 !important;
+                padding: 0 !important;
             }
-            .mode-controller-container,
-            .viz-filter-tabs,
-            .cta-banner,
-            .terminal-shell,
-            .print-hide {
+
+            body::before {
                 display: none !important;
             }
-            .viz-only, .rt-only {
-                display: block !important;
+
+            /* Hide strictly UI, interactive, and heavy visual elements */
+            .mode-controller-container,
+            .viz-filter-tabs,
+            .showcase-grid,
+            .cta-banner,
+            .terminal-shell,
+            .print-hide,
+            footer {
+                display: none !important;
+            }
+
+            /* Resume Header Layout */
+            header {
+                text-align: center;
+                padding: 0 0 1rem 0 !important;
+                margin-bottom: 1.5rem !important;
+                border-bottom: 1px solid #333 !important;
+            }
+            h1 {
+                font-size: 24pt !important;
+                margin-bottom: 0.3rem !important;
+                color: #000 !important;
+            }
+            .headline-role {
+                font-size: 14pt !important;
+                color: #444 !important;
+                margin-bottom: 0.8rem !important;
+            }
+            .contact-links {
+                justify-content: center !important;
+                gap: 1.5rem !important;
+                font-size: 10pt !important;
+            }
+            .contact-links a {
+                color: #000 !important;
+                text-decoration: none !important;
+                border: none !important;
+            }
+
+            /* Dynamic Display logic based on current active mode */
+            body:not(.safety-mode) .rt-only { display: none !important; }
+            body:not(.safety-mode) .viz-only { display: block !important; }
+            body.safety-mode .rt-only { display: block !important; }
+            body.safety-mode .viz-only { display: none !important; }
+
+            /* Section Headers */
+            section {
+                margin-bottom: 1.5rem !important;
+            }
+            h2 {
+                font-size: 14pt !important;
+                border-bottom: 1px solid #ccc !important;
+                padding-bottom: 0.3rem !important;
+                margin-bottom: 0.8rem !important;
+                color: #000 !important;
+            }
+            
+            /* Flatten Skills Grid to a Resume Layout */
+            .skills-grid {
+                display: flex !important;
+                justify-content: space-between !important;
+                gap: 1.5rem !important;
+            }
+            .skills-card {
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                flex: 1;
+            }
+            .skills-card h3 {
+                font-size: 11pt !important;
+                border-bottom: 1px solid #eee !important;
+                color: #000 !important;
+                margin-bottom: 0.5rem !important;
+            }
+            .skills-list li {
+                font-size: 10pt !important;
+                margin-bottom: 0.25rem !important;
+            }
+            .skills-list li::before {
+                color: #000 !important;
+            }
+
+            /* Report Cards Formatting for Print */
+            .safety-reports {
+                gap: 1rem !important;
+            }
+            .report-card {
+                border: none !important;
+                border-left: 3px solid #666 !important;
+                background: transparent !important;
+                padding: 0.5rem 0.5rem 0.5rem 1rem !important;
+                page-break-inside: avoid;
+            }
+            .badge-status {
+                border: none !important;
+                background: transparent !important;
+                padding: 0 !important;
+            }
+
+            /* Experience Timeline Formatting */
+            .timeline {
+                padding-left: 0 !important;
+                border-left: none !important;
+                margin: 0 !important;
+            }
+            .timeline-item {
+                margin-bottom: 1.25rem !important;
+                page-break-inside: avoid;
+            }
+            .timeline-item::before {
+                display: none !important;
+            }
+            .timeline-date {
+                float: right;
+                font-size: 10pt !important;
+                color: #444 !important;
+            }
+            .timeline-title {
+                font-size: 12pt !important;
+                margin-bottom: 0 !important;
+            }
+            .timeline-org {
+                font-weight: 600;
+                color: #333 !important;
+                margin-bottom: 0.4rem !important;
+            }
+            .timeline-desc ul {
+                margin-left: 1.25rem !important;
+            }
+            .timeline-desc li {
+                margin-bottom: 0.3rem !important;
             }
         }
     </style>
@@ -645,17 +781,17 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>Joseph Mugambi Ndwiga<!--[cite: 1] --></h1>
+            <h1>Joseph Mugambi Ndwiga</h1>
             
-            <div class="headline-role viz-only">Software Engineer &amp; Mathematical Modeler<!--[cite: 1] --></div>
-            <div class="headline-role rt-only">Software Engineer — AI Safety &amp; Red Teaming<!--[cite: 1] --></div>
+            <div class="headline-role viz-only">Software Engineer &amp; Mathematical Modeler</div>
+            <div class="headline-role rt-only">Software Engineer — AI Safety &amp; Red Teaming</div>
 
             <div class="contact-links">
-                <a href="mailto:mugambindwiga@gmail.com" target="_blank">✉ mugambindwiga@gmail.com<!--[cite: 1] --></a>
-                <a href="tel:+254714103665">📞 +254 714 103 665<!--[cite: 1] --></a>
-                <a href="https://github.com/zombimann" target="_blank">💻 GitHub<!--[cite: 1] --></a>
-                <a href="https://linkedin.com/in/mugambi-n" target="_blank">👔 LinkedIn<!--[cite: 1] --></a>
-                <a href="https://instagram.com/craftsandengineering" target="_blank" class="viz-only">📸 @craftsandengineering<!--[cite: 1] --></a>
+                <a href="mailto:mugambindwiga@gmail.com" target="_blank">✉ mugambindwiga@gmail.com</a>
+                <a href="tel:+254714103665">📞 +254 714 103 665</a>
+                <a href="https://github.com/zombimann" target="_blank">💻 GitHub</a>
+                <a href="https://linkedin.com/in/mugambi-n" target="_blank">👔 LinkedIn</a>
+                <a href="https://instagram.com/craftsandengineering" target="_blank" class="viz-only">📸 @craftsandengineering</a>
                 <button class="print-btn print-hide" onclick="window.print()">
                     <span>Save as PDF</span>
                 </button>
@@ -670,11 +806,11 @@
                 <h2>About Me</h2>
                 
                 <div class="viz-only">
-                    <p>I am a software engineer focused on building clean, efficient math and physics visualizations. I enjoy translating complex scientific concepts—ranging from fluid dynamics to chaotic systems—into high-quality, engaging visual educational media using Python and the Manim library[cite: 1]. Through my work at @craftsandengineering, I maintain a library of simulation models designed to make advanced science more accessible[cite: 1].</p>
+                    <p>I am a software engineer focused on building clean, efficient math and physics visualizations. I enjoy translating complex scientific concepts—ranging from fluid dynamics to chaotic systems—into high-quality, engaging visual educational media using Python and the Manim library. Through my work at @craftsandengineering, I maintain a library of simulation models designed to make advanced science more accessible.</p>
                 </div>
 
                 <div class="rt-only">
-                    <p>I am an offensive security researcher specializing in AI safety evaluations. My focus is on testing frontier large language models to identify risks like logical bypasses and prompt injections, and translating these insights into reliable safety guardrails[cite: 1]. I enjoy making AI systems safer and more robust through systematic, empirical analysis.</p>
+                    <p>I am an offensive security researcher specializing in AI safety evaluations. My focus is on testing frontier large language models to identify risks like logical bypasses and prompt injections, and translating these insights into reliable safety guardrails. I enjoy making AI systems safer and more robust through systematic, empirical analysis.</p>
                 </div>
             </section>
 
@@ -688,10 +824,10 @@
                     <div class="skills-card">
                         <h3>Core Engineering</h3>
                         <ul class="skills-list">
-                            <li>Python Development[cite: 1]</li>
-                            <li>C / C++ Programming[cite: 1]</li>
-                            <li>Docker &amp; Containerization[cite: 1]</li>
-                            <li>Git &amp; Version Control[cite: 1]</li>
+                            <li>Python Development</li>
+                            <li>C / C++ Programming</li>
+                            <li>Docker &amp; Containerization</li>
+                            <li>Git &amp; Version Control</li>
                         </ul>
                     </div>
 
@@ -699,19 +835,19 @@
                     <div class="skills-card viz-only">
                         <h3>Scientific Code</h3>
                         <ul class="skills-list">
-                            <li>Manim Animation Engine[cite: 1]</li>
-                            <li>Numerical Analysis[cite: 1]</li>
-                            <li>Physics Modeling[cite: 1]</li>
-                            <li>Mathematical Visualization[cite: 1]</li>
+                            <li>Manim Animation Engine</li>
+                            <li>Numerical Analysis</li>
+                            <li>Physics Modeling</li>
+                            <li>Mathematical Visualization</li>
                         </ul>
                     </div>
                     <div class="skills-card rt-only">
                         <h3>AI Safety</h3>
                         <ul class="skills-list">
-                            <li>AI Red Teaming[cite: 1]</li>
-                            <li>Model Safety Evaluations[cite: 1]</li>
-                            <li>Vulnerability Testing[cite: 1]</li>
-                            <li>Safety Mitigations[cite: 1]</li>
+                            <li>AI Red Teaming</li>
+                            <li>Model Safety Evaluations</li>
+                            <li>Vulnerability Testing</li>
+                            <li>Safety Mitigations</li>
                         </ul>
                     </div>
 
@@ -719,19 +855,19 @@
                     <div class="skills-card viz-only">
                         <h3>Data &amp; Infrastructure</h3>
                         <ul class="skills-list">
-                            <li>NumPy &amp; Pandas Stack[cite: 1]</li>
-                            <li>Data Processing Pipelines[cite: 1]</li>
-                            <li>Geometric Modeling[cite: 1]</li>
-                            <li>Google Cloud Platform (GCP)[cite: 1]</li>
+                            <li>NumPy &amp; Pandas Stack</li>
+                            <li>Data Processing Pipelines</li>
+                            <li>Geometric Modeling</li>
+                            <li>Google Cloud Platform (GCP)</li>
                         </ul>
                     </div>
                     <div class="skills-card rt-only">
                         <h3>AI Architectures</h3>
                         <ul class="skills-list">
-                            <li>RAG Implementation[cite: 1]</li>
-                            <li>Vector Databases[cite: 1]</li>
-                            <li>API Integration[cite: 1]</li>
-                            <li>System Hardening[cite: 1]</li>
+                            <li>RAG Implementation</li>
+                            <li>Vector Databases</li>
+                            <li>API Integration</li>
+                            <li>System Hardening</li>
                         </ul>
                     </div>
                 </div>
@@ -751,7 +887,7 @@
                             <span class="badge-status">Resolved</span>
                         </div>
                         <div class="report-title">Evaluating Multimodal LLM Safety Bypass Vulnerabilities</div>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);">Investigated security vulnerabilities in vision-language models by testing input data formatting, allowing developers to build more reliable alignment checks[cite: 1].</p>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">Investigated security vulnerabilities in vision-language models by testing input data formatting, allowing developers to build more reliable alignment checks.</p>
                     </div>
 
                     <div class="report-card">
@@ -760,7 +896,7 @@
                             <span class="badge-status" style="color: #3182CE; border-color: #3182CE; background: rgba(49,130,206,0.08)">Mitigated</span>
                         </div>
                         <div class="report-title">Securing RAG Pipelines Against Indirect Prompt Injections</div>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);">Identified and mitigated risk factors in context-retrieval streams that could allow external documents to alter application instructions[cite: 1].</p>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">Identified and mitigated risk factors in context-retrieval streams that could allow external documents to alter application instructions.</p>
                     </div>
                 </div>
 
@@ -786,7 +922,7 @@
                  ========================== -->
             <section class="viz-only">
                 <h2>Math &amp; Physics Animations</h2>
-                <p style="margin-bottom: 1.5rem;">A selection of programmatically rendered mathematical animations and physics simulations[cite: 1]. Use the categories below to browse the collection:</p>
+                <p style="margin-bottom: 1.5rem;">A selection of programmatically rendered mathematical animations and physics simulations. Use the categories below to browse the collection:</p>
 
                 <div class="viz-filter-tabs">
                     <button class="viz-filter-btn active" onclick="triggerVizFilter('all')">All Animations</button>
@@ -1102,7 +1238,7 @@
                 <div class="cta-banner">
                     <div class="cta-text">
                         <h3>Join My Broadcast Channels</h3>
-                        <p>Receive notifications when new math animations, physics code, or rendering templates are released[cite: 1].</p>
+                        <p>Receive notifications when new math animations, physics code, or rendering templates are released.</p>
                     </div>
                     <a href="https://whatsapp.com/channel/0029VbCkWhxCRs1mu1nf8W0f" target="_blank" class="print-hide">
                         <button class="cta-btn">Join Telegram / Whatsapp</button>
@@ -1120,13 +1256,13 @@
                     <!-- Gray Swan -->
                     <div class="timeline-item">
                         <div class="timeline-date">2024 – Present</div>
-                        <div class="timeline-title">Independent AI Red Teamer<!--[cite: 1] --></div>
-                        <div class="timeline-org">Gray Swan<!--[cite: 1] --></div>
+                        <div class="timeline-title">Independent AI Red Teamer</div>
+                        <div class="timeline-org">Gray Swan</div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>Identify potential security vulnerabilities and safety alignment gaps in frontier AI models[cite: 1].</li>
-                                <li>Document security risks and work collaboratively with developer teams to help build better system guardrails[cite: 1].</li>
-                                <li>Develop and run script sweeps to systematically evaluate model outputs against policy guidelines[cite: 1].</li>
+                                <li>Identify potential security vulnerabilities and safety alignment gaps in frontier AI models.</li>
+                                <li>Document security risks and work collaboratively with developer teams to help build better system guardrails.</li>
+                                <li>Develop and run script sweeps to systematically evaluate model outputs against policy guidelines.</li>
                             </ul>
                         </div>
                     </div>
@@ -1134,20 +1270,20 @@
                     <!-- Freelance -->
                     <div class="timeline-item">
                         <div class="timeline-date">2016 – Present</div>
-                        <div class="timeline-title">Freelance Software Engineer &amp; Contractor<!--[cite: 1] --></div>
-                        <div class="timeline-org">Self-Employed<!--[cite: 1] --></div>
+                        <div class="timeline-title">Freelance Software Engineer &amp; Contractor</div>
+                        <div class="timeline-org">Self-Employed</div>
                         <div class="timeline-desc">
                             <!-- Math / Animation Mode bullet points -->
                             <ul class="viz-only">
-                                <li>Write clean, reusable Python scripts using the Manim library to build physics animations and math tutorials[cite: 1].</li>
-                                <li>Build efficient web scrapers and data parsing scripts to process raw public datasets[cite: 1].</li>
-                                <li>Integrate retrieval-augmented generation (RAG) architectures with standard databases on Google Cloud Platform[cite: 1].</li>
+                                <li>Write clean, reusable Python scripts using the Manim library to build physics animations and math tutorials.</li>
+                                <li>Build efficient web scrapers and data parsing scripts to process raw public datasets.</li>
+                                <li>Integrate retrieval-augmented generation (RAG) architectures with standard databases on Google Cloud Platform.</li>
                             </ul>
                             <!-- AI Safety Mode bullet points -->
                             <ul class="rt-only">
-                                <li>Deploy test architectures in secure, containerized Docker environments to test safety configurations safely[cite: 1].</li>
-                                <li>Develop clean validation and data sanitization algorithms to prevent untrusted input from polluting pipelines[cite: 1].</li>
-                                <li>Audit and configure multi-layered RAG interfaces to verify they are secure against standard prompt injections[cite: 1].</li>
+                                <li>Deploy test architectures in secure, containerized Docker environments to test safety configurations safely.</li>
+                                <li>Develop clean validation and data sanitization algorithms to prevent untrusted input from polluting pipelines.</li>
+                                <li>Audit and configure multi-layered RAG interfaces to verify they are secure against standard prompt injections.</li>
                             </ul>
                         </div>
                     </div>
@@ -1155,13 +1291,13 @@
                     <!-- Tyondo -->
                     <div class="timeline-item">
                         <div class="timeline-date">2019 – 2021</div>
-                        <div class="timeline-title">Developer / Programmer<!--[cite: 1] --></div>
-                        <div class="timeline-org">Tyondo Enterprises<!--[cite: 1] --></div>
+                        <div class="timeline-title">Developer / Programmer</div>
+                        <div class="timeline-org">Tyondo Enterprises</div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>Refactored legacy database schemas, improving query response and reliability by up to 40%[cite: 1].</li>
-                                <li>Worked within an agile engineering team using Git version control for code review and deployment processes[cite: 1].</li>
-                                <li>Wrote clear technical guides and documentation to support new developer onboarding[cite: 1].</li>
+                                <li>Refactored legacy database schemas, improving query response and reliability by up to 40%.</li>
+                                <li>Worked within an agile engineering team using Git version control for code review and deployment processes.</li>
+                                <li>Wrote clear technical guides and documentation to support new developer onboarding.</li>
                             </ul>
                         </div>
                     </div>
@@ -1169,23 +1305,18 @@
                     <!-- Hewbe -->
                     <div class="timeline-item">
                         <div class="timeline-date">2016 – 2019</div>
-                        <div class="timeline-title">Product Developer<!--[cite: 1] --></div>
-                        <div class="timeline-org">Hewbe<!--[cite: 1] --></div>
+                        <div class="timeline-title">Product Developer</div>
+                        <div class="timeline-org">Hewbe</div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>Developed and updated firmware scripts for hardware testing modules[cite: 1].</li>
-                                <li>Conducted structural QA and verified operational performance metrics of physical mechanical components[cite: 1].</li>
+                                <li>Developed and updated firmware scripts for hardware testing modules.</li>
+                                <li>Conducted structural QA and verified operational performance metrics of physical mechanical components.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2026 Joseph Mugambi Ndwiga. Built with Python, Manim, and Web Tech.<!--[cite: 1] --></p>
-        </footer>
     </div>
 
     <!-- ==========================================
