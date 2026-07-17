@@ -68,7 +68,6 @@
             padding-bottom: 4rem;
         }
 
-        /* Soft background pattern */
         body::before {
             content: '';
             position: fixed;
@@ -219,7 +218,7 @@
         }
 
         /* ==========================================
-           VIEW DISPLACEMENT (VISUAL/SAFETY MASK)
+           VIEW DISPLACEMENT
            ========================================== */
         .rt-only { display: none !important; }
         .viz-only { display: block !important; }
@@ -333,7 +332,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Terminal simulator */
         .terminal-shell {
             background-color: #1E293B;
             border: 2px solid var(--border-primary);
@@ -597,7 +595,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding-top: 4rem;
@@ -607,7 +604,7 @@
         }
 
         /* ==========================================
-           PRINT MEDIA CV FORMATTING
+           PRINT MEDIA FORMATTING
            ========================================== */
         @media print {
             @page { margin: 0.75in; }
@@ -625,7 +622,6 @@
                 display: none !important;
             }
 
-            /* Hide strictly UI, interactive, and heavy visual elements */
             .mode-controller-container,
             .viz-filter-tabs,
             .showcase-grid,
@@ -636,7 +632,6 @@
                 display: none !important;
             }
 
-            /* Resume Header Layout */
             header {
                 text-align: center;
                 padding: 0 0 1rem 0 !important;
@@ -664,13 +659,11 @@
                 border: none !important;
             }
 
-            /* Dynamic Display logic based on current active mode */
             body:not(.safety-mode) .rt-only { display: none !important; }
             body:not(.safety-mode) .viz-only { display: block !important; }
             body.safety-mode .rt-only { display: block !important; }
             body.safety-mode .viz-only { display: none !important; }
 
-            /* Section Headers */
             section {
                 margin-bottom: 1.5rem !important;
             }
@@ -682,7 +675,6 @@
                 color: #000 !important;
             }
             
-            /* Flatten Skills Grid to a Resume Layout */
             .skills-grid {
                 display: flex !important;
                 justify-content: space-between !important;
@@ -709,7 +701,6 @@
                 color: #000 !important;
             }
 
-            /* Report Cards Formatting for Print */
             .safety-reports {
                 gap: 1rem !important;
             }
@@ -726,7 +717,6 @@
                 padding: 0 !important;
             }
 
-            /* Experience Timeline Formatting */
             .timeline {
                 padding-left: 0 !important;
                 border-left: none !important;
@@ -915,53 +905,70 @@
                 </div>
 
                 <div class="showcase-grid">
-                    <div class="short-card" data-cat="cfd">
+                    <!-- Card 1: Wave Interference -->
+                    <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="I8QVOojVgLY" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/I8QVOojVgLY/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/I8QVOojVgLY/hqdefault.jpg" alt="Wave Interference & Resonance" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Magnus Effect CFD</p>
-                        <span class="short-tag">Fluids</span>
+                        <p class="short-caption">Wave Interference &amp; Resonance</p>
+                        <span class="short-tag">Wave Physics</span>
                     </div>
 
+                    <!-- Card 2: Gradient & Slope -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="LAbalXuTmms" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/LAbalXuTmms/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/LAbalXuTmms/hqdefault.jpg" alt="Gradient and Slope Delta y / Delta x" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Floorplan Architecture</p>
-                        <span class="short-tag">Design</span>
+                        <p class="short-caption">Gradient &amp; Slope (&Delta;y / &Delta;x)</p>
+                        <span class="short-tag">Calculus</span>
                     </div>
 
+                    <!-- Card 3: Symmetric Graphs (K6) -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="hkCChmCqzR4" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/hkCChmCqzR4/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/hkCChmCqzR4/hqdefault.jpg" alt="Symmetric Graphs K6" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Gravitational Waves</p>
-                        <span class="short-tag">Physics</span>
+                        <p class="short-caption">Symmetric Graphs (K<sub>6</sub>)</p>
+                        <span class="short-tag">Graph Theory</span>
                     </div>
 
+                    <!-- Card 4: Vector Projection -->
+                    <div class="short-card" data-cat="math">
+                        <div class="short-wrapper" data-video-id="XgUNy_abSlk" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/XgUNy_abSlk/hqdefault.jpg" alt="Vector Projection" loading="lazy">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
+                        </div>
+                        <p class="short-caption">Vector Projection</p>
+                        <span class="short-tag">Linear Algebra</span>
+                    </div>
+
+                    <!-- Card 5: Clebsch Cubic Surface -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="q2wG3hdlGjc" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/q2wG3hdlGjc/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/q2wG3hdlGjc/hqdefault.jpg" alt="Clebsch Cubic Surface" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
                         <p class="short-caption">Clebsch Cubic Surface</p>
-                        <span class="short-tag">Topology</span>
+                        <span class="short-tag">Algebraic Geometry</span>
                     </div>
 
+                    <!-- Card 6: Blueprint Geometry -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="iM10AK0OAMc" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/iM10AK0OAMc/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/iM10AK0OAMc/hqdefault.jpg" alt="Architectural Blueprint Geometry" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -970,9 +977,10 @@
                         <span class="short-tag">Geometry</span>
                     </div>
 
+                    <!-- Card 7: Toroidal Spinors -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="dEbEsmb8lU8" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/dEbEsmb8lU8/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/dEbEsmb8lU8/hqdefault.jpg" alt="Toroidal Spinor Phase" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -981,9 +989,10 @@
                         <span class="short-tag">Quantum Math</span>
                     </div>
 
+                    <!-- Card 8: Double Pendulum Chaos -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="NCdDSf4YjUo" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/NCdDSf4YjUo/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/NCdDSf4YjUo/hqdefault.jpg" alt="Double Pendulum Chaos" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -992,20 +1001,10 @@
                         <span class="short-tag">Chaos Dynamics</span>
                     </div>
 
-                    <div class="short-card" data-cat="cfd">
-                        <div class="short-wrapper" data-video-id="XgUNy_abSlk" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/XgUNy_abSlk/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
-                            <div class="play-btn">
-                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
-                            </div>
-                        </div>
-                        <p class="short-caption">Fluid Flow Fields</p>
-                        <span class="short-tag">CFD</span>
-                    </div>
-
+                    <!-- Card 9: Lorenz Attractor -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="fXx3fgqEU98" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/fXx3fgqEU98/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/fXx3fgqEU98/hqdefault.jpg" alt="Lorenz Attractor" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1014,9 +1013,10 @@
                         <span class="short-tag">Chaos Theory</span>
                     </div>
 
+                    <!-- Card 10: Strange Attractors -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="Ggw5gMMuPyI" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/Ggw5gMMuPyI/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/Ggw5gMMuPyI/hqdefault.jpg" alt="Strange Attractors" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1025,9 +1025,10 @@
                         <span class="short-tag">Attractors</span>
                     </div>
 
+                    <!-- Card 11: Navier-Stokes CFD -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="WriMxSq0KAg" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/WriMxSq0KAg/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/WriMxSq0KAg/hqdefault.jpg" alt="Navier-Stokes Model" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1036,9 +1037,10 @@
                         <span class="short-tag">CFD</span>
                     </div>
 
+                    <!-- Card 12: Mathematical Rose Curves -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="p_woaaeqyKI" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/p_woaaeqyKI/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/p_woaaeqyKI/hqdefault.jpg" alt="Mathematical Rose Curves" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1047,9 +1049,10 @@
                         <span class="short-tag">Polar Equations</span>
                     </div>
 
+                    <!-- Card 13: Fourier Signal Synthesis -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="O_9z2bW4ER0" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/O_9z2bW4ER0/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/O_9z2bW4ER0/hqdefault.jpg" alt="Fourier Signal Synthesis" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1058,9 +1061,10 @@
                         <span class="short-tag">Fourier</span>
                     </div>
 
+                    <!-- Card 14: Von Karman Vortex -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="VBb70nI2UXc" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/VBb70nI2UXc/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/VBb70nI2UXc/hqdefault.jpg" alt="Von Karman Vortex" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1069,9 +1073,10 @@
                         <span class="short-tag">Aerodynamics</span>
                     </div>
 
+                    <!-- Card 15: Aizawa Attractor -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="YTiU8j064CY" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/YTiU8j064CY/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/YTiU8j064CY/hqdefault.jpg" alt="Aizawa Attractor" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1080,9 +1085,10 @@
                         <span class="short-tag">3D Attractors</span>
                     </div>
 
+                    <!-- Card 16: Modular Arithmetic -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="iaBsAUeWxx8" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/iaBsAUeWxx8/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/iaBsAUeWxx8/hqdefault.jpg" alt="Modular Arithmetic" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1091,9 +1097,10 @@
                         <span class="short-tag">Number Theory</span>
                     </div>
 
+                    <!-- Card 17: Heat Conduction -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="7fD8p1zDWmU" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/7fD8p1zDWmU/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/7fD8p1zDWmU/hqdefault.jpg" alt="Heat Conduction" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1102,9 +1109,10 @@
                         <span class="short-tag">Thermodynamics</span>
                     </div>
 
+                    <!-- Card 18: Chen Strange Attractor -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="auu4eKd2gcw" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/auu4eKd2gcw/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/auu4eKd2gcw/hqdefault.jpg" alt="Chen Strange Attractor" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1113,9 +1121,10 @@
                         <span class="short-tag">Math Chaos</span>
                     </div>
 
+                    <!-- Card 19: Hyperbolic Space -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="kObhJPEZlnE" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/kObhJPEZlnE/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/kObhJPEZlnE/hqdefault.jpg" alt="Hyperbolic Space" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1124,9 +1133,10 @@
                         <span class="short-tag">Geometry</span>
                     </div>
 
+                    <!-- Card 20: Boundary Layer Flow -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="OZUNQ_ElGWY" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/OZUNQ_ElGWY/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/OZUNQ_ElGWY/hqdefault.jpg" alt="Boundary Layer Flow" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1135,9 +1145,10 @@
                         <span class="short-tag">CFD</span>
                     </div>
 
+                    <!-- Card 21: Sprott Attractor -->
                     <div class="short-card" data-cat="attractor">
                         <div class="short-wrapper" data-video-id="gZlqGsNejEM" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/gZlqGsNejEM/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/gZlqGsNejEM/hqdefault.jpg" alt="Sprott Attractor" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1146,9 +1157,10 @@
                         <span class="short-tag">Chaos Maps</span>
                     </div>
 
+                    <!-- Card 22: Ulam Prime Spiral -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="fwEc5h-uiKg" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/fwEc5h-uiKg/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/fwEc5h-uiKg/hqdefault.jpg" alt="Ulam Prime Spiral" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1157,9 +1169,10 @@
                         <span class="short-tag">Discrete Math</span>
                     </div>
 
+                    <!-- Card 23: Wave Equation Propagation -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="excUlgAitUw" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/excUlgAitUw/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/excUlgAitUw/hqdefault.jpg" alt="Wave Equation Propagation" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1168,20 +1181,22 @@
                         <span class="short-tag">Wave Physics</span>
                     </div>
 
-                    <div class="short-card" data-cat="attractor">
+                    <!-- Card 24: Magnus Effect CFD -->
+                    <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="geO3rI73FeU" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/geO3rI73FeU/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/geO3rI73FeU/hqdefault.jpg" alt="Magnus Effect CFD" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
                         </div>
-                        <p class="short-caption">Lorenz Particle Flow</p>
-                        <span class="short-tag">Numerical Models</span>
+                        <p class="short-caption">Magnus Effect CFD</p>
+                        <span class="short-tag">Fluids</span>
                     </div>
 
+                    <!-- Card 25: Julia Set Fractals -->
                     <div class="short-card" data-cat="math">
                         <div class="short-wrapper" data-video-id="GULSq89og90" onclick="loadIframe(this)">
-                            <img src="https://img.youtube.com/vi/GULSq89og90/hqdefault.jpg" alt="Simulation Thumbnail" loading="lazy">
+                            <img src="https://img.youtube.com/vi/GULSq89og90/hqdefault.jpg" alt="Julia Set Fractals" loading="lazy">
                             <div class="play-btn">
                                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                             </div>
@@ -1310,8 +1325,8 @@
             const tabs = document.querySelectorAll('.viz-filter-btn');
             tabs.forEach(tab => tab.classList.remove('active'));
             
-            if (event && event.currentTarget) {
-                event.currentTarget.classList.add('active');
+            if (window.event && window.event.currentTarget) {
+                window.event.currentTarget.classList.add('active');
             }
 
             const cards = document.querySelectorAll('.short-card');
@@ -1325,7 +1340,6 @@
             });
         }
 
-        /* Simplified, natural-feeling terminal demo logs */
         const terminalData = [
             { type: 'input', text: './run_safety_evaluation.py --model "Target-LLM" --test "Context-Injection"' },
             { type: 'output', text: '[INFO] Initializing validation stream on Target-LLM. Injecting formatted evaluation context...', delay: 400 },
