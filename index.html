@@ -145,6 +145,15 @@
         }
 
         /* ==========================================
+           VIEW DISPLACEMENT
+           ========================================== */
+        .rt-only { display: none !important; }
+        .viz-only { display: block !important; }
+
+        body.safety-mode .rt-only { display: block !important; }
+        body.safety-mode .viz-only { display: none !important; }
+
+        /* ==========================================
            HEADER SECTION
            ========================================== */
         header {
@@ -222,15 +231,6 @@
         }
 
         /* ==========================================
-           VIEW DISPLACEMENT
-           ========================================== */
-        .rt-only { display: none !important; }
-        .viz-only { display: block !important; }
-
-        body.safety-mode .rt-only { display: block !important; }
-        body.safety-mode .viz-only { display: none !important; }
-
-        /* ==========================================
            SECTION AND CONTENT LAYOUT
            ========================================== */
         section {
@@ -256,7 +256,7 @@
         /* Gray Swan Arena Stats */
         .arena-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 1rem;
             background: var(--card-bg);
             border: 2px solid var(--border-primary);
@@ -901,7 +901,7 @@
         <div class="container mode-controller-wrapper">
             <div class="mode-status-indicator">
                 <span class="mode-dot"></span>
-                <span class="viz-only">Current Focus: AI Safety &amp; Research</span>
+                <span class="viz-only">Current Focus: Math &amp; Physics Simulations</span>
                 <span class="rt-only">Current Focus: AI Safety &amp; Red Teaming</span>
             </div>
             <button id="mode-toggle" class="mode-toggle-btn" onclick="togglePlatformMode()">
@@ -914,17 +914,15 @@
     <div class="container">
         <header>
             <h1>Mugambi Ndwiga</h1>
-            <div class="headline-role viz-only">AI Engineer · LLM Red Teamer · Infrastructure Builder</div>
-            <div class="headline-role rt-only">AI Engineer · LLM Red Teamer · Infrastructure Builder</div>
-            <div class="headline-sub viz-only">Building production-grade AI systems · Adversarial testing · R&D</div>
-            <div class="headline-sub rt-only">Building production-grade AI systems · Adversarial testing · R&D</div>
+            <div class="headline-role">AI Engineer · LLM Red Teamer · Infrastructure Builder</div>
+            <div class="headline-sub">Building production-grade AI systems · Adversarial testing · R&D</div>
 
             <div class="contact-links">
                 <a href="mailto:mugambindwiga@gmail.com" target="_blank">✉ mugambindwiga@gmail.com</a>
                 <a href="tel:+254714103665">📞 +254 714 103 665</a>
                 <a href="https://github.com/zombimann" target="_blank">💻 GitHub</a>
                 <a href="https://linkedin.com/in/mugambi-n" target="_blank">👔 LinkedIn</a>
-                <a href="https://app.grayswan.ai/arena/user/682b41d45416b8a9eac9c6d3" target="_blank" class="viz-only">🏆 Gray Swan Arena</a>
+                <a href="https://app.grayswan.ai/arena/user/682b41d45416b8a9eac9c6d3" target="_blank" class="rt-only">🏆 Gray Swan Arena</a>
                 <button class="print-btn print-hide" onclick="window.print()">
                     <span>Save as PDF</span>
                 </button>
@@ -933,7 +931,7 @@
 
         <main>
             <!-- ==========================================
-                 SUMMARY
+                 SUMMARY (visible in both modes)
                  ========================================== -->
             <section class="summary-block">
                 <h2>Professional Summary</h2>
@@ -941,14 +939,14 @@
                     AI Engineer, LLM Red Teamer, and infrastructure builder with a deep quantitative foundation in computational engineering and advanced mathematics. Proven track record of designing, building, and deploying production-grade AI pipelines, generative AI workflows, and reusable data libraries. 
                 </p>
                 <p style="margin-top: 0.75rem;">
-                    Currently an <strong>Elite LLM Red Teamer</strong> at Gray Swan — ranked <strong>#76 globally</strong> with <strong>122 unique breaks</strong>, <strong>9,300 points</strong>, and <strong>7,739 submissions</strong> across adversarial challenges[reference:1]. Specialises in structured data engineering, RAG architectures, and adversarial testing to ensure model safety and algorithmic robustness.
+                    Currently an <strong>Elite LLM Red Teamer</strong> at Gray Swan — ranked <strong>#76 globally</strong> with <strong>122 unique breaks</strong>, <strong>9,300 points</strong>, and <strong>7,739 submissions</strong> across adversarial challenges. Specialises in structured data engineering, RAG architectures, and adversarial testing to ensure model safety and algorithmic robustness.
                 </p>
             </section>
 
             <!-- ==========================================
-                 GRAY SWAN ARENA STATS
+                 GRAY SWAN ARENA STATS (AI Safety mode only)
                  ========================================== -->
-            <section class="viz-only">
+            <section class="rt-only">
                 <h2>Gray Swan Arena — Performance</h2>
                 <div class="arena-stats">
                     <div class="arena-stat-item">
@@ -1009,7 +1007,7 @@
             </section>
 
             <!-- ==========================================
-                 SKILLS
+                 SKILLS (visible in both modes)
                  ========================================== -->
             <section>
                 <h2>Core Competencies</h2>
@@ -1058,7 +1056,7 @@
             </section>
 
             <!-- ==========================================
-                 PROFESSIONAL EXPERIENCE
+                 PROFESSIONAL EXPERIENCE (visible in both modes)
                  ========================================== -->
             <section>
                 <h2>Professional Experience</h2>
@@ -1074,7 +1072,7 @@
                                 <li>Conduct elite adversarial testing and rigorous evaluation of frontier large language models, identifying alignment vulnerabilities, jailbreak vectors, and indirect prompt injection points.</li>
                                 <li>Validate model safety and behavioral boundaries, providing data-driven technical feedback to strengthen guardrails against adversarial exploitation and failure modes.</li>
                                 <li>Analyze complex model outputs, leveraging deep understanding of tokenization, vector spacing, and statistical probabilities to optimize system robustness.</li>
-                                <li>Achieved <strong>Global Rank #76</strong> with <strong>122 unique breaks</strong> and <strong>9,300 points</strong> across the Gray Swan Arena[reference:2].</li>
+                                <li>Achieved <strong>Global Rank #76</strong> with <strong>122 unique breaks</strong> and <strong>9,300 points</strong> across the Gray Swan Arena.</li>
                             </ul>
                         </div>
                     </div>
@@ -1122,7 +1120,7 @@
             </section>
 
             <!-- ==========================================
-                 R&D EXPERIENCE
+                 R&D EXPERIENCE (visible in both modes)
                  ========================================== -->
             <section>
                 <h2>R&amp;D Experience</h2>
@@ -1156,7 +1154,7 @@
             </section>
 
             <!-- ==========================================
-                 AI SAFETY RESEARCH (Safety Mode)
+                 AI SAFETY RESEARCH (AI Safety mode only)
                  ========================================== -->
             <section class="rt-only">
                 <h2>AI Safety Research</h2>
@@ -1199,7 +1197,7 @@
             </section>
 
             <!-- ==========================================
-                 MATH & PHYSICS ANIMATIONS (Viz Mode)
+                 MATH & PHYSICS ANIMATIONS (Math/Physics mode only)
                  ========================================== -->
             <section class="viz-only">
                 <h2>Math &amp; Physics Animations</h2>
