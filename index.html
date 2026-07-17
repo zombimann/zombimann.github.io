@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Mugambi Ndwiga | Portfolio</title>
+    <title>Mugambi Ndwiga | AI Engineer & LLM Red Teamer</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Portfolio of Mugambi Ndwiga: Software Engineer specializing in physics animations and AI safety."/>
+    <meta name="description" content="Portfolio of Mugambi Ndwiga: AI Engineer, LLM Red Teamer, and Infrastructure Builder specializing in AI safety, generative AI, and production-grade ML systems."/>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A202C'/><path d='M25 75 V 30 L 50 55 L 75 30 V 75' stroke='%2338BDF8' stroke-width='8' fill='none' stroke-linejoin='round' stroke-linecap='round'/></svg>" type="image/svg+xml">
     
@@ -18,7 +18,6 @@
            THEME & PORTFOLIO STYLING SYSTEM
            ========================================== */
         :root {
-            /* Standard Mode: Warm Editorial (Math & Physics) */
             --bg-primary: #FAF9F6;
             --bg-secondary: #F4F1EA;
             --card-bg: #FFFFFF;
@@ -33,7 +32,6 @@
             --transition-speed: 0.2s ease-in-out;
         }
 
-        /* Safety Mode: Professional Slate & Teal (AI Safety) */
         body.safety-mode {
             --bg-primary: #0F172A;
             --bg-secondary: #1E293B;
@@ -160,7 +158,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: -0.5px;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.2rem;
         }
 
         .headline-role {
@@ -168,6 +166,12 @@
             font-size: 1.2rem;
             color: var(--accent-color);
             font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .headline-sub {
+            font-size: 0.95rem;
+            color: var(--text-muted);
             margin-bottom: 1.2rem;
         }
 
@@ -247,6 +251,65 @@
             font-size: 1.05rem;
             line-height: 1.7;
             color: var(--text-main);
+        }
+
+        /* Gray Swan Arena Stats */
+        .arena-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            background: var(--card-bg);
+            border: 2px solid var(--border-primary);
+            border-radius: 4px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-flat);
+            margin: 1.5rem 0;
+        }
+
+        .arena-stat-item {
+            text-align: center;
+        }
+
+        .arena-stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1.2;
+        }
+
+        .arena-stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .arena-challenges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .arena-challenge-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 4px;
+            padding: 0.6rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .arena-challenge-name {
+            font-weight: 600;
+        }
+
+        .arena-challenge-breaks {
+            color: var(--accent-color);
+            font-weight: 700;
         }
 
         /* Skills Grid */
@@ -495,6 +558,25 @@
             border: 1px solid rgba(0,0,0,0.05);
         }
 
+        .code-link {
+            align-self: center;
+            margin-top: 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-muted);
+            transition: var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .code-link:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
         .cta-banner {
             background-color: var(--accent-soft);
             border: 2px dashed var(--border-primary);
@@ -593,6 +675,45 @@
 
         .timeline-desc li {
             margin-bottom: 0.5rem;
+        }
+
+        /* R&D Projects Grid */
+        .rd-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .rd-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-primary);
+            border-radius: 4px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-flat);
+        }
+
+        .rd-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .rd-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .rd-card .tech-stack {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-main);
+            background: var(--bg-secondary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            display: inline-block;
         }
 
         footer {
@@ -749,6 +870,28 @@
             .timeline-desc li {
                 margin-bottom: 0.3rem !important;
             }
+
+            .arena-stats {
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                padding: 1rem !important;
+            }
+            .arena-stat-number {
+                font-size: 14pt !important;
+            }
+            .arena-challenge-item {
+                border: 1px solid #eee !important;
+                background: transparent !important;
+            }
+            .rd-grid {
+                display: block !important;
+            }
+            .rd-card {
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                margin-bottom: 1rem !important;
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
@@ -758,8 +901,8 @@
         <div class="container mode-controller-wrapper">
             <div class="mode-status-indicator">
                 <span class="mode-dot"></span>
-                <span class="viz-only">Current Focus: Physics & Math Simulations</span>
-                <span class="rt-only">Current Focus: AI Safety & Red Teaming</span>
+                <span class="viz-only">Current Focus: AI Safety &amp; Research</span>
+                <span class="rt-only">Current Focus: AI Safety &amp; Red Teaming</span>
             </div>
             <button id="mode-toggle" class="mode-toggle-btn" onclick="togglePlatformMode()">
                 <span class="toggle-icon">🛡️</span>
@@ -771,16 +914,17 @@
     <div class="container">
         <header>
             <h1>Mugambi Ndwiga</h1>
-            
-            <div class="headline-role viz-only">Software Engineer &amp; Mathematical Modeler</div>
-            <div class="headline-role rt-only">Software Engineer — AI Safety &amp; Red Teaming</div>
+            <div class="headline-role viz-only">AI Engineer · LLM Red Teamer · Infrastructure Builder</div>
+            <div class="headline-role rt-only">AI Engineer · LLM Red Teamer · Infrastructure Builder</div>
+            <div class="headline-sub viz-only">Building production-grade AI systems · Adversarial testing · R&D</div>
+            <div class="headline-sub rt-only">Building production-grade AI systems · Adversarial testing · R&D</div>
 
             <div class="contact-links">
                 <a href="mailto:mugambindwiga@gmail.com" target="_blank">✉ mugambindwiga@gmail.com</a>
                 <a href="tel:+254714103665">📞 +254 714 103 665</a>
                 <a href="https://github.com/zombimann" target="_blank">💻 GitHub</a>
                 <a href="https://linkedin.com/in/mugambi-n" target="_blank">👔 LinkedIn</a>
-                <a href="https://instagram.com/craftsandengineering" target="_blank" class="viz-only">📸 @craftsandengineering</a>
+                <a href="https://app.grayswan.ai/arena/user/682b41d45416b8a9eac9c6d3" target="_blank" class="viz-only">🏆 Gray Swan Arena</a>
                 <button class="print-btn print-hide" onclick="window.print()">
                     <span>Save as PDF</span>
                 </button>
@@ -788,71 +932,232 @@
         </header>
 
         <main>
+            <!-- ==========================================
+                 SUMMARY
+                 ========================================== -->
             <section class="summary-block">
-                <h2>About Me</h2>
-                
-                <div class="viz-only">
-                    <p>I am a software engineer focused on building clean, efficient math and physics visualizations. I enjoy translating complex scientific concepts—ranging from fluid dynamics to chaotic systems—into high-quality, engaging visual educational media using Python and the Manim library. Through my work at @craftsandengineering, I maintain a library of simulation models designed to make advanced science more accessible.</p>
+                <h2>Professional Summary</h2>
+                <p>
+                    AI Engineer, LLM Red Teamer, and infrastructure builder with a deep quantitative foundation in computational engineering and advanced mathematics. Proven track record of designing, building, and deploying production-grade AI pipelines, generative AI workflows, and reusable data libraries. 
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    Currently an <strong>Elite LLM Red Teamer</strong> at Gray Swan — ranked <strong>#76 globally</strong> with <strong>122 unique breaks</strong>, <strong>9,300 points</strong>, and <strong>7,739 submissions</strong> across adversarial challenges[reference:1]. Specialises in structured data engineering, RAG architectures, and adversarial testing to ensure model safety and algorithmic robustness.
+                </p>
+            </section>
+
+            <!-- ==========================================
+                 GRAY SWAN ARENA STATS
+                 ========================================== -->
+            <section class="viz-only">
+                <h2>Gray Swan Arena — Performance</h2>
+                <div class="arena-stats">
+                    <div class="arena-stat-item">
+                        <div class="arena-stat-number">#76</div>
+                        <div class="arena-stat-label">Global Rank</div>
+                    </div>
+                    <div class="arena-stat-item">
+                        <div class="arena-stat-number">122</div>
+                        <div class="arena-stat-label">Unique Breaks</div>
+                    </div>
+                    <div class="arena-stat-item">
+                        <div class="arena-stat-number">9,300</div>
+                        <div class="arena-stat-label">Global Points</div>
+                    </div>
+                    <div class="arena-stat-item">
+                        <div class="arena-stat-number">7,739</div>
+                        <div class="arena-stat-label">Submissions</div>
+                    </div>
+                    <div class="arena-stat-item">
+                        <div class="arena-stat-number">9 wk</div>
+                        <div class="arena-stat-label">Max Streak</div>
+                    </div>
                 </div>
 
-                <div class="rt-only">
-                    <p>I am an offensive security researcher specializing in AI safety evaluations. My focus is on testing frontier large language models to identify risks like logical bypasses and prompt injections, and translating these insights into reliable safety guardrails. I enjoy making AI systems safer and more robust through systematic, empirical analysis.</p>
+                <div style="margin-top: 1rem;">
+                    <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Challenge Rankings</p>
+                    <div class="arena-challenges">
+                        <div class="arena-challenge-item">
+                            <span class="arena-challenge-name">👑 The Labyrinth</span>
+                            <span class="arena-challenge-breaks">#86</span>
+                        </div>
+                        <div class="arena-challenge-item">
+                            <span class="arena-challenge-name">🗝 Indirect Prompt Injection Jun '26</span>
+                            <span class="arena-challenge-breaks">#60 · 76 breaks</span>
+                        </div>
+                        <div class="arena-challenge-item">
+                            <span class="arena-challenge-name">🔀 Indirect Prompt Injection Q2 2026</span>
+                            <span class="arena-challenge-breaks">#44 · 69 breaks</span>
+                        </div>
+                        <div class="arena-challenge-item">
+                            <span class="arena-challenge-name">🐟 Human / Browser Agent Robustness</span>
+                            <span class="arena-challenge-breaks">#168 · 1 break</span>
+                        </div>
+                        <div class="arena-challenge-item">
+                            <span class="arena-challenge-name">⚔️ Staged Attack</span>
+                            <span class="arena-challenge-breaks">#44 · 159 breaks</span>
+                        </div>
+                        <div class="arena-challenge-item">
+                            <span class="arena-challenge-name">🔀 Indirect Prompt Injection Q1 2026</span>
+                            <span class="arena-challenge-breaks">#41 · 139 breaks</span>
+                        </div>
+                        <div class="arena-challenge-item">
+                            <span class="arena-challenge-name">🛡 Safeguards</span>
+                            <span class="arena-challenge-breaks">#57 · 455 breaks</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
+            <!-- ==========================================
+                 SKILLS
+                 ========================================== -->
             <section>
-                <h2>Skills &amp; Expertise</h2>
+                <h2>Core Competencies</h2>
                 <div class="skills-grid">
                     <div class="skills-card">
-                        <h3>Core Engineering</h3>
+                        <h3>AI &amp; Machine Learning</h3>
                         <ul class="skills-list">
-                            <li>Python Development</li>
-                            <li>C / C++ Programming</li>
-                            <li>Docker &amp; Containerization</li>
-                            <li>Git &amp; Version Control</li>
+                            <li>Generative AI · LLMs</li>
+                            <li>Prompt Engineering · RAG Patterns</li>
+                            <li>Agent-Based Multi-Step Workflows</li>
+                            <li>NLP · Semantic Search</li>
+                            <li>Model Robustness Evaluation</li>
                         </ul>
                     </div>
 
-                    <div class="skills-card viz-only">
-                        <h3>Scientific Code</h3>
+                    <div class="skills-card">
+                        <h3>Data Engineering &amp; Analytics</h3>
                         <ul class="skills-list">
-                            <li>Manim Animation Engine</li>
-                            <li>Numerical Analysis</li>
-                            <li>Physics Modeling</li>
+                            <li>Vector Databases · Embeddings</li>
+                            <li>Ingestion Pipelines</li>
+                            <li>Large Dataset Analysis</li>
+                            <li>SQL · Pandas · NumPy · Scikit-learn</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-card">
+                        <h3>Software Engineering &amp; DevOps</h3>
+                        <ul class="skills-list">
+                            <li>Production Python · Bash · C/C++</li>
+                            <li>Git · CI/CD · Docker</li>
+                            <li>Cloud Infrastructure (AWS, GCP, Azure AI)</li>
+                            <li>REST APIs · Backend Systems</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-card">
+                        <h3>Computational &amp; Engineering Systems</h3>
+                        <ul class="skills-list">
                             <li>Mathematical Visualization</li>
-                        </ul>
-                    </div>
-                    <div class="skills-card rt-only">
-                        <h3>AI Safety</h3>
-                        <ul class="skills-list">
-                            <li>AI Red Teaming</li>
-                            <li>Model Safety Evaluations</li>
-                            <li>Vulnerability Testing</li>
-                            <li>Safety Mitigations</li>
-                        </ul>
-                    </div>
-
-                    <div class="skills-card viz-only">
-                        <h3>Data &amp; Infrastructure</h3>
-                        <ul class="skills-list">
-                            <li>NumPy &amp; Pandas Stack</li>
-                            <li>Data Processing Pipelines</li>
-                            <li>Geometric Modeling</li>
-                            <li>Google Cloud Platform (GCP)</li>
-                        </ul>
-                    </div>
-                    <div class="skills-card rt-only">
-                        <h3>AI Architectures</h3>
-                        <ul class="skills-list">
-                            <li>RAG Implementation</li>
-                            <li>Vector Databases</li>
-                            <li>API Integration</li>
-                            <li>System Hardening</li>
+                            <li>Optimization Algorithms</li>
+                            <li>Numerical Analysis</li>
+                            <li>Embedded Systems · Workflow Automation</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
+            <!-- ==========================================
+                 PROFESSIONAL EXPERIENCE
+                 ========================================== -->
+            <section>
+                <h2>Professional Experience</h2>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024 – Present</div>
+                        <div class="timeline-title">Independent LLM Red Teamer</div>
+                        <div class="timeline-org">Gray Swan</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>Conduct elite adversarial testing and rigorous evaluation of frontier large language models, identifying alignment vulnerabilities, jailbreak vectors, and indirect prompt injection points.</li>
+                                <li>Validate model safety and behavioral boundaries, providing data-driven technical feedback to strengthen guardrails against adversarial exploitation and failure modes.</li>
+                                <li>Analyze complex model outputs, leveraging deep understanding of tokenization, vector spacing, and statistical probabilities to optimize system robustness.</li>
+                                <li>Achieved <strong>Global Rank #76</strong> with <strong>122 unique breaks</strong> and <strong>9,300 points</strong> across the Gray Swan Arena[reference:2].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2016 – Present</div>
+                        <div class="timeline-title">Freelance Software Engineer &amp; AI Systems Contractor</div>
+                        <div class="timeline-org">Self-Employed</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>Design and architect production-grade Generative AI systems and LLM-based solutions, incorporating advanced prompt engineering frameworks, custom RAG patterns, and agent-based multi-step workflows to solve complex enterprise problems.</li>
+                                <li>Build and maintain reusable Python libraries and computational packages that streamline end-to-end data pipelines, drastically reducing model integration latency for cross-functional engineering teams.</li>
+                                <li>Develop semantic search infrastructures utilizing vector databases and embeddings to ingest, parse, and derive operational insights from massive, unstructured text datasets.</li>
+                                <li>Engineer highly scalable data-scraping platforms and automated orchestration delivery loops utilizing Docker and continuous integration (CI/CD) pipelines across AWS and GCP cloud infrastructure.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 – 2021</div>
+                        <div class="timeline-title">Developer / Programmer</div>
+                        <div class="timeline-org">Tyondo Enterprises</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>Modernized legacy technical architectures and data systems, refactoring unstructured modules into modular, production-grade software solutions that optimized processing efficiency.</li>
+                                <li>Participated in agile delivery cycles, working with Git-based version control workflows to ensure seamless feature alignment and collaborative milestone execution.</li>
+                                <li>Authored comprehensive technical documentation and system architecture blueprints, facilitating faster onboarding and maintainability.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2016 – 2019</div>
+                        <div class="timeline-title">Product Developer</div>
+                        <div class="timeline-org">Hewbe</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>Engineered embedded software applications and integrated hardware data-collection systems for scalable IoT products.</li>
+                                <li>Executed rapid prototyping loops, deploying firmware and backend data pipelines to capture, process, and analyze real-time streaming asset metrics.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 R&D EXPERIENCE
+                 ========================================== -->
+            <section>
+                <h2>R&amp;D Experience</h2>
+                <p style="margin-bottom: 1rem; color: var(--text-muted);">Research and development initiatives spanning mathematical visualisation, AI infrastructure, and data engineering.</p>
+
+                <div class="rd-grid">
+                    <div class="rd-card">
+                        <h3>Mathematical Video Animations &amp; Procedural Visualisation Engine</h3>
+                        <p>Designed and open-sourced a high-fidelity Python framework utilising the Manim library to programmatically generate complex visual mathematics, geometric animations, and algorithmic simulations. Demonstrates rigorous understanding of computational geometry, vector space scaling, and mathematical optimisation.</p>
+                        <span class="tech-stack">Python · Manim · NumPy</span>
+                    </div>
+
+                    <div class="rd-card">
+                        <h3>AI-Powered Text Analysis &amp; RAG Pipeline</h3>
+                        <p>Developed an end-to-end framework leveraging multi-step AI agents and vector embeddings to clean, structure, and extract semantic intelligence from highly unstructured corporate data repositories.</p>
+                        <span class="tech-stack">Python · LangChain · Vector DBs · LLMs</span>
+                    </div>
+
+                    <div class="rd-card">
+                        <h3>Scraping-as-a-Service Infrastructure</h3>
+                        <p>Created an API-driven, containerised web data-extraction application designed to process millions of multi-domain data points safely with built-in proxy rotation and structured database loading hooks.</p>
+                        <span class="tech-stack">Python · Docker · AWS/GCP · REST APIs</span>
+                    </div>
+
+                    <div class="rd-card">
+                        <h3>IoT Energy Monitoring System</h3>
+                        <p>Built embedded monitoring systems integrated with remote dashboards and backend services for real-time energy consumption analytics.</p>
+                        <span class="tech-stack">C · Embedded Systems · IoT · Backend Services</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 AI SAFETY RESEARCH (Safety Mode)
+                 ========================================== -->
             <section class="rt-only">
                 <h2>AI Safety Research</h2>
                 <p style="margin-bottom: 1.5rem;">A summary of key vulnerability studies and safety evaluations completed on foundational language models:</p>
@@ -893,9 +1198,12 @@
                 </div>
             </section>
 
+            <!-- ==========================================
+                 MATH & PHYSICS ANIMATIONS (Viz Mode)
+                 ========================================== -->
             <section class="viz-only">
                 <h2>Math &amp; Physics Animations</h2>
-                <p style="margin-bottom: 1.5rem;">A selection of programmatically rendered mathematical animations and physics simulations. Use the categories below to browse the collection:</p>
+                <p style="margin-bottom: 1.5rem;">A selection of programmatically rendered mathematical animations and physics simulations. Each card links directly to its source code on GitHub.</p>
 
                 <div class="viz-filter-tabs">
                     <button class="viz-filter-btn active" onclick="triggerVizFilter('all')">All Animations</button>
@@ -905,6 +1213,7 @@
                 </div>
 
                 <div class="showcase-grid">
+
                     <!-- Card 1: Magnus Effect CFD -->
                     <div class="short-card" data-cat="cfd">
                         <div class="short-wrapper" data-video-id="I8QVOojVgLY" onclick="loadIframe(this)">
@@ -915,6 +1224,7 @@
                         </div>
                         <p class="short-caption">Magnus Effect CFD</p>
                         <span class="short-tag">Fluid Dynamics</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Bernoulli_Equations_Magnus_Effect.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 2: Cinematic Floorplan Animation -->
@@ -927,6 +1237,7 @@
                         </div>
                         <p class="short-caption">Cinematic Floorplan Animation</p>
                         <span class="short-tag">Procedural Design</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Programmatic_Floorplan_Generation_and_Animation.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 3: Gravitational Waves & Spacetime -->
@@ -939,6 +1250,7 @@
                         </div>
                         <p class="short-caption">Gravitational Waves &amp; Spacetime</p>
                         <span class="short-tag">Relativity</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Gravitational_waves_3D_Space.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 4: Rocket Velocities -->
@@ -951,6 +1263,7 @@
                         </div>
                         <p class="short-caption">Rocket Velocities: Sub‑Orbital, Orbital &amp; Escape</p>
                         <span class="short-tag">Astrodynamics</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Rockets_Escape_Velocity.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 5: Clebsch Cubic Surface (Warm) -->
@@ -963,6 +1276,7 @@
                         </div>
                         <p class="short-caption">Clebsch Cubic Surface (Warm)</p>
                         <span class="short-tag">Algebraic Geometry</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Clebsch_Diagonal_Cubic_Surface.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 6: Clebsch Cubic Surface (Blueprint) -->
@@ -975,6 +1289,7 @@
                         </div>
                         <p class="short-caption">Clebsch Cubic Surface (Blueprint)</p>
                         <span class="short-tag">Algebraic Geometry</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Clebsch_Diagonal_Cubic_Surface.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 7: Toroidal Geometry & Spinors -->
@@ -987,6 +1302,7 @@
                         </div>
                         <p class="short-caption">Toroidal Geometry &amp; Spinors</p>
                         <span class="short-tag">Quantum Physics</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Quantum_Toroids_and_Spinors.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 8: Restricted 3‑Body System — Lagrange Points -->
@@ -999,6 +1315,7 @@
                         </div>
                         <p class="short-caption">Restricted 3‑Body System — Lagrange Points</p>
                         <span class="short-tag">Orbital Mechanics</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/3_attractors.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 9: Alain's Curve Animation -->
@@ -1011,6 +1328,7 @@
                         </div>
                         <p class="short-caption">Alain&rsquo;s Curve Animation</p>
                         <span class="short-tag">Parametric Curves</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Alains_Curve_Animation.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 10: Wave System Resonator -->
@@ -1023,6 +1341,7 @@
                         </div>
                         <p class="short-caption">Wave System Resonator</p>
                         <span class="short-tag">Wave Physics</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Wave_System_Resonator.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 11: Derivatives & Slopes (High School Math) -->
@@ -1035,6 +1354,7 @@
                         </div>
                         <p class="short-caption">Derivatives &amp; Slopes (High School Math)</p>
                         <span class="short-tag">Calculus</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Visual_Guide_to_Calculus_Integrals.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 12: Small Regular Graphs -->
@@ -1047,6 +1367,7 @@
                         </div>
                         <p class="short-caption">Small Regular Graphs</p>
                         <span class="short-tag">Graph Theory</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Small_Regular_Graphs.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 13: Koch Curve Snowflake -->
@@ -1059,6 +1380,7 @@
                         </div>
                         <p class="short-caption">Koch Curve Snowflake</p>
                         <span class="short-tag">Fractals</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Koch_Curve_Square_Snowflake.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 14: Koch Curve Animation -->
@@ -1071,6 +1393,7 @@
                         </div>
                         <p class="short-caption">Koch Curve Animation</p>
                         <span class="short-tag">Fractals</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Koch_Curve_Animation.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 15: Vectors & Dot Products -->
@@ -1083,6 +1406,7 @@
                         </div>
                         <p class="short-caption">Vectors &amp; Dot Products (High School Math)</p>
                         <span class="short-tag">Linear Algebra</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Simultaneous_Visualization_of_Diverse_Mathematical_Functions.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 16: Unit Disk Blaschke Quotient Flow -->
@@ -1095,6 +1419,7 @@
                         </div>
                         <p class="short-caption">Unit Disk Blaschke Quotient Flow</p>
                         <span class="short-tag">Complex Analysis</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Unit_Disk_Blaschke_Quotient_Flow.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 17: Taylor Series Approximation -->
@@ -1107,6 +1432,7 @@
                         </div>
                         <p class="short-caption">Taylor Series Approximation</p>
                         <span class="short-tag">Calculus</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Taylor_Series_Function_Approximation.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 18: Law of Large Numbers — Rolling Balls -->
@@ -1119,6 +1445,7 @@
                         </div>
                         <p class="short-caption">Law of Large Numbers — Rolling Balls</p>
                         <span class="short-tag">Probability</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Galton_Board_and_the_Central_Limit_Theorem_Simulation.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 19: Number Place Values — Exploding Dots -->
@@ -1131,6 +1458,7 @@
                         </div>
                         <p class="short-caption">Number Place Values — Exploding Dots</p>
                         <span class="short-tag">Elementary Math</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Kids_Elementary_Multiplication_Using_Circle_Grids.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 20: Black‑Scholes Diffusion to Price -->
@@ -1143,6 +1471,7 @@
                         </div>
                         <p class="short-caption">Black‑Scholes Diffusion to Price</p>
                         <span class="short-tag">Financial Math</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Black_Scholes_Diffusion_Equation_particle_swarm.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 21: Distance Metrics (9 Ways) -->
@@ -1155,6 +1484,7 @@
                         </div>
                         <p class="short-caption">Distance Metrics (9 Ways)</p>
                         <span class="short-tag">Geometry</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Distance_Metrics_diverse.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 22: Galton Board (Bean Machine) -->
@@ -1167,6 +1497,7 @@
                         </div>
                         <p class="short-caption">Galton Board (Bean Machine)</p>
                         <span class="short-tag">Probability</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Galton_Board_and_the_Central_Limit_Theorem_Simulation.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 23: Butterfly Curve Animation -->
@@ -1179,6 +1510,7 @@
                         </div>
                         <p class="short-caption">Butterfly Curve Animation</p>
                         <span class="short-tag">Parametric Curves</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Butterfly_Curve_Animation.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 24: Waveforms to Fourier Portraits -->
@@ -1191,6 +1523,7 @@
                         </div>
                         <p class="short-caption">Waveforms to Fourier Portraits</p>
                         <span class="short-tag">Signal Processing</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Laser_Interference_and_Energy_Flow_Poynting_Vector.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                     <!-- Card 25: Bernoulli Equation — Floating Ping Pong Ball -->
@@ -1203,82 +1536,22 @@
                         </div>
                         <p class="short-caption">Bernoulli Equation — Floating Ping Pong Ball</p>
                         <span class="short-tag">Fluid Dynamics</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Bernoulli_Equation_Pingpong_Ball.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                 </div>
 
                 <div class="cta-banner">
                     <div class="cta-text">
-                        <h3>Join My Broadcast Channels</h3>
-                        <p>Receive notifications when new math animations, physics code, or rendering templates are released.</p>
+                        <h3>Explore the Full Repository</h3>
+                        <p>Browse all 60+ notebooks, animations, and visualisation engines on GitHub.</p>
                     </div>
-                    <a href="https://whatsapp.com/channel/0029VbCkWhxCRs1mu1nf8W0f" target="_blank" class="print-hide">
-                        <button class="cta-btn">Join Telegram / Whatsapp</button>
+                    <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization" target="_blank" class="print-hide">
+                        <button class="cta-btn">View All on GitHub →</button>
                     </a>
                 </div>
             </section>
 
-            <section style="margin-top: 5rem;">
-                <h2>Work Experience</h2>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024 – Present</div>
-                        <div class="timeline-title">Independent AI Red Teamer</div>
-                        <div class="timeline-org">Gray Swan</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Identify potential security vulnerabilities and safety alignment gaps in frontier AI models.</li>
-                                <li>Document security risks and work collaboratively with developer teams to help build better system guardrails.</li>
-                                <li>Develop and run script sweeps to systematically evaluate model outputs against policy guidelines.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2016 – Present</div>
-                        <div class="timeline-title">Freelance Software Engineer &amp; Contractor</div>
-                        <div class="timeline-org">Self-Employed</div>
-                        <div class="timeline-desc">
-                            <ul class="viz-only">
-                                <li>Write clean, reusable Python scripts using the Manim library to build physics animations and math tutorials.</li>
-                                <li>Build efficient web scrapers and data parsing scripts to process raw public datasets.</li>
-                                <li>Integrate retrieval-augmented generation (RAG) architectures with standard databases on Google Cloud Platform.</li>
-                            </ul>
-                            <ul class="rt-only">
-                                <li>Deploy test architectures in secure, containerized Docker environments to test safety configurations safely.</li>
-                                <li>Develop clean validation and data sanitization algorithms to prevent untrusted input from polluting pipelines.</li>
-                                <li>Audit and configure multi-layered RAG interfaces to verify they are secure against standard prompt injections.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2019 – 2021</div>
-                        <div class="timeline-title">Developer / Programmer</div>
-                        <div class="timeline-org">Tyondo Enterprises</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Refactored legacy database schemas, improving query response and reliability by up to 40%.</li>
-                                <li>Worked within an agile engineering team using Git version control for code review and deployment processes.</li>
-                                <li>Wrote clear technical guides and documentation to support new developer onboarding.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2016 – 2019</div>
-                        <div class="timeline-title">Product Developer</div>
-                        <div class="timeline-org">Hewbe</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Developed and updated firmware scripts for hardware testing modules.</li>
-                                <li>Conducted structural QA and verified operational performance metrics of physical mechanical components.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
     </div>
 
