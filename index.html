@@ -577,6 +577,29 @@
             border-bottom-color: var(--accent-color);
         }
 
+        .yt-channel-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-soft);
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition-speed);
+            margin-bottom: 1.5rem;
+        }
+
+        .yt-channel-link:hover {
+            background: var(--accent-color);
+            color: var(--bg-primary);
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-flat);
+        }
+
         .cta-banner {
             background-color: var(--accent-soft);
             border: 2px dashed var(--border-primary);
@@ -892,6 +915,9 @@
                 margin-bottom: 1rem !important;
                 page-break-inside: avoid;
             }
+            .yt-channel-link {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -944,14 +970,20 @@
             </section>
 
             <!-- ==========================================
-                 MATH & PHYSICS ANIMATIONS (Math/Physics mode only — HIGHLIGHT)
+                 MATH & PHYSICS ANIMATIONS (Math/Physics mode only)
                  ========================================== -->
             <section class="viz-only">
                 <h2>🎬 Mathematical &amp; Physics Visualizations</h2>
-                <p style="margin-bottom: 1.5rem; font-size: 1.05rem;">
-                    A curated collection of programmatically rendered animations and simulations built with Python and Manim. 
+                <p style="margin-bottom: 0.5rem; font-size: 1.05rem;">
+                    A curated collection of programmatically rendered animations and simulations built with Python and Manim.
+                </p>
+                <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
                     Explore the beauty of complex systems — from fluid dynamics to chaotic attractors — through code.
                 </p>
+
+                <a href="https://www.youtube.com/@DesignsandSimulations/videos" target="_blank" class="yt-channel-link">
+                    ▶️ Subscribe on YouTube · 32 videos
+                </a>
 
                 <div class="viz-filter-tabs">
                     <button class="viz-filter-btn active" onclick="triggerVizFilter('all')">All Animations</button>
@@ -1285,6 +1317,99 @@
                         <p class="short-caption">Bernoulli Equation — Floating Ping Pong Ball</p>
                         <span class="short-tag">Fluid Dynamics</span>
                         <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Bernoulli_Equation_Pingpong_Ball.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
+                    </div>
+
+                    <!-- ===== NEW VIDEOS FROM CHANNEL (7 additional) ===== -->
+
+                    <!-- Card 26: Multiplication Using Split Grids -->
+                    <div class="short-card" data-cat="math">
+                        <div class="short-wrapper" data-video-id="wq6FduotBYI" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/wq6FduotBYI/hqdefault.jpg" alt="Multiplication Using Split Grids" loading="lazy" decoding="async">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
+                        </div>
+                        <p class="short-caption">Multiplication Using Split Grids</p>
+                        <span class="short-tag">Elementary Math</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Kids_Elementary_Multiplication_Using_Circle_Grids.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
+                    </div>
+
+                    <!-- Card 27: Block Diagram Simplification -->
+                    <div class="short-card" data-cat="math">
+                        <div class="short-wrapper" data-video-id="Iif94pjxUwk" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/Iif94pjxUwk/hqdefault.jpg" alt="Block Diagram Simplification" loading="lazy" decoding="async">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
+                        </div>
+                        <p class="short-caption">Block Diagram Simplification</p>
+                        <span class="short-tag">Systems Engineering</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/block.diagram.algebra.mp4" target="_blank" class="code-link">⌨️ View Code</a>
+                    </div>
+
+                    <!-- Card 28: Named Graphs: Exhaustive List -->
+                    <div class="short-card" data-cat="math">
+                        <div class="short-wrapper" data-video-id="Szm4iKdgrkk" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/Szm4iKdgrkk/hqdefault.jpg" alt="Named Graphs Exhaustive List" loading="lazy" decoding="async">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
+                        </div>
+                        <p class="short-caption">Named Graphs: Exhaustive List</p>
+                        <span class="short-tag">Graph Theory</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Named_Graphs_Exhaustive_List.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
+                    </div>
+
+                    <!-- Card 29: Galton Board & Central Limit Theory -->
+                    <div class="short-card" data-cat="math">
+                        <div class="short-wrapper" data-video-id="aNV_LiftEj8" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/aNV_LiftEj8/hqdefault.jpg" alt="Galton Board and Central Limit Theory" loading="lazy" decoding="async">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
+                        </div>
+                        <p class="short-caption">Galton Board &amp; Central Limit Theory</p>
+                        <span class="short-tag">Probability</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Galton_Board_and_the_Central_Limit_Theorem_Simulation.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
+                    </div>
+
+                    <!-- Card 30: Feynman Path Integral Visualization -->
+                    <div class="short-card" data-cat="math">
+                        <div class="short-wrapper" data-video-id="_gaDIByz_jA" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/_gaDIByz_jA/hqdefault.jpg" alt="Feynman Path Integral Visualization" loading="lazy" decoding="async">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
+                        </div>
+                        <p class="short-caption">Feynman Path Integral Visualization</p>
+                        <span class="short-tag">Quantum Physics</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Feynman_Path_Integral_Visualization.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
+                    </div>
+
+                    <!-- Card 31: Types of Integrals -->
+                    <div class="short-card" data-cat="math">
+                        <div class="short-wrapper" data-video-id="C2b_CV-4CKY" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/C2b_CV-4CKY/hqdefault.jpg" alt="Types of Integrals" loading="lazy" decoding="async">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
+                        </div>
+                        <p class="short-caption">Types of Integrals</p>
+                        <span class="short-tag">Calculus</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/Types_of_Integrals.ipynb" target="_blank" class="code-link">⌨️ View Code</a>
+                    </div>
+
+                    <!-- Card 32: Bernoulli Equation Venturi -->
+                    <div class="short-card" data-cat="cfd">
+                        <div class="short-wrapper" data-video-id="Vp8rN4ijNzY" onclick="loadIframe(this)">
+                            <img src="https://img.youtube.com/vi/Vp8rN4ijNzY/hqdefault.jpg" alt="Bernoulli Equation Venturi" loading="lazy" decoding="async">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            </div>
+                        </div>
+                        <p class="short-caption">Bernoulli Equation — Venturi</p>
+                        <span class="short-tag">Fluid Dynamics</span>
+                        <a href="https://github.com/zombimann/Mathematical-video-animations-and-visualization/blob/main/bernoulli_equation_venturi.mp4" target="_blank" class="code-link">⌨️ View Code</a>
                     </div>
 
                 </div>
